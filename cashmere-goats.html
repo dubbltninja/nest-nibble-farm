@@ -51,7 +51,7 @@
               breeding, gentle temperaments, and a limited, carefully planned release.
             </p>
             <div class="hero-actions">
-              <button class="btn btn-primary" type="button" data-goat-open>
+              <button class="btn btn-primary" type="button" data-waitlist data-breed="Cashmere Goats" data-type="goats">
                 Join Availability List
               </button>
               <a class="btn btn-outline" href="#about-cashmere">Learn more</a>
@@ -105,22 +105,9 @@
             <p class="section-subtitle">
               Join the notification list to receive the first update when reservations open.
             </p>
-            <form action="" method="post">
-              <!-- TODO: Connect to Google Forms or backend endpoint. -->
-              <div class="form-group">
-                <label for="goat-name">Full name</label>
-                <input id="goat-name" name="name" type="text" placeholder="Your name" required />
-              </div>
-              <div class="form-group">
-                <label for="goat-email">Email address</label>
-                <input id="goat-email" name="email" type="email" placeholder="you@email.com" required />
-              </div>
-              <div class="form-group">
-                <label for="goat-phone">Phone number</label>
-                <input id="goat-phone" name="phone" type="tel" placeholder="(555) 123-4567" required />
-              </div>
-              <button class="btn btn-primary" type="submit">Get notified</button>
-            </form>
+            <button class="btn btn-primary" type="button" data-waitlist data-breed="Cashmere Goats" data-type="goats">
+              Join availability list
+            </button>
           </div>
         </div>
       </section>
@@ -152,29 +139,35 @@
       </div>
     </footer>
 
-    <div class="modal" data-goat-modal aria-hidden="true">
-      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="goat-modal-title">
-        <button class="modal-close" type="button" aria-label="Close" data-goat-close>
+        <div class="modal" data-modal aria-hidden="true">
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" aria-label="Close" data-modal-close>
           &times;
         </button>
-        <p class="section-label">Availability list</p>
-        <h2 class="section-title" id="goat-modal-title">Cashmere Goat Notifications</h2>
-        <p class="section-subtitle">Spring 2026 kids, limited release.</p>
-        <form action="" method="post">
-          <!-- TODO: Connect to Google Forms or backend endpoint. -->
-          <div class="form-group">
-            <label for="goat-modal-name">Full name</label>
-            <input id="goat-modal-name" name="name" type="text" placeholder="Your name" required />
+        <p class="section-label">Waitlist</p>
+        <h2 class="section-title" id="modal-title" data-modal-title>Join the waitlist</h2>
+        <p class="section-subtitle">Breed: <span data-modal-breed>Selected breed</span></p>
+        <form action="https://formspree.io/f/mvzqqngd" method="post" data-waitlist-form>
+          <!-- TODO: Hidden breed and type fields are set dynamically via JavaScript. -->
+          <input type="hidden" name="breed" data-modal-breed-input />
+          <input type="hidden" name="type" data-modal-type-input />
+          <div data-waitlist-fields>
+            <div class="form-group">
+              <label for="waitlist-name">Full Name</label>
+              <input id="waitlist-name" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="waitlist-email">Email</label>
+              <input id="waitlist-email" name="email" type="email" placeholder="you@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="waitlist-phone">Phone Number</label>
+              <input id="waitlist-phone" name="phone" type="tel" placeholder="(555) 123-4567" />
+            </div>
+            
+            <button class="btn btn-primary" type="submit">Request waitlist spot</button>
           </div>
-          <div class="form-group">
-            <label for="goat-modal-email">Email address</label>
-            <input id="goat-modal-email" name="email" type="email" placeholder="you@email.com" required />
-          </div>
-          <div class="form-group">
-            <label for="goat-modal-phone">Phone number</label>
-            <input id="goat-modal-phone" name="phone" type="tel" placeholder="(555) 123-4567" required />
-          </div>
-          <button class="btn btn-primary" type="submit">Join availability list</button>
+          <p class="form-feedback" data-waitlist-status role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>

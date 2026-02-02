@@ -15,90 +15,105 @@
   const modal = document.querySelector("[data-modal]");
   const modalTitle = document.querySelector("[data-modal-title]");
   const modalBreed = document.querySelector("[data-modal-breed]");
-  const modalInput = document.querySelector("[data-modal-input]");
+  const modalBreedInput = modal ? modal.querySelector("[data-modal-breed-input]") : null;
+  const modalTypeInput = modal ? modal.querySelector("[data-modal-type-input]") : null;
   const modalClose = document.querySelectorAll("[data-modal-close]");
   const openButtons = document.querySelectorAll("[data-waitlist]");
-  const modalForm = modal ? modal.querySelector("form") : null;
-  const interestOptions = modal
-    ? Array.from(modal.querySelectorAll("input[name=\"interest\"]"))
-    : [];
+  const waitlistForm = modal ? modal.querySelector("[data-waitlist-form]") : null;
+  const waitlistFields = modal ? modal.querySelector("[data-waitlist-fields]") : null;
+  const waitlistStatus = modal ? modal.querySelector("[data-waitlist-status]") : null;
+  const birdOptions = modal ? modal.querySelector("[data-bird-options]") : null;
+  const eggCheckbox = modal ? modal.querySelector("[data-egg-checkbox]") : null;
+  const liveCheckbox = modal ? modal.querySelector("[data-live-checkbox]") : null;
   const liveLabel = modal ? modal.querySelector("[data-live-label]") : null;
-
-  const breedCategoryMap = {
-    "Ermine Americanas": "chicken",
-    "Opal Legbars": "chicken",
-    "Isabel Brahmas": "chicken",
-    "Speckled Sussex": "chicken",
-    "Salmon Favorelles": "chicken",
-    Cochins: "chicken",
-    "Black Copper Marans": "chicken",
-    "Rainbow Eggers": "chicken",
-    Pekin: "duck",
-    "Indian Runner": "duck",
-    Cayuga: "duck",
-    "Dewlap Toulouse": "goose",
-    "White Embden": "goose",
-  };
-
+  // Bird-only checkbox options are hidden for goats and require one selection for birds.
+  const birdTypes = new Set(["chicken", "ducks", "geese"]);
   const liveLabelMap = {
     chicken: "Chicks",
-    duck: "Ducklings",
-    goose: "Goslings",
+    ducks: "Ducklings",
+    geese: "Goslings",
   };
+  let currentType = "";
 
-  // Cashmere goat availability modal.
-  const goatModal = document.querySelector("[data-goat-modal]");
-  const goatOpen = document.querySelector("[data-goat-open]");
-  const goatClose = document.querySelectorAll("[data-goat-close]");
-
-  const openGoatModal = () => {
-    if (!goatModal) return;
-    goatModal.classList.add("is-open");
-    goatModal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-    const firstInput = goatModal.querySelector("input");
-    if (firstInput) {
-      firstInput.focus();
+  const resetWaitlistForm = () => {
+    if (waitlistForm) {
+      waitlistForm.reset();
+    }
+    if (waitlistStatus) {
+      waitlistStatus.textContent = "";
+      waitlistStatus.classList.remove("is-visible");
+    }
+    if (waitlistFields) {
+      waitlistFields.removeAttribute("hidden");
     }
   };
 
-  const closeGoatModal = () => {
-    if (!goatModal) return;
-    goatModal.classList.remove("is-open");
-    goatModal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
+  const updateBirdValidity = () => {
+    if (!birdTypes.has(currentType)) {
+      if (eggCheckbox) {
+        eggCheckbox.setCustomValidity("");
+      }
+      return;
+    }
+    const isChecked = [eggCheckbox, liveCheckbox].some((checkbox) => checkbox && checkbox.checked);
+    const message = isChecked ? "" : "Select at least one request option.";
+    if (eggCheckbox) {
+      eggCheckbox.setCustomValidity(message);
+    }
   };
 
-  const updateInterestValidity = () => {
-    if (!interestOptions.length) return;
-    const isChecked = interestOptions.some((option) => option.checked);
-    const message = isChecked ? "" : "Select at least one waitlist option.";
-    interestOptions[0].setCustomValidity(message);
+  const updateBirdOptions = (typeName) => {
+    currentType = typeName;
+    if (!birdOptions) return;
+    if (!birdTypes.has(typeName)) {
+      birdOptions.setAttribute("hidden", "");
+      // Disable bird-only inputs for goats so they never submit values.
+      if (eggCheckbox) {
+        eggCheckbox.disabled = true;
+      }
+      if (liveCheckbox) {
+        liveCheckbox.disabled = true;
+      }
+      updateBirdValidity();
+      return;
+    }
+    birdOptions.removeAttribute("hidden");
+    if (eggCheckbox) {
+      eggCheckbox.disabled = false;
+    }
+    if (liveCheckbox) {
+      liveCheckbox.disabled = false;
+    }
+    if (liveLabel) {
+      liveLabel.textContent = liveLabelMap[typeName] || "Live birds";
+    }
+    updateBirdValidity();
   };
 
-  const openModal = (breedName) => {
+  const openModal = (breedName, typeName) => {
     if (!modal) return;
+    resetWaitlistForm();
     if (modalTitle) {
       modalTitle.textContent = `Join the ${breedName} waitlist`;
     }
     if (modalBreed) {
       modalBreed.textContent = breedName;
     }
-    if (modalInput) {
-      modalInput.value = breedName;
+    // Hidden fields help Formspree group submissions by breed and type.
+    if (modalBreedInput) {
+      modalBreedInput.value = breedName;
     }
-    if (liveLabel) {
-      const category = breedCategoryMap[breedName];
-      liveLabel.textContent = liveLabelMap[category] || "Live birds";
+    if (modalTypeInput) {
+      modalTypeInput.value = typeName;
     }
+    updateBirdOptions(typeName);
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
-    const firstInput = modal.querySelector("input");
+    const firstInput = modal.querySelector('input:not([type="hidden"])');
     if (firstInput) {
       firstInput.focus();
     }
-    updateInterestValidity();
   };
 
   const closeModal = () => {
@@ -108,48 +123,17 @@
     document.body.style.overflow = "";
   };
 
-  if (goatOpen) {
-    goatOpen.addEventListener("click", openGoatModal);
-  }
-
-  goatClose.forEach((button) => {
-    button.addEventListener("click", closeGoatModal);
-  });
-
-  if (goatModal) {
-    goatModal.addEventListener("click", (event) => {
-      if (event.target === goatModal) {
-        closeGoatModal();
-      }
-    });
-  }
-
   openButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const breedName = button.getAttribute("data-breed") || "this breed";
-      openModal(breedName);
+      const typeName = button.getAttribute("data-type") || "";
+      openModal(breedName, typeName);
     });
   });
 
   modalClose.forEach((button) => {
     button.addEventListener("click", closeModal);
   });
-
-  if (interestOptions.length) {
-    interestOptions.forEach((option) => {
-      option.addEventListener("change", updateInterestValidity);
-    });
-  }
-
-  if (modalForm) {
-    modalForm.addEventListener("submit", (event) => {
-      updateInterestValidity();
-      if (!modalForm.checkValidity()) {
-        event.preventDefault();
-        modalForm.reportValidity();
-      }
-    });
-  }
 
   if (modal) {
     modal.addEventListener("click", (event) => {
@@ -159,10 +143,59 @@
     });
   }
 
+  [eggCheckbox, liveCheckbox].forEach((checkbox) => {
+    if (checkbox) {
+      checkbox.addEventListener("change", updateBirdValidity);
+    }
+  });
+
+  if (waitlistForm) {
+    waitlistForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      updateBirdValidity();
+      if (!waitlistForm.checkValidity()) {
+        waitlistForm.reportValidity();
+        return;
+      }
+      if (waitlistStatus) {
+        waitlistStatus.textContent = "Sending your request...";
+        waitlistStatus.classList.add("is-visible");
+      }
+      const submittedBreed = modalBreedInput ? modalBreedInput.value : "your waitlist request";
+      try {
+        const response = await fetch(waitlistForm.action, {
+          method: "POST",
+          body: new FormData(waitlistForm),
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (response.ok) {
+          if (waitlistFields) {
+            waitlistFields.setAttribute("hidden", "");
+          }
+          if (waitlistStatus) {
+            waitlistStatus.textContent = `Thanks! We'll follow up about ${submittedBreed}.`;
+            waitlistStatus.classList.add("is-visible");
+          }
+          waitlistForm.reset();
+        } else if (waitlistStatus) {
+          waitlistStatus.textContent = "Something went wrong. Please try again.";
+          waitlistStatus.classList.add("is-visible");
+        }
+      } catch (error) {
+        if (waitlistStatus) {
+          waitlistStatus.textContent = "Something went wrong. Please try again.";
+          waitlistStatus.classList.add("is-visible");
+        }
+      }
+    });
+  }
+
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeModal();
-      closeGoatModal();
     }
   });
 
