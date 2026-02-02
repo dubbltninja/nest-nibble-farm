@@ -46,6 +46,29 @@
     goose: "Goslings",
   };
 
+  // Cashmere goat availability modal.
+  const goatModal = document.querySelector("[data-goat-modal]");
+  const goatOpen = document.querySelector("[data-goat-open]");
+  const goatClose = document.querySelectorAll("[data-goat-close]");
+
+  const openGoatModal = () => {
+    if (!goatModal) return;
+    goatModal.classList.add("is-open");
+    goatModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    const firstInput = goatModal.querySelector("input");
+    if (firstInput) {
+      firstInput.focus();
+    }
+  };
+
+  const closeGoatModal = () => {
+    if (!goatModal) return;
+    goatModal.classList.remove("is-open");
+    goatModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
   const updateInterestValidity = () => {
     if (!interestOptions.length) return;
     const isChecked = interestOptions.some((option) => option.checked);
@@ -85,6 +108,22 @@
     document.body.style.overflow = "";
   };
 
+  if (goatOpen) {
+    goatOpen.addEventListener("click", openGoatModal);
+  }
+
+  goatClose.forEach((button) => {
+    button.addEventListener("click", closeGoatModal);
+  });
+
+  if (goatModal) {
+    goatModal.addEventListener("click", (event) => {
+      if (event.target === goatModal) {
+        closeGoatModal();
+      }
+    });
+  }
+
   openButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const breedName = button.getAttribute("data-breed") || "this breed";
@@ -123,6 +162,7 @@
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeModal();
+      closeGoatModal();
     }
   });
 
