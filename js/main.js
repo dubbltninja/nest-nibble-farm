@@ -22,6 +22,29 @@
   const interestOptions = modal
     ? Array.from(modal.querySelectorAll("input[name=\"interest\"]"))
     : [];
+  const liveLabel = modal ? modal.querySelector("[data-live-label]") : null;
+
+  const breedCategoryMap = {
+    "Ermine Americanas": "chicken",
+    "Opal Legbars": "chicken",
+    "Isabel Brahmas": "chicken",
+    "Speckled Sussex": "chicken",
+    "Salmon Favorelles": "chicken",
+    Cochins: "chicken",
+    "Black Copper Marans": "chicken",
+    "Rainbow Eggers": "chicken",
+    Pekin: "duck",
+    "Indian Runner": "duck",
+    Cayuga: "duck",
+    "Dewlap Toulouse": "goose",
+    "White Embden": "goose",
+  };
+
+  const liveLabelMap = {
+    chicken: "Chicks",
+    duck: "Ducklings",
+    goose: "Goslings",
+  };
 
   const updateInterestValidity = () => {
     if (!interestOptions.length) return;
@@ -40,6 +63,10 @@
     }
     if (modalInput) {
       modalInput.value = breedName;
+    }
+    if (liveLabel) {
+      const category = breedCategoryMap[breedName];
+      liveLabel.textContent = liveLabelMap[category] || "Live birds";
     }
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
