@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Nest & Nibble Farm</title>
+    <meta
+      name="description"
+      content="Contact Nest & Nibble Farm to plan your hatch schedule or join the seasonal master list."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Sora:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container">
+        <div class="header-inner">
+          <a class="logo" href="index.html">Nest & Nibble Farm</a>
+          <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false">
+            Menu
+          </button>
+          <nav>
+            <div class="nav-links" data-nav-menu>
+              <a href="index.html">Home</a>
+              <a href="chickens.html">Chickens</a>
+              <a href="ducks.html">Ducks</a>
+              <a href="geese.html">Geese</a>
+              <a href="about.html">About</a>
+              <a href="contact.html" aria-current="page">Contact</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <h1>Contact the farm team</h1>
+          <p>
+            Tell us about your flock goals and preferred hatch window. We will respond with the
+            closest seasonal availability.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="waitlist-section">
+            <h2 class="section-title">Start a reservation request</h2>
+            <p class="section-subtitle">
+              Use this form for general inquiries, master list signups, or custom hatch planning.
+            </p>
+            <form action="" method="post">
+              <!-- TODO: Connect to Google Forms or backend endpoint. -->
+              <div class="form-group">
+                <label for="contact-name">Full name</label>
+                <input id="contact-name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email address</label>
+                <input id="contact-email" name="email" type="email" placeholder="you@email.com" required />
+              </div>
+              <div class="form-group">
+                <label for="contact-phone">Phone number</label>
+                <input id="contact-phone" name="phone" type="tel" placeholder="(555) 123-4567" required />
+              </div>
+              <div class="form-group">
+                <label for="contact-notes">Notes</label>
+                <input
+                  id="contact-notes"
+                  name="notes"
+                  type="text"
+                  placeholder="Breed interest, quantity, and hatch window"
+                />
+              </div>
+              <button class="btn btn-primary" type="submit">Send request</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="value-grid">
+            <article class="value-card">
+              <h3>Response time</h3>
+              <p>We reply within 2 business days with availability and next steps.</p>
+            </article>
+            <article class="value-card">
+              <h3>Pickup options</h3>
+              <p>Local pickup is scheduled by appointment to keep the hatch calm.</p>
+            </article>
+            <article class="value-card">
+              <h3>Care guides</h3>
+              <p>Every order includes a digital brooder guide and feeding plan.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <p class="footer-title">Nest & Nibble Farm</p>
+          <p class="section-subtitle">
+            Premium poultry and waterfowl raised in small batches for confident flock planning.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="chickens.html">Chickens</a>
+          <a href="ducks.html">Ducks</a>
+          <a href="geese.html">Geese</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="footer-links">
+          <a href="contact.html">Contact</a>
+          <span class="footer-meta">Ship-to-home or local pickup options</span>
+          <span class="footer-meta">Email: hello@nestandnibble.com</span>
+        </div>
+      </div>
+      <div class="container">
+        <p class="footer-meta">&copy; <span data-year></span> Nest & Nibble Farm. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

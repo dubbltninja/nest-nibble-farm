@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Modern farm landscape">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f9f6f0"/>
+      <stop offset="100%" stop-color="#efe9e1"/>
+    </linearGradient>
+    <linearGradient id="hills" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d9c6ae"/>
+      <stop offset="100%" stop-color="#c1ad92"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <circle cx="950" cy="140" r="80" fill="#f3e4c8"/>
+  <path d="M0 520 C200 430 420 480 640 520 C820 550 1020 520 1200 480 L1200 800 L0 800 Z" fill="url(#hills)"/>
+  <path d="M0 600 C180 540 380 570 600 620 C780 660 980 650 1200 600 L1200 800 L0 800 Z" fill="#b99d7a" opacity="0.6"/>
+  <rect x="140" y="360" width="220" height="180" rx="18" fill="#ffffff" opacity="0.9"/>
+  <rect x="200" y="400" width="100" height="140" rx="12" fill="#d2b48c"/>
+  <rect x="210" y="420" width="80" height="90" rx="10" fill="#f6f1ea"/>
+</svg>

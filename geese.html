@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geese | Nest & Nibble Farm</title>
+    <meta
+      name="description"
+      content="Explore Nest & Nibble Farm goose breeds, hatching eggs, and live goslings."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Sora:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container">
+        <div class="header-inner">
+          <a class="logo" href="index.html">Nest & Nibble Farm</a>
+          <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false">
+            Menu
+          </button>
+          <nav>
+            <div class="nav-links" data-nav-menu>
+              <a href="index.html">Home</a>
+              <a href="chickens.html">Chickens</a>
+              <a href="ducks.html">Ducks</a>
+              <a href="geese.html" aria-current="page">Geese</a>
+              <a href="about.html">About</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <h1>Geese</h1>
+          <p>
+            Stately guardians of the pasture with calm energy, strong grazing instincts, and
+            seasonal laying.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="breed-grid">
+            <article class="breed-card">
+              <img src="assets/images/placeholder-goose.svg" alt="Dewlap Toulouse geese" />
+              <h3>Dewlap Toulouse</h3>
+              <p>Classic dewlap silhouette, confident grazing, and sturdy seasonal laying.</p>
+              <div class="price-list">
+                <div class="price-item">
+                  <span>Hatching eggs</span>
+                  <strong>$72 / half dozen</strong>
+                </div>
+                <div class="price-item">
+                  <span>Live goslings</span>
+                  <strong>$34 each</strong>
+                </div>
+              </div>
+              <button class="btn btn-outline" type="button" data-waitlist data-breed="Dewlap Toulouse">
+                Join Waitlist
+              </button>
+            </article>
+            <article class="breed-card">
+              <img src="assets/images/placeholder-goose.svg" alt="White Embden geese" />
+              <h3>White Embden</h3>
+              <p>Bright white plumage with excellent pasture work ethic and family-friendly energy.</p>
+              <div class="price-list">
+                <div class="price-item">
+                  <span>Hatching eggs</span>
+                  <strong>$68 / half dozen</strong>
+                </div>
+                <div class="price-item">
+                  <span>Live goslings</span>
+                  <strong>$32 each</strong>
+                </div>
+              </div>
+              <button class="btn btn-outline" type="button" data-waitlist data-breed="White Embden">
+                Join Waitlist
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="cta">
+            <div>
+              <h2>Geese with calm presence.</h2>
+              <p>Ask about pairings, grazing support, and seasonal hatch planning.</p>
+            </div>
+            <a class="btn btn-outline" href="contact.html">Talk to the farm team</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <p class="footer-title">Nest & Nibble Farm</p>
+          <p class="section-subtitle">
+            Premium poultry and waterfowl raised in small batches for confident flock planning.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="chickens.html">Chickens</a>
+          <a href="ducks.html">Ducks</a>
+          <a href="geese.html">Geese</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="footer-links">
+          <a href="contact.html">Contact</a>
+          <span class="footer-meta">Ship-to-home or local pickup options</span>
+          <span class="footer-meta">Email: hello@nestandnibble.com</span>
+        </div>
+      </div>
+      <div class="container">
+        <p class="footer-meta">&copy; <span data-year></span> Nest & Nibble Farm. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <div class="modal" data-modal aria-hidden="true">
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" aria-label="Close" data-modal-close>
+          &times;
+        </button>
+        <p class="section-label">Waitlist</p>
+        <h2 class="section-title" id="modal-title" data-modal-title>Join the waitlist</h2>
+        <p class="section-subtitle">Breed: <span data-modal-breed>Selected breed</span></p>
+        <form action="" method="post">
+          <!-- TODO: Connect to Google Forms or backend endpoint. -->
+          <input type="hidden" name="breed" data-modal-input />
+          <div class="form-group">
+            <label for="waitlist-name">Full name</label>
+            <input id="waitlist-name" name="name" type="text" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="waitlist-email">Email address</label>
+            <input id="waitlist-email" name="email" type="email" placeholder="you@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="waitlist-phone">Phone number</label>
+            <input id="waitlist-phone" name="phone" type="tel" placeholder="(555) 123-4567" required />
+          </div>
+          <button class="btn btn-primary" type="submit">Request waitlist spot</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
