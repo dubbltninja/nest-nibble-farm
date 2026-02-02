@@ -18,6 +18,17 @@
   const modalInput = document.querySelector("[data-modal-input]");
   const modalClose = document.querySelectorAll("[data-modal-close]");
   const openButtons = document.querySelectorAll("[data-waitlist]");
+  const modalForm = modal ? modal.querySelector("form") : null;
+  const interestOptions = modal
+    ? Array.from(modal.querySelectorAll("input[name=\"interest\"]"))
+    : [];
+
+  const updateInterestValidity = () => {
+    if (!interestOptions.length) return;
+    const isChecked = interestOptions.some((option) => option.checked);
+    const message = isChecked ? "" : "Select at least one waitlist option.";
+    interestOptions[0].setCustomValidity(message);
+  };
 
   const openModal = (breedName) => {
     if (!modal) return;
@@ -37,6 +48,7 @@
     if (firstInput) {
       firstInput.focus();
     }
+    updateInterestValidity();
   };
 
   const closeModal = () => {
@@ -56,6 +68,22 @@
   modalClose.forEach((button) => {
     button.addEventListener("click", closeModal);
   });
+
+  if (interestOptions.length) {
+    interestOptions.forEach((option) => {
+      option.addEventListener("change", updateInterestValidity);
+    });
+  }
+
+  if (modalForm) {
+    modalForm.addEventListener("submit", (event) => {
+      updateInterestValidity();
+      if (!modalForm.checkValidity()) {
+        event.preventDefault();
+        modalForm.reportValidity();
+      }
+    });
+  }
 
   if (modal) {
     modal.addEventListener("click", (event) => {
@@ -102,41 +130,41 @@
     const heroElements = [hero.querySelector("h1"), hero.querySelector("p")].filter(Boolean);
     heroElements.forEach((element, index) => {
       registerReveal(element, "fade");
-      element.style.setProperty("--delay", `${index * 120}ms`);
+      element.style.setProperty("--delay", `${index * 80}ms`);
     });
     const heroActions = hero.querySelector(".hero-actions");
     if (heroActions) {
       Array.from(heroActions.children).forEach((action, index) => {
         registerReveal(action, "up");
-        action.style.setProperty("--delay", `${index * 120}ms`);
+        action.style.setProperty("--delay", `${index * 80}ms`);
       });
     }
     const heroCard = hero.querySelector(".hero-card");
     registerReveal(heroCard, "up");
     if (heroCard) {
-      heroCard.style.setProperty("--delay", "140ms");
+      heroCard.style.setProperty("--delay", "90ms");
     }
     const heroImage = hero.querySelector(".hero-card img");
     registerReveal(heroImage, "zoom");
     if (heroImage) {
-      heroImage.style.setProperty("--delay", "220ms");
+      heroImage.style.setProperty("--delay", "140ms");
     }
   }
 
   document.querySelectorAll(".section-header").forEach((header) => {
-    staggerChildren(header, 90, "fade");
+    staggerChildren(header, 60, "fade");
   });
 
   document.querySelectorAll(".page-hero").forEach((heroSection) => {
     const inner = heroSection.querySelector(".container");
-    staggerChildren(inner, 120, "fade");
+    staggerChildren(inner, 70, "fade");
   });
 
   document.querySelectorAll(".value-grid").forEach((grid) => {
     const cards = Array.from(grid.querySelectorAll(".value-card"));
     cards.forEach((card, index) => {
       registerReveal(card, "up");
-      card.style.setProperty("--delay", `${index * 90}ms`);
+      card.style.setProperty("--delay", `${index * 70}ms`);
     });
   });
 
@@ -144,22 +172,22 @@
     const cards = Array.from(grid.querySelectorAll(".breed-card"));
     cards.forEach((card, index) => {
       registerReveal(card, "up");
-      card.style.setProperty("--delay", `${index * 90}ms`);
+      card.style.setProperty("--delay", `${index * 70}ms`);
       const image = card.querySelector("img");
       registerReveal(image, "zoom");
       if (image) {
-        image.style.setProperty("--delay", `${index * 90 + 90}ms`);
+        image.style.setProperty("--delay", `${index * 70 + 70}ms`);
       }
     });
   });
 
   document.querySelectorAll(".cta, .waitlist-section").forEach((block, index) => {
     registerReveal(block, "up");
-    block.style.setProperty("--delay", `${index * 80}ms`);
+    block.style.setProperty("--delay", `${index * 60}ms`);
   });
 
   document.querySelectorAll(".footer-grid").forEach((grid) => {
-    staggerChildren(grid, 120, "fade");
+    staggerChildren(grid, 80, "fade");
   });
 
   const revealList = Array.from(revealTargets);
@@ -175,7 +203,7 @@
           }
         });
       },
-      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -5% 0px" }
     );
     revealList.forEach((element) => revealObserver.observe(element));
   }
