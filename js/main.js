@@ -345,6 +345,117 @@
     });
   };
 
+  const applyGoatGalleryImages = (cloudinary) => {
+    if (!cloudinary || !cloudinary.baseUrl) return;
+    document.querySelectorAll("[data-goat-photo]").forEach((image) => {
+      const publicId = image.dataset.goatPhoto;
+      if (!publicId) return;
+      const fallbackSrc = image.dataset.fallbackSrc || image.getAttribute("src") || "";
+      image.dataset.fallbackSrc = fallbackSrc;
+      image.dataset.lightboxSrc =
+        buildCloudinaryUrl(cloudinary, { publicId, transform: "lightbox" }) || fallbackSrc;
+      image.addEventListener(
+        "error",
+        () => {
+          image.dataset.lightboxSrc = fallbackSrc;
+        },
+        { once: true }
+      );
+      loadCloudinaryImage(image, cloudinary, { publicId, transform: "gallery" });
+    });
+  };
+
+  const initGoatGalleries = () => {
+    document.querySelectorAll("[data-goat-gallery]").forEach((gallery) => {
+      if (gallery.dataset.goatInitialized) return;
+      gallery.dataset.goatInitialized = "true";
+
+      const track = gallery.querySelector("[data-goat-track]");
+      const slides = Array.from(gallery.querySelectorAll(".goat-gallery-slide"));
+      const dots = Array.from(gallery.querySelectorAll("[data-goat-dot]"));
+      const prevButton = gallery.querySelector("[data-goat-prev]");
+      const nextButton = gallery.querySelector("[data-goat-next]");
+      const openButtons = Array.from(gallery.querySelectorAll("[data-goat-open]"));
+      const lightbox = document.querySelector("[data-goat-lightbox]");
+      const lightboxImage = lightbox ? lightbox.querySelector("[data-goat-lightbox-image]") : null;
+      const lightboxCaption = lightbox ? lightbox.querySelector("[data-goat-lightbox-caption]") : null;
+      const lightboxPrev = lightbox ? lightbox.querySelector("[data-goat-lightbox-prev]") : null;
+      const lightboxNext = lightbox ? lightbox.querySelector("[data-goat-lightbox-next]") : null;
+      const lightboxClose = lightbox ? lightbox.querySelectorAll("[data-goat-close]") : [];
+      let activeIndex = 0;
+
+      if (!track || !slides.length) return;
+
+      const normalizeIndex = (index) => (index + slides.length) % slides.length;
+
+      const updateLightboxImage = () => {
+        if (!lightboxImage) return;
+        const image = slides[activeIndex].querySelector("img");
+        if (!image) return;
+        lightboxImage.src = image.dataset.lightboxSrc || image.currentSrc || image.src;
+        lightboxImage.alt = image.alt || "Cashmere goat photo";
+        if (lightboxCaption) {
+          lightboxCaption.textContent = image.dataset.goatCaption || "";
+        }
+      };
+
+      const setIndex = (index) => {
+        activeIndex = normalizeIndex(index);
+        gallery.style.setProperty("--goat-index", String(activeIndex));
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle("is-active", dotIndex === activeIndex);
+        });
+        if (lightbox && lightbox.classList.contains("is-open")) {
+          updateLightboxImage();
+        }
+      };
+
+      const openLightbox = (index) => {
+        if (!lightbox) return;
+        setIndex(index);
+        updateLightboxImage();
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        const closeButton = lightbox.querySelector("[data-goat-close]");
+        if (closeButton) {
+          closeButton.focus();
+        }
+      };
+
+      const closeLightbox = () => {
+        if (!lightbox) return;
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      };
+
+      prevButton?.addEventListener("click", () => setIndex(activeIndex - 1));
+      nextButton?.addEventListener("click", () => setIndex(activeIndex + 1));
+      lightboxPrev?.addEventListener("click", () => setIndex(activeIndex - 1));
+      lightboxNext?.addEventListener("click", () => setIndex(activeIndex + 1));
+      lightboxClose.forEach((button) => {
+        button.addEventListener("click", closeLightbox);
+      });
+      openButtons.forEach((button, index) => {
+        button.addEventListener("click", () => openLightbox(index));
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (!lightbox || !lightbox.classList.contains("is-open")) return;
+        if (event.key === "Escape") {
+          closeLightbox();
+        } else if (event.key === "ArrowLeft") {
+          setIndex(activeIndex - 1);
+        } else if (event.key === "ArrowRight") {
+          setIndex(activeIndex + 1);
+        }
+      });
+
+      setIndex(0);
+    });
+  };
+
   const applyFarmConfig = async () => {
     try {
       const response = await fetch("data/breeds.json", { cache: "no-cache" });
@@ -354,6 +465,7 @@
       const breeds = config.breeds || {};
 
       applyCloudinaryImages(config.cloudinary);
+      applyGoatGalleryImages(config.cloudinary);
 
       document.querySelectorAll(".breed-card[data-breed-id]").forEach((card) => {
         const breed = breeds[card.dataset.breedId];
@@ -385,6 +497,7 @@
   };
 
   applyFarmConfig();
+  initGoatGalleries();
 
   // Progressive reveal animations using IntersectionObserver.
   const revealTargets = new Set();

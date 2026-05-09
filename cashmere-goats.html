@@ -71,6 +71,58 @@
 
       <section id="about-cashmere" class="section">
         <div class="container">
+          <div class="goat-gallery-wrap">
+            <div class="section-header">
+              <span class="section-label">Goat gallery</span>
+              <h2 class="section-title">A closer look at our Cashmere goats.</h2>
+              <p class="section-subtitle">
+                Browse a few farm photos. Click any image to view it larger.
+              </p>
+            </div>
+            <div class="goat-gallery" data-goat-gallery>
+              <button class="goat-gallery-arrow goat-gallery-arrow--prev" type="button" data-goat-prev aria-label="Previous goat photo">
+                <span aria-hidden="true">&lsaquo;</span>
+              </button>
+              <div class="goat-gallery-viewport">
+                <div class="goat-gallery-track" data-goat-track>
+                  <figure class="goat-gallery-slide">
+                    <button class="goat-gallery-image-button" type="button" data-goat-open aria-label="View Cashmere goat photo 1">
+                      <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat photo 1" data-goat-photo="cashmere-1" data-goat-caption="Bernice and her two soon to be available doelings." />
+                      <span class="goat-gallery-caption">Bernice and her two soon to be available doelings.</span>
+                    </button>
+                  </figure>
+                  <figure class="goat-gallery-slide">
+                    <button class="goat-gallery-image-button" type="button" data-goat-open aria-label="View Cashmere goat photo 2">
+                      <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat photo 2" data-goat-photo="cashmere-2" data-goat-caption="These two doelings will be available later this season!" />
+                      <span class="goat-gallery-caption">These two doelings will be available later this season!</span>
+                    </button>
+                  </figure>
+                  <figure class="goat-gallery-slide">
+                    <button class="goat-gallery-image-button" type="button" data-goat-open aria-label="View Cashmere goat photo 3">
+                      <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat photo 3" data-goat-photo="cashmere-3" data-goat-caption="Just look at that face!" />
+                      <span class="goat-gallery-caption">Just look at that face!</span>
+                    </button>
+                  </figure>
+                  <figure class="goat-gallery-slide">
+                    <button class="goat-gallery-image-button" type="button" data-goat-open aria-label="View Cashmere goat photo 4">
+                      <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat photo 4" data-goat-photo="cashmere-4" data-goat-caption="Our doelings this year were sired by Snowball from Pine Hill Farm." />
+                      <span class="goat-gallery-caption">Our doelings this year were sired by Snowball from Pine Hill Farm.</span>
+                    </button>
+                  </figure>
+                </div>
+              </div>
+              <button class="goat-gallery-arrow goat-gallery-arrow--next" type="button" data-goat-next aria-label="Next goat photo">
+                <span aria-hidden="true">&rsaquo;</span>
+              </button>
+              <div class="goat-gallery-dots" aria-hidden="true">
+                <span data-goat-dot></span>
+                <span data-goat-dot></span>
+                <span data-goat-dot></span>
+                <span data-goat-dot></span>
+              </div>
+            </div>
+          </div>
+
           <div class="section-header">
             <span class="section-label">Why Cashmere</span>
             <h2 class="section-title">A heritage fiber animal with a steady presence.</h2>
@@ -136,6 +188,21 @@
         <p class="footer-meta">&copy; <span data-year></span> Nest & Nibble Farm. All rights reserved.</p>
       </div>
     </footer>
+
+    <div class="goat-lightbox" data-goat-lightbox aria-hidden="true">
+      <button class="goat-lightbox-backdrop" type="button" data-goat-close aria-label="Close image viewer"></button>
+      <div class="goat-lightbox-frame" role="dialog" aria-modal="true" aria-label="Cashmere goat photo viewer">
+        <button class="goat-lightbox-close" type="button" data-goat-close aria-label="Close image viewer">&times;</button>
+        <button class="goat-gallery-arrow goat-gallery-arrow--prev goat-lightbox-arrow" type="button" data-goat-lightbox-prev aria-label="Previous goat photo">
+          <span aria-hidden="true">&lsaquo;</span>
+        </button>
+        <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat photo" data-goat-lightbox-image />
+        <p class="goat-lightbox-caption" data-goat-lightbox-caption></p>
+        <button class="goat-gallery-arrow goat-gallery-arrow--next goat-lightbox-arrow" type="button" data-goat-lightbox-next aria-label="Next goat photo">
+          <span aria-hidden="true">&rsaquo;</span>
+        </button>
+      </div>
+    </div>
 
         <div class="modal" data-modal aria-hidden="true">
       <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
