@@ -461,6 +461,10 @@ nav {
   color: #566357;
 }
 
+.waitlist-section .goat-contact-line {
+  max-width: none;
+}
+
 .cta {
   background: #1b261c;
   color: #fff;
