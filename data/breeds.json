@@ -16,6 +16,10 @@
       "cashmere-goats": {
         "publicId": "cashmere-goats",
         "transform": "feature"
+      },
+      "about-image": {
+        "publicId": "about-image",
+        "transform": "feature"
       }
     },
     "breedImages": {

@@ -289,7 +289,7 @@
     const url = buildCloudinaryUrl(cloudinary, imageConfig);
     if (!image || !url) return;
 
-    const wrapper = image.closest(".specimen-card, .hero-card, .farm-stage");
+    const wrapper = image.closest(".specimen-card, .hero-card, .farm-stage, .about-image-card");
     const fallbackSrc = image.dataset.fallbackSrc || image.getAttribute("src") || "";
     image.dataset.fallbackSrc = fallbackSrc;
     image.decoding = "async";
