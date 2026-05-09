@@ -379,13 +379,13 @@
 
   document.querySelectorAll(".story-scene").forEach((scene) => {
     registerReveal(scene.querySelector(".sticky-visual"), "zoom");
-    scene.querySelectorAll(".story-chapter").forEach((chapter, index) => {
+    scene.querySelectorAll("[data-story-step]").forEach((chapter, index) => {
       registerReveal(chapter, "up");
       chapter.style.setProperty("--delay", `${index * 90}ms`);
     });
   });
 
-  document.querySelectorAll(".palette-card").forEach((card, index) => {
+  document.querySelectorAll(".palette-card:not(.story-palette-card)").forEach((card, index) => {
     registerReveal(card, "up");
     card.style.setProperty("--delay", `${index * 80}ms`);
   });
