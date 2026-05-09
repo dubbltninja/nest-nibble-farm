@@ -112,7 +112,7 @@
     if (!modal) return;
     resetWaitlistForm();
     if (modalTitle) {
-      modalTitle.textContent = `Tell us about ${breedName}`;
+      modalTitle.textContent = `Get more info about ${breedName}`;
     }
     if (modalBreed) {
       modalBreed.textContent = breedName;
