@@ -1144,6 +1144,8 @@ input:focus-visible {
   padding: clamp(72px, 10vw, 150px) 0;
   background:
     radial-gradient(circle at 10% 20%, rgba(201, 155, 80, 0.16), transparent 26rem),
+    radial-gradient(circle at 86% 56%, rgba(155, 199, 199, 0.1), transparent 30rem),
+    radial-gradient(circle at 26% 88%, rgba(241, 220, 193, 0.09), transparent 28rem),
     linear-gradient(180deg, rgba(15, 26, 19, 0), rgba(3, 9, 6, 0.35));
 }
 
@@ -1198,6 +1200,24 @@ input:focus-visible {
   background: radial-gradient(circle, rgba(241, 220, 193, 0.12), transparent 70%);
 }
 
+.story-ambient--five {
+  --ambient-travel: -300px;
+  width: min(36vw, 460px);
+  aspect-ratio: 1;
+  right: -10%;
+  bottom: 24%;
+  background: radial-gradient(circle, rgba(159, 181, 150, 0.13), transparent 70%);
+}
+
+.story-ambient--six {
+  --ambient-travel: 280px;
+  width: min(32vw, 420px);
+  aspect-ratio: 1;
+  left: -6%;
+  bottom: 6%;
+  background: radial-gradient(circle, rgba(157, 91, 57, 0.12), transparent 72%);
+}
+
 .story-grid {
   display: grid;
   gap: var(--space-7);
@@ -1249,28 +1269,95 @@ input:focus-visible {
   transition: transform var(--duration-slow) var(--ease-smooth), opacity var(--duration-slow) var(--ease-smooth);
 }
 
+.story-egg::after,
+.palette-egg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
 .story-egg--one {
   background: var(--color-blue-egg);
-  transform: translate(var(--story-one-x, -138px), var(--story-one-y, -30px)) rotate(var(--story-one-rotate, -18deg));
+  transform: translate(var(--story-one-x, -34px), var(--story-one-y, -18px)) rotate(var(--story-one-rotate, -6deg));
 }
 
 .story-egg--two {
   background: var(--color-cream-egg);
-  transform: translate(var(--story-two-x, 118px), var(--story-two-y, -72px)) rotate(var(--story-two-rotate, 16deg));
+  transform: translate(var(--story-two-x, 36px), var(--story-two-y, -22px)) rotate(var(--story-two-rotate, 8deg));
 }
 
 .story-egg--three {
   background: var(--color-copper-egg);
-  transform: translate(var(--story-three-x, -28px), var(--story-three-y, 128px)) rotate(var(--story-three-rotate, 0deg));
+  transform: translate(var(--story-three-x, -8px), var(--story-three-y, 42px)) rotate(var(--story-three-rotate, 2deg));
+}
+
+.story-egg--three::after,
+.palette-card--copper .palette-egg::after {
+  background:
+    radial-gradient(circle at 18% 16%, rgba(57, 28, 16, 0.72) 0 1.1px, transparent 1.45px),
+    radial-gradient(circle at 41% 9%, rgba(74, 34, 18, 0.52) 0 0.75px, transparent 1.1px),
+    radial-gradient(circle at 67% 14%, rgba(48, 23, 13, 0.66) 0 1px, transparent 1.35px),
+    radial-gradient(circle at 82% 24%, rgba(65, 31, 18, 0.48) 0 0.65px, transparent 1px),
+    radial-gradient(circle at 29% 31%, rgba(74, 34, 18, 0.7) 0 1.15px, transparent 1.5px),
+    radial-gradient(circle at 55% 33%, rgba(48, 23, 13, 0.5) 0 0.8px, transparent 1.12px),
+    radial-gradient(circle at 73% 41%, rgba(57, 28, 16, 0.58) 0 0.95px, transparent 1.28px),
+    radial-gradient(circle at 13% 48%, rgba(65, 31, 18, 0.54) 0 0.85px, transparent 1.2px),
+    radial-gradient(circle at 38% 54%, rgba(48, 23, 13, 0.64) 0 1.2px, transparent 1.55px),
+    radial-gradient(circle at 61% 59%, rgba(74, 34, 18, 0.56) 0 0.78px, transparent 1.1px),
+    radial-gradient(circle at 88% 58%, rgba(57, 28, 16, 0.62) 0 1px, transparent 1.35px),
+    radial-gradient(circle at 23% 68%, rgba(48, 23, 13, 0.46) 0 0.7px, transparent 1px),
+    radial-gradient(circle at 49% 74%, rgba(65, 31, 18, 0.66) 0 1.05px, transparent 1.4px),
+    radial-gradient(circle at 76% 79%, rgba(74, 34, 18, 0.5) 0 0.82px, transparent 1.14px),
+    radial-gradient(circle at 35% 88%, rgba(57, 28, 16, 0.58) 0 0.9px, transparent 1.25px),
+    radial-gradient(circle at 64% 92%, rgba(48, 23, 13, 0.52) 0 0.72px, transparent 1.05px),
+    radial-gradient(circle at 31% 18%, rgba(48, 23, 13, 0.42) 0 0.62px, transparent 0.95px),
+    radial-gradient(circle at 53% 20%, rgba(74, 34, 18, 0.48) 0 0.74px, transparent 1.08px),
+    radial-gradient(circle at 75% 12%, rgba(57, 28, 16, 0.5) 0 0.82px, transparent 1.16px),
+    radial-gradient(circle at 21% 38%, rgba(65, 31, 18, 0.46) 0 0.7px, transparent 1.02px),
+    radial-gradient(circle at 47% 40%, rgba(48, 23, 13, 0.44) 0 0.64px, transparent 0.96px),
+    radial-gradient(circle at 90% 37%, rgba(74, 34, 18, 0.5) 0 0.78px, transparent 1.12px),
+    radial-gradient(circle at 28% 58%, rgba(57, 28, 16, 0.48) 0 0.72px, transparent 1.06px),
+    radial-gradient(circle at 70% 63%, rgba(48, 23, 13, 0.46) 0 0.66px, transparent 1px),
+    radial-gradient(circle at 17% 78%, rgba(74, 34, 18, 0.44) 0 0.7px, transparent 1.02px),
+    radial-gradient(circle at 58% 83%, rgba(57, 28, 16, 0.52) 0 0.86px, transparent 1.18px),
+    radial-gradient(circle at 84% 89%, rgba(65, 31, 18, 0.42) 0 0.62px, transparent 0.96px),
+    radial-gradient(circle at 24% 10%, rgba(40, 18, 10, 0.38) 0 0.5px, transparent 0.82px),
+    radial-gradient(circle at 58% 7%, rgba(74, 34, 18, 0.38) 0 0.56px, transparent 0.88px),
+    radial-gradient(circle at 91% 16%, rgba(48, 23, 13, 0.4) 0 0.58px, transparent 0.9px),
+    radial-gradient(circle at 10% 26%, rgba(65, 31, 18, 0.42) 0 0.62px, transparent 0.94px),
+    radial-gradient(circle at 47% 25%, rgba(57, 28, 16, 0.36) 0 0.52px, transparent 0.84px),
+    radial-gradient(circle at 71% 30%, rgba(40, 18, 10, 0.34) 0 0.48px, transparent 0.8px),
+    radial-gradient(circle at 34% 39%, rgba(74, 34, 18, 0.42) 0 0.66px, transparent 0.98px),
+    radial-gradient(circle at 64% 48%, rgba(48, 23, 13, 0.38) 0 0.54px, transparent 0.86px),
+    radial-gradient(circle at 94% 51%, rgba(65, 31, 18, 0.36) 0 0.5px, transparent 0.82px),
+    radial-gradient(circle at 7% 60%, rgba(57, 28, 16, 0.4) 0 0.6px, transparent 0.92px),
+    radial-gradient(circle at 43% 65%, rgba(40, 18, 10, 0.36) 0 0.5px, transparent 0.82px),
+    radial-gradient(circle at 80% 69%, rgba(74, 34, 18, 0.4) 0 0.64px, transparent 0.96px),
+    radial-gradient(circle at 31% 82%, rgba(48, 23, 13, 0.38) 0 0.56px, transparent 0.88px),
+    radial-gradient(circle at 69% 87%, rgba(65, 31, 18, 0.36) 0 0.52px, transparent 0.84px),
+    radial-gradient(circle at 92% 81%, rgba(40, 18, 10, 0.34) 0 0.48px, transparent 0.8px),
+    radial-gradient(circle at 48% 94%, rgba(57, 28, 16, 0.38) 0 0.56px, transparent 0.88px);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  mix-blend-mode: multiply;
+  opacity: 0.72;
+}
+
+.story-egg--four {
+  background: var(--color-sage-egg);
+  transform: translate(var(--story-four-x, 12px), var(--story-four-y, 36px)) rotate(var(--story-four-rotate, 4deg));
 }
 
 .story-stage-label {
   position: relative;
   z-index: 2;
-  width: 52%;
+  width: 56%;
   aspect-ratio: 1;
   display: grid;
   place-content: center;
+  gap: 0.2rem;
   text-align: center;
   border-radius: 50%;
   background: rgba(15, 26, 19, 0.78);
@@ -1281,15 +1368,16 @@ input:focus-visible {
 .story-stage-label span {
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  font-size: 0.68rem;
+  font-size: clamp(0.58rem, 1vw, 0.74rem);
   color: rgba(255, 249, 236, 0.72);
 }
 
 .story-stage-label strong {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-size: clamp(1.9rem, 4.4vw, 3.25rem);
   line-height: 0.9;
   letter-spacing: -0.04em;
+  text-transform: uppercase;
 }
 
 .story-copy {
@@ -2097,12 +2185,14 @@ input:focus-visible {
   }
 
   .story-ambient--one,
-  .story-ambient--three {
+  .story-ambient--three,
+  .story-ambient--five {
     width: 66vw;
   }
 
   .story-ambient--two,
-  .story-ambient--four {
+  .story-ambient--four,
+  .story-ambient--six {
     width: 78vw;
   }
 

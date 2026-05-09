@@ -707,26 +707,34 @@
       const viewportHeight = window.innerHeight || 1;
       activeScenes.forEach((scene) => {
         const rect = scene.getBoundingClientRect();
-        const travel = Math.max(rect.height - viewportHeight, viewportHeight * 0.7);
-        const rawProgress = (viewportHeight * 0.35 - rect.top) / travel;
+        const travel = Math.max(rect.height + viewportHeight, viewportHeight);
+        const rawProgress = (viewportHeight - rect.top) / travel;
         const progress = Math.min(Math.max(rawProgress, 0), 1);
+        const easedProgress = 1 - Math.pow(1 - progress, 1.45);
         const step = Math.min(Math.floor(progress * 4) + 1, 4);
         scene.style.setProperty("--story-progress", progress.toFixed(3));
         scene.style.setProperty("--story-step", String(step));
         scene.querySelectorAll("[data-story-step]").forEach((chapter) => {
           chapter.classList.toggle("is-current", chapter.dataset.storyStep === String(step));
         });
-        scene.style.setProperty("--story-spin", `${(progress * 140).toFixed(2)}deg`);
-        scene.style.setProperty("--story-spin-reverse", `${(progress * -190).toFixed(2)}deg`);
-        scene.style.setProperty("--story-one-x", `${(-138 + progress * 88).toFixed(2)}px`);
-        scene.style.setProperty("--story-one-y", `${(-30 + progress * -64).toFixed(2)}px`);
-        scene.style.setProperty("--story-one-rotate", `${(-18 + progress * 40).toFixed(2)}deg`);
-        scene.style.setProperty("--story-two-x", `${(118 + progress * -44).toFixed(2)}px`);
-        scene.style.setProperty("--story-two-y", `${(-72 + progress * 86).toFixed(2)}px`);
-        scene.style.setProperty("--story-two-rotate", `${(16 + progress * -55).toFixed(2)}deg`);
-        scene.style.setProperty("--story-three-x", `${(-28 + progress * 48).toFixed(2)}px`);
-        scene.style.setProperty("--story-three-y", `${(128 + progress * -44).toFixed(2)}px`);
-        scene.style.setProperty("--story-three-rotate", `${(progress * 35).toFixed(2)}deg`);
+        scene.style.setProperty("--story-spin", `${(progress * 220).toFixed(2)}deg`);
+        scene.style.setProperty("--story-spin-reverse", `${(progress * -270).toFixed(2)}deg`);
+        const orbitRadius = 34 + easedProgress * 132;
+        const spiralTurn = progress * Math.PI * 1.35;
+        const placeStoryEgg = (name, phase, radiusOffset, rotateOffset) => {
+          const angle = spiralTurn + phase;
+          const radius = orbitRadius + radiusOffset;
+          const x = Math.cos(angle) * radius;
+          const y = Math.sin(angle) * radius;
+          const rotation = angle * (180 / Math.PI) + rotateOffset + progress * 52;
+          scene.style.setProperty(`--story-${name}-x`, `${x.toFixed(2)}px`);
+          scene.style.setProperty(`--story-${name}-y`, `${y.toFixed(2)}px`);
+          scene.style.setProperty(`--story-${name}-rotate`, `${rotation.toFixed(2)}deg`);
+        };
+        placeStoryEgg("one", -Math.PI * 0.58, 0, -16);
+        placeStoryEgg("two", -Math.PI * 0.08, 10, 10);
+        placeStoryEgg("three", Math.PI * 0.46, -6, -8);
+        placeStoryEgg("four", Math.PI * 0.95, 6, 18);
       });
     };
 
