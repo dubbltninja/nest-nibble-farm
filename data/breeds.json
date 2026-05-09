@@ -1,5 +1,56 @@
 {
   "facebookUrl": "https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr",
+  "cloudinary": {
+    "baseUrl": "https://res.cloudinary.com/drqir7lka/image/upload",
+    "extension": "jpg",
+    "transforms": {
+      "breed": "f_auto,q_auto,c_fill,g_auto,w_900,h_650",
+      "hero": "f_auto,q_auto,c_fill,g_auto,w_1200,h_950",
+      "feature": "f_auto,q_auto,c_fill,g_auto,w_900,h_650"
+    },
+    "slots": {
+      "home-hero": {
+        "publicId": "home-hero",
+        "transform": "hero"
+      },
+      "cashmere-goats": {
+        "publicId": "cashmere-goats",
+        "transform": "feature"
+      }
+    },
+    "breedImages": {
+      "ermine-americanas": {
+        "publicId": "ermine-ameraucanas"
+      },
+      "cochins": {
+        "publicId": "cochins"
+      },
+      "chocolate-eggers": {
+        "publicId": "chocolate-eggers"
+      },
+      "salmon-favorelles": {
+        "publicId": "salmon-favorelles"
+      },
+      "speckled-sussex": {
+        "publicId": "speckled-sussex"
+      },
+      "rainbow-eggers": {
+        "publicId": "rainbow-eggers"
+      },
+      "indian-runner": {
+        "publicId": "indian-runner"
+      },
+      "isabel-brahmas": {
+        "publicId": "isabel_brahma"
+      },
+      "bantam-salmon-favorelles": {
+        "publicId": "bantam-salmon-favorelles"
+      },
+      "white-embden": {
+        "publicId": "white-embden"
+      }
+    }
+  },
   "statuses": {
     "available": {
       "label": "Available",

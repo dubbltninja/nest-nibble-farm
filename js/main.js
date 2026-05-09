@@ -256,6 +256,95 @@
     }
   };
 
+  const normalizeImageConfig = (entry, fallbackPublicId, fallbackTransform = "breed") => {
+    if (entry === false || entry === null) return null;
+    if (typeof entry === "string") {
+      return {
+        publicId: entry,
+        transform: fallbackTransform,
+      };
+    }
+    return {
+      publicId: entry && entry.publicId ? entry.publicId : fallbackPublicId,
+      transform: entry && entry.transform ? entry.transform : fallbackTransform,
+    };
+  };
+
+  const buildCloudinaryUrl = (cloudinary, imageConfig) => {
+    if (!cloudinary || !cloudinary.baseUrl || !imageConfig || !imageConfig.publicId) return "";
+    const publicId = imageConfig.publicId;
+    if (/^https?:\/\//i.test(publicId)) return publicId;
+
+    const extension = cloudinary.extension || "jpg";
+    const hasExtension = /\.[a-z0-9]+$/i.test(publicId);
+    const fileName = hasExtension ? publicId : `${publicId}.${extension}`;
+    const transforms = cloudinary.transforms || {};
+    const transform = transforms[imageConfig.transform] || imageConfig.transform || "";
+    const baseUrl = cloudinary.baseUrl.replace(/\/$/, "");
+
+    return [baseUrl, transform, fileName].filter(Boolean).join("/");
+  };
+
+  const loadCloudinaryImage = (image, cloudinary, imageConfig, options = {}) => {
+    const url = buildCloudinaryUrl(cloudinary, imageConfig);
+    if (!image || !url) return;
+
+    const wrapper = image.closest(".specimen-card, .hero-card, .farm-stage");
+    const fallbackSrc = image.dataset.fallbackSrc || image.getAttribute("src") || "";
+    image.dataset.fallbackSrc = fallbackSrc;
+    image.decoding = "async";
+    image.loading = options.eager ? "eager" : "lazy";
+    if (options.eager) {
+      image.setAttribute("fetchpriority", "high");
+    }
+
+    const handleLoad = () => {
+      image.classList.add("is-cloudinary-photo");
+      if (wrapper) {
+        wrapper.classList.add("has-cloudinary-photo");
+      }
+    };
+
+    const handleError = () => {
+      image.removeEventListener("load", handleLoad);
+      image.removeEventListener("error", handleError);
+      image.classList.remove("is-cloudinary-photo");
+      if (wrapper) {
+        wrapper.classList.remove("has-cloudinary-photo");
+      }
+      if (fallbackSrc && image.getAttribute("src") !== fallbackSrc) {
+        image.removeAttribute("fetchpriority");
+        image.src = fallbackSrc;
+      }
+    };
+
+    image.addEventListener("load", handleLoad, { once: true });
+    image.addEventListener("error", handleError, { once: true });
+    image.src = url;
+  };
+
+  const applyCloudinaryImages = (cloudinary) => {
+    if (!cloudinary || !cloudinary.baseUrl) return;
+    const breedImages = cloudinary.breedImages || {};
+    const slots = cloudinary.slots || {};
+
+    document.querySelectorAll(".breed-card[data-breed-id]").forEach((card) => {
+      const breedId = card.dataset.breedId;
+      const image = card.querySelector("img");
+      const imageConfig = normalizeImageConfig(breedImages[breedId], breedId, "breed");
+      loadCloudinaryImage(image, cloudinary, imageConfig);
+    });
+
+    document.querySelectorAll("[data-cloudinary-slot]").forEach((image) => {
+      const slotName = image.dataset.cloudinarySlot;
+      const fallbackTransform = slotName === "home-hero" ? "hero" : "feature";
+      const imageConfig = normalizeImageConfig(slots[slotName], slotName, fallbackTransform);
+      loadCloudinaryImage(image, cloudinary, imageConfig, {
+        eager: slotName === "home-hero",
+      });
+    });
+  };
+
   const applyFarmConfig = async () => {
     try {
       const response = await fetch("data/breeds.json", { cache: "no-cache" });
@@ -263,6 +352,8 @@
       const config = await response.json();
       const statuses = { ...statusFallbacks, ...(config.statuses || {}) };
       const breeds = config.breeds || {};
+
+      applyCloudinaryImages(config.cloudinary);
 
       document.querySelectorAll(".breed-card[data-breed-id]").forEach((card) => {
         const breed = breeds[card.dataset.breedId];
