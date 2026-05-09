@@ -108,11 +108,11 @@
     updateBirdValidity();
   };
 
-  const openModal = (breedName, typeName, statusName = "available") => {
+  const openModal = (breedName, typeName, statusName = "available", titlePhrase = breedName) => {
     if (!modal) return;
     resetWaitlistForm();
     if (modalTitle) {
-      modalTitle.textContent = `Get more info about ${breedName}`;
+      modalTitle.textContent = `Get more info about ${titlePhrase}`;
     }
     if (modalBreed) {
       modalBreed.textContent = breedName;
@@ -149,7 +149,8 @@
       const breedName = button.getAttribute("data-breed") || "this breed";
       const typeName = button.getAttribute("data-type") || "";
       const statusName = button.getAttribute("data-status") || "available";
-      openModal(breedName, typeName, statusName);
+      const titlePhrase = button.getAttribute("data-modal-phrase") || breedName;
+      openModal(breedName, typeName, statusName, titlePhrase);
     });
   });
 
@@ -253,6 +254,7 @@
       button.setAttribute("data-status", statusName);
       button.setAttribute("data-breed", breed.name);
       button.setAttribute("data-type", breed.type);
+      button.setAttribute("data-modal-phrase", breed.modalPhrase || breed.name);
     }
   };
 
@@ -484,6 +486,7 @@
         button.setAttribute("data-status", statusName);
         button.setAttribute("data-breed", breed.name);
         button.setAttribute("data-type", breed.type);
+        button.setAttribute("data-modal-phrase", breed.modalPhrase || breed.name);
       });
 
       document.querySelectorAll("[data-facebook-link]").forEach((link) => {

@@ -80,61 +80,73 @@
   "breeds": {
     "ermine-americanas": {
       "name": "Ermine Ameraucanas",
+      "modalPhrase": "our Ermine Ameraucanas",
       "type": "chicken",
       "status": "available"
     },
     "cochins": {
       "name": "Cochins",
+      "modalPhrase": "our Cochins",
       "type": "chicken",
       "status": "available"
     },
     "chocolate-eggers": {
       "name": "Chocolate Eggers",
+      "modalPhrase": "our Chocolate Eggers",
       "type": "chicken",
       "status": "available"
     },
     "salmon-favorelles": {
       "name": "Salmon Favorelles",
+      "modalPhrase": "our Salmon Favorelles",
       "type": "chicken",
       "status": "available"
     },
     "speckled-sussex": {
       "name": "Speckled Sussex",
+      "modalPhrase": "our Speckled Sussex",
       "type": "chicken",
       "status": "available"
     },
     "rainbow-eggers": {
       "name": "Rainbow Eggers",
+      "modalPhrase": "our Rainbow Eggers",
       "type": "chicken",
       "status": "available"
     },
     "indian-runner": {
       "name": "Indian Runner",
+      "modalPhrase": "our Indian Runners",
       "type": "ducks",
       "status": "available"
     },
     "isabel-brahmas": {
       "name": "Isabel Brahmas",
+      "modalPhrase": "our Isabel Brahmas",
       "type": "chicken",
       "status": "coming-soon"
     },
     "bantam-salmon-favorelles": {
       "name": "Bantam Salmon Favorelles",
+      "modalPhrase": "our Bantam Salmon Favorelles",
       "type": "chicken",
       "status": "coming-soon"
     },
     "white-embden": {
       "name": "White Embden",
+      "modalPhrase": "our White Embdens",
       "type": "geese",
       "status": "limited"
     },
     "dewlap-toulouse": {
       "name": "Dewlap Toulouse",
+      "modalPhrase": "our Dewlap Toulouse geese",
       "type": "geese",
       "status": "coming-soon"
     },
     "cashmere-goats": {
       "name": "Cashmere Goats",
+      "modalPhrase": "our Cashmere goats",
       "type": "goats",
       "status": "limited"
     }
