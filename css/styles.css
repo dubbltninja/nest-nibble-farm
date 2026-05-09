@@ -826,6 +826,12 @@ input:focus-visible {
   background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.42), transparent 25rem);
 }
 
+.farm-stage.has-cloudinary-photo::after {
+  background:
+    linear-gradient(180deg, transparent 64%, rgba(2, 8, 5, 0.16)),
+    radial-gradient(circle at 50% 52%, transparent 58%, rgba(2, 8, 5, 0.18));
+}
+
 .farm-sky {
   position: absolute;
   inset: 0 0 34%;
@@ -1486,7 +1492,7 @@ input:focus-visible {
 }
 
 .specimen-card h3::before {
-  content: "Breed";
+  content: attr(data-card-label);
   display: block;
   width: max-content;
   margin-bottom: var(--space-2);
@@ -1499,6 +1505,10 @@ input:focus-visible {
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+}
+
+.specimen-card h3:not([data-card-label])::before {
+  content: "Breed";
 }
 
 .specimen-card .price-list {
