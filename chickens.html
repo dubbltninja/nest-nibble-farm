@@ -6,7 +6,7 @@
     <title>Chickens | Nest & Nibble Farm</title>
     <meta
       name="description"
-      content="Explore Nest & Nibble Farm chicken breeds, hatching eggs, and live chicks."
+      content="Explore Nest & Nibble Farm chicken breeds and occasional availability."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,12 +41,11 @@
     </header>
 
     <main id="main">
-      <section class="page-hero">
+      <section class="page-hero page-hero--chickens">
         <div class="container">
           <h1>Chickens</h1>
           <p>
-            Heritage chicken lines curated for vibrant egg color, calm temperament, and strong
-            foraging instincts.
+            Chicken breeds we raise or are developing. Availability may be seasonal and interest based.
           </p>
         </div>
       </section>
@@ -54,149 +53,61 @@
       <section class="section">
         <div class="container">
           <div class="breed-grid">
-            <article class="breed-card">
-              <img src="assets/images/placeholder-chicken.svg" alt="Ermine Americanas" />
-              <h3>Ermine Americanas</h3>
+            <article class="breed-card specimen-card" data-breed-id="ermine-americanas">
+              <img src="assets/images/placeholder-chicken.svg" alt="Ermine Ameraucanas" />
+              <p class="breed-status status-available" data-breed-status>Available</p>
+              <h3>Ermine Ameraucanas</h3>
               <p>Soft silver plumage paired with icy blue eggs and an inquisitive flock presence.</p>
-              <div class="price-list">
-                <div class="price-item">
-                  <span>Hatching eggs</span>
-                  <strong>$52 / dozen</strong>
-                </div>
-                <div class="price-item">
-                  <span>Chicks</span>
-                  <strong>$16 each</strong>
-                </div>
-              </div>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Ermine Americanas" data-type="chicken">
-                Join Waitlist
-              </button>
+              <button class="btn btn-outline" type="button" data-waitlist data-breed="Ermine Ameraucanas" data-type="chicken" data-status="available">I'm interested</button>
             </article>
-            <article class="breed-card">
-              <img src="assets/images/placeholder-chicken.svg" alt="Opal Legbars" />
-              <h3>Opal Legbars</h3>
-              <p>A refined legbar line with tidy crests, pastel eggs, and graceful forage habits.</p>
-              <div class="price-list">
-                <div class="price-item">
-                  <span>Hatching eggs</span>
-                  <strong>$58 / dozen</strong>
-                </div>
-                <div class="price-item">
-                  <span>Chicks</span>
-                  <strong>$18 each</strong>
-                </div>
-              </div>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Opal Legbars" data-type="chicken">
-                Join Waitlist
-              </button>
+            <article class="breed-card specimen-card" data-breed-id="speckled-sussex">
+              <img src="assets/images/placeholder-chicken.svg" alt="Speckled Sussex" />
+              <p class="breed-status status-available" data-breed-status>Available</p>
+              <h3>Speckled Sussex</h3>
+              <p>Classic speckled feathers with steady, dependable brown eggs.</p>
+              <button class="btn btn-outline" type="button" data-waitlist data-breed="Speckled Sussex" data-type="chicken" data-status="available">I'm interested</button>
             </article>
-            <article class="breed-card">
+            <article class="breed-card specimen-card" data-breed-id="salmon-favorelles">
+              <img src="assets/images/placeholder-chicken.svg" alt="Salmon Favorelles" />
+              <p class="breed-status status-available" data-breed-status>Available</p>
+              <h3>Salmon Favorelles</h3>
+              <p>Gentle large fowl with muffs, feathered feet, five toes, and cream-tinted eggs.</p>
+              <button class="btn btn-outline" type="button" data-waitlist data-breed="Salmon Favorelles" data-type="chicken" data-status="available">I'm interested</button>
+            </article>
+            <article class="breed-card specimen-card" data-breed-id="cochins">
+              <img src="assets/images/placeholder-chicken.svg" alt="Cochins" />
+              <p class="breed-status status-available" data-breed-status>Available</p>
+              <h3>Cochins</h3>
+              <p>Full-bodied, feathered birds that bring a calm, collected energy to the yard.</p>
+              <button class="btn btn-outline" type="button" data-waitlist data-breed="Cochins" data-type="chicken" data-status="available">I'm interested</button>
+            </article>
+            <article class="breed-card specimen-card" data-breed-id="chocolate-eggers">
+              <img src="assets/images/placeholder-chicken.svg" alt="Chocolate Eggers" />
+              <p class="breed-status status-available" data-breed-status>Available</p>
+              <h3>Chocolate Eggers</h3>
+              <p>A Marans mix bred for pretty dark brown speckled &quot;chocolate&quot; eggs.</p>
+              <button class="btn btn-outline" type="button" data-waitlist data-breed="Chocolate Eggers" data-type="chicken" data-status="available">I'm interested</button>
+            </article>
+            <article class="breed-card specimen-card" data-breed-id="rainbow-eggers">
+              <img src="assets/images/placeholder-chicken.svg" alt="Rainbow Eggers" />
+              <p class="breed-status status-available" data-breed-status>Available</p>
+              <h3>Rainbow Eggers</h3>
+              <p>A varied mix for people who enjoy a colorful egg basket.</p>
+              <button class="btn btn-outline" type="button" data-waitlist data-breed="Rainbow Eggers" data-type="chicken" data-status="available">I'm interested</button>
+            </article>
+            <article class="breed-card specimen-card" data-breed-id="isabel-brahmas">
               <img src="assets/images/placeholder-chicken.svg" alt="Isabel Brahmas" />
+              <p class="breed-status status-coming-soon" data-breed-status>Coming soon</p>
               <h3>Isabel Brahmas</h3>
               <p>Gentle giants with feathered feet and warm-toned eggs in elegant shells.</p>
-              <div class="price-list">
-                <div class="price-item">
-                  <span>Hatching eggs</span>
-                  <strong>$60 / dozen</strong>
-                </div>
-                <div class="price-item">
-                  <span>Chicks</span>
-                  <strong>$19 each</strong>
-                </div>
-              </div>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Isabel Brahmas" data-type="chicken">
-                Join Waitlist
-              </button>
+              <button class="btn btn-outline" type="button" data-waitlist data-breed="Isabel Brahmas" data-type="chicken" data-status="coming-soon">Get updates</button>
             </article>
-            <article class="breed-card">
-              <img src="assets/images/placeholder-chicken.svg" alt="Speckled Sussex" />
-              <h3>Speckled Sussex</h3>
-              <p>Classic speckled feathers with steady, dependable brown eggs year round.</p>
-              <div class="price-list">
-                <div class="price-item">
-                  <span>Hatching eggs</span>
-                  <strong>$48 / dozen</strong>
-                </div>
-                <div class="price-item">
-                  <span>Chicks</span>
-                  <strong>$14 each</strong>
-                </div>
-              </div>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Speckled Sussex" data-type="chicken">
-                Join Waitlist
-              </button>
-            </article>
-            <article class="breed-card">
-              <img src="assets/images/placeholder-chicken.svg" alt="Salmon Favorelles" />
-              <h3>Salmon Favorelles</h3>
-              <p>Fluffy, friendly birds with salmon-toned plumage and soft cream eggs.</p>
-              <div class="price-list">
-                <div class="price-item">
-                  <span>Hatching eggs</span>
-                  <strong>$54 / dozen</strong>
-                </div>
-                <div class="price-item">
-                  <span>Chicks</span>
-                  <strong>$17 each</strong>
-                </div>
-              </div>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Salmon Favorelles" data-type="chicken">
-                Join Waitlist
-              </button>
-            </article>
-            <article class="breed-card">
-              <img src="assets/images/placeholder-chicken.svg" alt="Cochins" />
-              <h3>Cochins</h3>
-              <p>Full-bodied, feathered beauties that bring a calm, collected energy to the yard.</p>
-              <div class="price-list">
-                <div class="price-item">
-                  <span>Hatching eggs</span>
-                  <strong>$50 / dozen</strong>
-                </div>
-                <div class="price-item">
-                  <span>Chicks</span>
-                  <strong>$15 each</strong>
-                </div>
-              </div>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Cochins" data-type="chicken">
-                Join Waitlist
-              </button>
-            </article>
-            <article class="breed-card">
-              <img src="assets/images/placeholder-chicken.svg" alt="Black Copper Marans" />
-              <h3>Black Copper Marans</h3>
-              <p>Deep mahogany eggs with bold copper sheen and a confident foraging style.</p>
-              <div class="price-list">
-                <div class="price-item">
-                  <span>Hatching eggs</span>
-                  <strong>$65 / dozen</strong>
-                </div>
-                <div class="price-item">
-                  <span>Chicks</span>
-                  <strong>$20 each</strong>
-                </div>
-              </div>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Black Copper Marans" data-type="chicken">
-                Join Waitlist
-              </button>
-            </article>
-            <article class="breed-card">
-              <img src="assets/images/placeholder-chicken.svg" alt="Rainbow Eggers" />
-              <h3>Rainbow Eggers</h3>
-              <p>A curated mix for a carton of blues, greens, and warm-toned eggs.</p>
-              <div class="price-list">
-                <div class="price-item">
-                  <span>Hatching eggs</span>
-                  <strong>$46 / dozen</strong>
-                </div>
-                <div class="price-item">
-                  <span>Chicks</span>
-                  <strong>$13 each</strong>
-                </div>
-              </div>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Rainbow Eggers" data-type="chicken">
-                Join Waitlist
-              </button>
+            <article class="breed-card specimen-card" data-breed-id="bantam-salmon-favorelles">
+              <img src="assets/images/placeholder-chicken.svg" alt="Bantam Salmon Favorelles" />
+              <p class="breed-status status-coming-soon" data-breed-status>Coming soon</p>
+              <h3>Bantam Salmon Favorelles</h3>
+              <p>A smaller bantam version with the same bearded, feather-footed Faverolles charm.</p>
+              <button class="btn btn-outline" type="button" data-waitlist data-breed="Bantam Salmon Favorelles" data-type="chicken" data-status="coming-soon">Get updates</button>
             </article>
           </div>
         </div>
@@ -220,7 +131,7 @@
         <div>
           <p class="footer-title">Nest & Nibble Farm</p>
           <p class="section-subtitle">
-            Premium poultry, waterfowl, and livestock raised in small batches with care and intention.
+            Poultry, waterfowl, and cashmere goats raised with care. NPIP tested. Certification pending.
           </p>
         </div>
         <div class="footer-links">
@@ -232,8 +143,8 @@
         </div>
         <div class="footer-links">
           <a href="contact.html">Contact</a>
-          <span class="footer-meta">Ship-to-home or local pickup options</span>
-          <span class="footer-meta">Email: hello@nestandnibble.com</span>
+          <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+          <span class="footer-meta">Email: maximumwags@gmail.com</span>
         </div>
       </div>
       <div class="container">
@@ -246,13 +157,14 @@
         <button class="modal-close" type="button" aria-label="Close" data-modal-close>
           &times;
         </button>
-        <p class="section-label">Waitlist</p>
-        <h2 class="section-title" id="modal-title" data-modal-title>Join the waitlist</h2>
+        <p class="section-label">Interest request</p>
+        <h2 class="section-title" id="modal-title" data-modal-title>Tell us what you're interested in</h2>
         <p class="section-subtitle">Breed: <span data-modal-breed>Selected breed</span></p>
         <form action="https://formspree.io/f/mvzqqngd" method="post" data-waitlist-form>
-          <!-- TODO: Hidden breed and type fields are set dynamically via JavaScript. -->
+          <!-- Hidden breed, type, and status fields are set dynamically via JavaScript. -->
           <input type="hidden" name="breed" data-modal-breed-input />
           <input type="hidden" name="type" data-modal-type-input />
+          <input type="hidden" name="status" data-modal-status-input />
           <div data-waitlist-fields>
             <div class="form-group">
               <label for="waitlist-name">Full Name</label>
@@ -267,7 +179,7 @@
               <input id="waitlist-phone" name="phone" type="tel" placeholder="(555) 123-4567" />
             </div>
             <fieldset class="form-group options-group" data-bird-options>
-              <legend>Request</legend>
+              <legend>Interest</legend>
               <label class="checkbox">
                 <input type="checkbox" name="hatching_eggs" value="true" data-egg-checkbox />
                 Hatching Eggs
@@ -277,7 +189,13 @@
                 <span data-live-label>Chicks</span>
               </label>
             </fieldset>
-            <button class="btn btn-primary" type="submit">Request waitlist spot</button>
+            <p class="facebook-option">
+              Prefer Facebook?
+              <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">
+                Message Lindsey directly
+              </a>
+            </p>
+            <button class="btn btn-primary" type="submit">Send interest request</button>
           </div>
           <p class="form-feedback" data-waitlist-status role="status" aria-live="polite"></p>
         </form>

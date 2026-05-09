@@ -11,12 +11,13 @@
     });
   }
 
-  // Shared waitlist modal behavior.
+  // Shared interest modal behavior. Internal data names stay stable for existing markup.
   const modal = document.querySelector("[data-modal]");
   const modalTitle = document.querySelector("[data-modal-title]");
   const modalBreed = document.querySelector("[data-modal-breed]");
   const modalBreedInput = modal ? modal.querySelector("[data-modal-breed-input]") : null;
   const modalTypeInput = modal ? modal.querySelector("[data-modal-type-input]") : null;
+  const modalStatusInput = modal ? modal.querySelector("[data-modal-status-input]") : null;
   const modalClose = document.querySelectorAll("[data-modal-close]");
   const openButtons = document.querySelectorAll("[data-waitlist]");
   const waitlistForm = modal ? modal.querySelector("[data-waitlist-form]") : null;
@@ -32,6 +33,23 @@
     chicken: "Chicks",
     ducks: "Ducklings",
     geese: "Goslings",
+  };
+  const statusFallbacks = {
+    available: {
+      label: "Available",
+      cta: "I'm interested",
+      note: "",
+    },
+    "coming-soon": {
+      label: "Coming soon",
+      cta: "Get updates",
+      note: "",
+    },
+    limited: {
+      label: "Limited availability",
+      cta: "Contact for info",
+      note: "Availability is limited and changes with the season. Please contact us for the most current information.",
+    },
   };
   let currentType = "";
 
@@ -56,7 +74,7 @@
       return;
     }
     const isChecked = [eggCheckbox, liveCheckbox].some((checkbox) => checkbox && checkbox.checked);
-    const message = isChecked ? "" : "Select at least one request option.";
+    const message = isChecked ? "" : "Select at least one interest option.";
     if (eggCheckbox) {
       eggCheckbox.setCustomValidity(message);
     }
@@ -90,21 +108,24 @@
     updateBirdValidity();
   };
 
-  const openModal = (breedName, typeName) => {
+  const openModal = (breedName, typeName, statusName = "available") => {
     if (!modal) return;
     resetWaitlistForm();
     if (modalTitle) {
-      modalTitle.textContent = `Join the ${breedName} waitlist`;
+      modalTitle.textContent = `Tell us about ${breedName}`;
     }
     if (modalBreed) {
       modalBreed.textContent = breedName;
     }
-    // Hidden fields help Formspree group submissions by breed and type.
+    // Hidden fields help Formspree group submissions by breed, type, and availability status.
     if (modalBreedInput) {
       modalBreedInput.value = breedName;
     }
     if (modalTypeInput) {
       modalTypeInput.value = typeName;
+    }
+    if (modalStatusInput) {
+      modalStatusInput.value = statusName;
     }
     updateBirdOptions(typeName);
     modal.classList.add("is-open");
@@ -127,7 +148,8 @@
     button.addEventListener("click", () => {
       const breedName = button.getAttribute("data-breed") || "this breed";
       const typeName = button.getAttribute("data-type") || "";
-      openModal(breedName, typeName);
+      const statusName = button.getAttribute("data-status") || "available";
+      openModal(breedName, typeName, statusName);
     });
   });
 
@@ -161,7 +183,7 @@
         waitlistStatus.textContent = "Sending your request...";
         waitlistStatus.classList.add("is-visible");
       }
-      const submittedBreed = modalBreedInput ? modalBreedInput.value : "your waitlist request";
+      const submittedBreed = modalBreedInput ? modalBreedInput.value : "your interest request";
       try {
         const response = await fetch(waitlistForm.action, {
           method: "POST",
@@ -203,6 +225,75 @@
   if (year) {
     year.textContent = new Date().getFullYear();
   }
+
+  const applyBreedStatus = (card, breed, statuses) => {
+    const statusName = breed.status || "available";
+    const status = statuses[statusName] || statusFallbacks[statusName] || statusFallbacks.available;
+    card.dataset.status = statusName;
+    card.classList.add(`is-${statusName}`);
+
+    const badge = card.querySelector("[data-breed-status]");
+    if (badge) {
+      badge.textContent = status.label;
+      badge.className = `breed-status status-${statusName}`;
+    }
+
+    const note = card.querySelector("[data-status-note]");
+    if (note) {
+      if (status.note) {
+        note.textContent = status.note;
+      } else {
+        note.remove();
+      }
+    }
+
+    const button = card.querySelector("[data-waitlist]");
+    if (button) {
+      button.textContent = status.cta;
+      button.setAttribute("data-status", statusName);
+      button.setAttribute("data-breed", breed.name);
+      button.setAttribute("data-type", breed.type);
+    }
+  };
+
+  const applyFarmConfig = async () => {
+    try {
+      const response = await fetch("data/breeds.json", { cache: "no-cache" });
+      if (!response.ok) return;
+      const config = await response.json();
+      const statuses = { ...statusFallbacks, ...(config.statuses || {}) };
+      const breeds = config.breeds || {};
+
+      document.querySelectorAll(".breed-card[data-breed-id]").forEach((card) => {
+        const breed = breeds[card.dataset.breedId];
+        if (breed) {
+          applyBreedStatus(card, breed, statuses);
+        }
+      });
+
+      document.querySelectorAll("[data-waitlist][data-breed-id]").forEach((button) => {
+        if (button.closest(".breed-card")) return;
+        const breed = breeds[button.dataset.breedId];
+        if (!breed) return;
+        const statusName = breed.status || "available";
+        const status = statuses[statusName] || statusFallbacks[statusName] || statusFallbacks.available;
+        button.textContent = status.cta;
+        button.setAttribute("data-status", statusName);
+        button.setAttribute("data-breed", breed.name);
+        button.setAttribute("data-type", breed.type);
+      });
+
+      document.querySelectorAll("[data-facebook-link]").forEach((link) => {
+        if (config.facebookUrl) {
+          link.href = config.facebookUrl;
+        }
+      });
+    } catch (error) {
+      // Static HTML remains accurate if local JSON cannot be fetched.
+    }
+  };
+
+  applyFarmConfig();
 
   // Progressive reveal animations using IntersectionObserver.
   const revealTargets = new Set();
@@ -284,6 +375,19 @@
   document.querySelectorAll(".cta, .waitlist-section").forEach((block, index) => {
     registerReveal(block, "up");
     block.style.setProperty("--delay", `${index * 60}ms`);
+  });
+
+  document.querySelectorAll(".story-scene").forEach((scene) => {
+    registerReveal(scene.querySelector(".sticky-visual"), "zoom");
+    scene.querySelectorAll(".story-chapter").forEach((chapter, index) => {
+      registerReveal(chapter, "up");
+      chapter.style.setProperty("--delay", `${index * 90}ms`);
+    });
+  });
+
+  document.querySelectorAll(".palette-card").forEach((card, index) => {
+    registerReveal(card, "up");
+    card.style.setProperty("--delay", `${index * 80}ms`);
   });
 
   document.querySelectorAll(".footer-grid").forEach((grid) => {
@@ -368,5 +472,79 @@
     window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
     window.addEventListener("resize", requestParallaxUpdate);
     requestParallaxUpdate();
+  }
+
+  // Apple-inspired sticky story progress. Uses CSS custom properties so the
+  // scene remains static and readable if JavaScript is unavailable.
+  const storyScenes = Array.from(document.querySelectorAll("[data-story-scene]"));
+  if (storyScenes.length && !prefersReducedMotion.matches) {
+    const activeScenes = new Set();
+    const storyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            activeScenes.add(entry.target);
+          } else {
+            activeScenes.delete(entry.target);
+          }
+        });
+      },
+      { rootMargin: "160px 0px" }
+    );
+
+    storyScenes.forEach((scene) => storyObserver.observe(scene));
+
+    let storyTicking = false;
+    const updateStories = () => {
+      storyTicking = false;
+      const viewportHeight = window.innerHeight || 1;
+      activeScenes.forEach((scene) => {
+        const rect = scene.getBoundingClientRect();
+        const travel = Math.max(rect.height - viewportHeight, viewportHeight * 0.7);
+        const rawProgress = (viewportHeight * 0.35 - rect.top) / travel;
+        const progress = Math.min(Math.max(rawProgress, 0), 1);
+        const step = Math.min(Math.floor(progress * 4) + 1, 4);
+        scene.style.setProperty("--story-progress", progress.toFixed(3));
+        scene.style.setProperty("--story-step", String(step));
+        scene.querySelectorAll("[data-story-step]").forEach((chapter) => {
+          chapter.classList.toggle("is-current", chapter.dataset.storyStep === String(step));
+        });
+        scene.style.setProperty("--story-spin", `${(progress * 140).toFixed(2)}deg`);
+        scene.style.setProperty("--story-spin-reverse", `${(progress * -190).toFixed(2)}deg`);
+        scene.style.setProperty("--story-one-x", `${(-138 + progress * 88).toFixed(2)}px`);
+        scene.style.setProperty("--story-one-y", `${(-30 + progress * -64).toFixed(2)}px`);
+        scene.style.setProperty("--story-one-rotate", `${(-18 + progress * 40).toFixed(2)}deg`);
+        scene.style.setProperty("--story-two-x", `${(118 + progress * -44).toFixed(2)}px`);
+        scene.style.setProperty("--story-two-y", `${(-72 + progress * 86).toFixed(2)}px`);
+        scene.style.setProperty("--story-two-rotate", `${(16 + progress * -55).toFixed(2)}deg`);
+        scene.style.setProperty("--story-three-x", `${(-28 + progress * 48).toFixed(2)}px`);
+        scene.style.setProperty("--story-three-y", `${(128 + progress * -44).toFixed(2)}px`);
+        scene.style.setProperty("--story-three-rotate", `${(progress * 35).toFixed(2)}deg`);
+      });
+    };
+
+    const requestStoryUpdate = () => {
+      if (!storyTicking) {
+        storyTicking = true;
+        window.requestAnimationFrame(updateStories);
+      }
+    };
+
+    window.addEventListener("scroll", requestStoryUpdate, { passive: true });
+    window.addEventListener("resize", requestStoryUpdate);
+    requestStoryUpdate();
+  }
+
+  // Subtle spotlight for premium specimen cards.
+  if (!prefersReducedMotion.matches && window.matchMedia("(hover: hover)").matches) {
+    document.querySelectorAll(".specimen-card").forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty("--card-x", `${x.toFixed(1)}%`);
+        card.style.setProperty("--card-y", `${y.toFixed(1)}%`);
+      });
+    });
   }
 })();

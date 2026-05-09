@@ -6,7 +6,7 @@
     <title>Geese | Nest & Nibble Farm</title>
     <meta
       name="description"
-      content="Explore Nest & Nibble Farm goose breeds, hatching eggs, and live goslings."
+      content="Explore Nest & Nibble Farm geese and limited availability."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,12 +41,11 @@
     </header>
 
     <main id="main">
-      <section class="page-hero">
+      <section class="page-hero page-hero--geese">
         <div class="container">
           <h1>Geese</h1>
           <p>
-            Stately guardians of the pasture with calm energy, strong grazing instincts, and
-            seasonal laying.
+            Geese may have limited availability. Contact us for the most current information.
           </p>
         </div>
       </section>
@@ -54,40 +53,13 @@
       <section class="section">
         <div class="container">
           <div class="breed-grid">
-            <article class="breed-card">
-              <img src="assets/images/placeholder-goose.svg" alt="Dewlap Toulouse geese" />
-              <h3>Dewlap Toulouse</h3>
-              <p>Classic dewlap silhouette, confident grazing, and sturdy seasonal laying.</p>
-              <div class="price-list">
-                <div class="price-item">
-                  <span>Hatching eggs</span>
-                  <strong>$72 / half dozen</strong>
-                </div>
-                <div class="price-item">
-                  <span>Goslings</span>
-                  <strong>$34 each</strong>
-                </div>
-              </div>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Dewlap Toulouse" data-type="geese">
-                Join Waitlist
-              </button>
-            </article>
-            <article class="breed-card">
+            <article class="breed-card specimen-card" data-breed-id="white-embden">
               <img src="assets/images/placeholder-goose.svg" alt="White Embden geese" />
+              <p class="breed-status status-limited" data-breed-status>Limited availability</p>
               <h3>White Embden</h3>
               <p>Bright white plumage with excellent pasture work ethic and family-friendly energy.</p>
-              <div class="price-list">
-                <div class="price-item">
-                  <span>Hatching eggs</span>
-                  <strong>$68 / half dozen</strong>
-                </div>
-                <div class="price-item">
-                  <span>Goslings</span>
-                  <strong>$32 each</strong>
-                </div>
-              </div>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="White Embden" data-type="geese">
-                Join Waitlist
+              <button class="btn btn-outline" type="button" data-waitlist data-breed="White Embden" data-type="geese" data-status="limited">
+                Contact for info
               </button>
             </article>
           </div>
@@ -98,8 +70,8 @@
         <div class="container">
           <div class="cta">
             <div>
-              <h2>Geese with calm presence.</h2>
-              <p>Ask about pairings, grazing support, and seasonal hatch planning.</p>
+              <h2>Ask about current goose availability.</h2>
+              <p>White Embden availability is limited and may change with the season.</p>
             </div>
             <a class="btn btn-outline" href="contact.html">Talk to the farm team</a>
           </div>
@@ -112,7 +84,7 @@
         <div>
           <p class="footer-title">Nest & Nibble Farm</p>
           <p class="section-subtitle">
-            Premium poultry, waterfowl, and livestock raised in small batches with care and intention.
+            Poultry, waterfowl, and cashmere goats raised with care. NPIP tested. Certification pending.
           </p>
         </div>
         <div class="footer-links">
@@ -124,8 +96,8 @@
         </div>
         <div class="footer-links">
           <a href="contact.html">Contact</a>
-          <span class="footer-meta">Ship-to-home or local pickup options</span>
-          <span class="footer-meta">Email: hello@nestandnibble.com</span>
+          <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+          <span class="footer-meta">Email: maximumwags@gmail.com</span>
         </div>
       </div>
       <div class="container">
@@ -138,13 +110,14 @@
         <button class="modal-close" type="button" aria-label="Close" data-modal-close>
           &times;
         </button>
-        <p class="section-label">Waitlist</p>
-        <h2 class="section-title" id="modal-title" data-modal-title>Join the waitlist</h2>
+        <p class="section-label">Interest request</p>
+        <h2 class="section-title" id="modal-title" data-modal-title>Tell us what you're interested in</h2>
         <p class="section-subtitle">Breed: <span data-modal-breed>Selected breed</span></p>
         <form action="https://formspree.io/f/mvzqqngd" method="post" data-waitlist-form>
-          <!-- TODO: Hidden breed and type fields are set dynamically via JavaScript. -->
+          <!-- Hidden breed, type, and status fields are set dynamically via JavaScript. -->
           <input type="hidden" name="breed" data-modal-breed-input />
           <input type="hidden" name="type" data-modal-type-input />
+          <input type="hidden" name="status" data-modal-status-input />
           <div data-waitlist-fields>
             <div class="form-group">
               <label for="waitlist-name">Full Name</label>
@@ -159,7 +132,7 @@
               <input id="waitlist-phone" name="phone" type="tel" placeholder="(555) 123-4567" />
             </div>
             <fieldset class="form-group options-group" data-bird-options>
-              <legend>Request</legend>
+              <legend>Interest</legend>
               <label class="checkbox">
                 <input type="checkbox" name="hatching_eggs" value="true" data-egg-checkbox />
                 Hatching Eggs
@@ -169,7 +142,13 @@
                 <span data-live-label>Chicks</span>
               </label>
             </fieldset>
-            <button class="btn btn-primary" type="submit">Request waitlist spot</button>
+            <p class="facebook-option">
+              Prefer Facebook?
+              <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">
+                Message Lindsey directly
+              </a>
+            </p>
+            <button class="btn btn-primary" type="submit">Send interest request</button>
           </div>
           <p class="form-feedback" data-waitlist-status role="status" aria-live="polite"></p>
         </form>

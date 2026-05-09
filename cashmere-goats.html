@@ -6,7 +6,7 @@
     <title>Cashmere Goats | Nest & Nibble Farm</title>
     <meta
       name="description"
-      content="Nest & Nibble Farm will offer premium Cashmere goat kids in Spring 2026. Join the availability list for updates."
+      content="Learn about Nest & Nibble Farm Cashmere goats. Availability is limited; contact us for current information."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,18 +41,18 @@
     </header>
 
     <main id="main">
-      <section class="hero">
+      <section class="hero hero--goats">
         <div class="container hero-grid">
           <div>
-            <p class="section-label">Coming Spring 2026</p>
-            <h1>Premium Cashmere goat kids, raised with calm intention.</h1>
+            <p class="section-label">Limited availability</p>
+            <h1>Cashmere goats, raised with care on a small farm.</h1>
             <p>
-              Our first Cashmere kids will be available in Spring 2026. We are focused on ethical
-              breeding, gentle temperaments, and a limited, carefully planned release.
+              Cashmere goats are part of our small farm, but availability is limited and may change
+              with the season. Contact us if you would like current information.
             </p>
             <div class="hero-actions">
-              <button class="btn btn-primary" type="button" data-waitlist data-breed="Cashmere Goats" data-type="goats">
-                Join Availability List
+              <button class="btn btn-primary" type="button" data-waitlist data-breed-id="cashmere-goats" data-breed="Cashmere Goats" data-type="goats" data-status="limited">
+                Contact for info
               </button>
               <a class="btn btn-outline" href="#about-cashmere">Learn more</a>
             </div>
@@ -60,10 +60,9 @@
           <div class="hero-card">
             <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat placeholder" />
             <div>
-              <p class="section-label">Limited availability</p>
+              <p class="section-label">Availability note</p>
               <p class="section-subtitle">
-                We will open a small number of reservations once the Spring 2026 kidding season is
-                confirmed.
+                Please reach out directly for current goat availability and farm updates.
               </p>
             </div>
           </div>
@@ -74,25 +73,24 @@
         <div class="container">
           <div class="section-header">
             <span class="section-label">Why Cashmere</span>
-            <h2 class="section-title">A heritage fiber animal with a steady, family-friendly nature.</h2>
+            <h2 class="section-title">A heritage fiber animal with a steady presence.</h2>
             <p class="section-subtitle">
-              Cashmere goats are valued for their fine, soft undercoat and regal presence. Our
-              upcoming offering centers on responsible herd management, thoughtful pairings, and a
-              small-batch program designed for long-term health and quality.
+              Cashmere goats are valued for their fine, soft undercoat and calm presence. Our focus
+              is responsible herd management, ethical care, and keeping availability honest.
             </p>
           </div>
           <div class="value-grid">
             <article class="value-card">
-              <h3>Ethical, limited breeding</h3>
-              <p>Pairings are planned to preserve fiber quality and steady, people-forward traits.</p>
+              <h3>Ethical care</h3>
+              <p>We care about raising animals responsibly and keeping the farm manageable.</p>
             </article>
             <article class="value-card">
-              <h3>Premium care standards</h3>
-              <p>Abundant pasture space, daily handling, and careful nutrition shape every kid we raise.</p>
+              <h3>Small-farm pace</h3>
+              <p>We are not a large operation, so goat availability may be limited or seasonal.</p>
             </article>
             <article class="value-card">
               <h3>Transparent availability</h3>
-              <p>We will share timelines and readiness updates as the Spring 2026 season approaches.</p>
+              <p>Contact us for the most current information before making plans.</p>
             </article>
           </div>
         </div>
@@ -101,12 +99,12 @@
       <section class="section">
         <div class="container">
           <div class="waitlist-section">
-            <h2 class="section-title">Cashmere Goat Availability List</h2>
+            <h2 class="section-title">Ask about Cashmere goats</h2>
             <p class="section-subtitle">
-              Join the notification list to receive the first update when reservations open.
+              Send an interest request or message Lindsey on Facebook for the latest availability.
             </p>
-            <button class="btn btn-primary" type="button" data-waitlist data-breed="Cashmere Goats" data-type="goats">
-              Join availability list
+            <button class="btn btn-primary" type="button" data-waitlist data-breed-id="cashmere-goats" data-breed="Cashmere Goats" data-type="goats" data-status="limited">
+              Contact for info
             </button>
           </div>
         </div>
@@ -118,7 +116,7 @@
         <div>
           <p class="footer-title">Nest & Nibble Farm</p>
           <p class="section-subtitle">
-            Premium poultry, waterfowl, and livestock raised in small batches with care and intention.
+            Poultry, waterfowl, and cashmere goats raised with care. NPIP tested. Certification pending.
           </p>
         </div>
         <div class="footer-links">
@@ -130,8 +128,8 @@
         </div>
         <div class="footer-links">
           <a href="contact.html">Contact</a>
-          <span class="footer-meta">Ship-to-home or local pickup options</span>
-          <span class="footer-meta">Email: hello@nestandnibble.com</span>
+          <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+          <span class="footer-meta">Email: maximumwags@gmail.com</span>
         </div>
       </div>
       <div class="container">
@@ -144,13 +142,14 @@
         <button class="modal-close" type="button" aria-label="Close" data-modal-close>
           &times;
         </button>
-        <p class="section-label">Waitlist</p>
-        <h2 class="section-title" id="modal-title" data-modal-title>Join the waitlist</h2>
+        <p class="section-label">Interest request</p>
+        <h2 class="section-title" id="modal-title" data-modal-title>Tell us what you're interested in</h2>
         <p class="section-subtitle">Breed: <span data-modal-breed>Selected breed</span></p>
         <form action="https://formspree.io/f/mvzqqngd" method="post" data-waitlist-form>
-          <!-- TODO: Hidden breed and type fields are set dynamically via JavaScript. -->
+          <!-- Hidden breed, type, and status fields are set dynamically via JavaScript. -->
           <input type="hidden" name="breed" data-modal-breed-input />
           <input type="hidden" name="type" data-modal-type-input />
+          <input type="hidden" name="status" data-modal-status-input />
           <div data-waitlist-fields>
             <div class="form-group">
               <label for="waitlist-name">Full Name</label>
@@ -165,7 +164,13 @@
               <input id="waitlist-phone" name="phone" type="tel" placeholder="(555) 123-4567" />
             </div>
             
-            <button class="btn btn-primary" type="submit">Request waitlist spot</button>
+            <p class="facebook-option">
+              Prefer Facebook?
+              <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">
+                Message Lindsey directly
+              </a>
+            </p>
+            <button class="btn btn-primary" type="submit">Send interest request</button>
           </div>
           <p class="form-feedback" data-waitlist-status role="status" aria-live="polite"></p>
         </form>
