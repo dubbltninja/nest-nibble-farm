@@ -52,6 +52,9 @@
       },
       "white-embden": {
         "publicId": "white-embden"
+      },
+      "dewlap-toulouse": {
+        "publicId": "dewlap-toulouse"
       }
     }
   },
@@ -122,6 +125,11 @@
       "name": "White Embden",
       "type": "geese",
       "status": "limited"
+    },
+    "dewlap-toulouse": {
+      "name": "Dewlap Toulouse",
+      "type": "geese",
+      "status": "coming-soon"
     },
     "cashmere-goats": {
       "name": "Cashmere Goats",
