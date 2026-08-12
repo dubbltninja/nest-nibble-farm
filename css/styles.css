@@ -1625,7 +1625,8 @@ input:focus-visible {
   align-items: center;
 }
 
-.status-available {
+.status-available,
+.status-laying-hens-available {
   background: rgba(179, 218, 158, 0.38);
   border-color: rgba(95, 125, 83, 0.34);
   color: #385d32;
@@ -1640,6 +1641,12 @@ input:focus-visible {
 .status-limited {
   border-color: rgba(118, 62, 50, 0.28);
   color: #763e32;
+}
+
+[data-breed-id="ermine-americanas"] .status-limited {
+  background: rgba(247, 213, 112, 0.4);
+  border-color: rgba(154, 102, 37, 0.34);
+  color: #7b4f18;
 }
 
 .status-note {

@@ -66,6 +66,11 @@
       "cta": "I'm interested",
       "note": ""
     },
+    "laying-hens-available": {
+      "label": "Laying Hens Available",
+      "cta": "I'm interested",
+      "note": ""
+    },
     "coming-soon": {
       "label": "Coming soon",
       "cta": "Get updates",
@@ -82,7 +87,7 @@
       "name": "Ermine Ameraucanas",
       "modalPhrase": "our Ermine Ameraucanas",
       "type": "chicken",
-      "status": "available"
+      "status": "limited"
     },
     "cochins": {
       "name": "Cochins",
@@ -106,7 +111,7 @@
       "name": "Speckled Sussex",
       "modalPhrase": "our Speckled Sussex",
       "type": "chicken",
-      "status": "available"
+      "status": "laying-hens-available"
     },
     "rainbow-eggers": {
       "name": "Rainbow Eggers",
@@ -124,13 +129,13 @@
       "name": "Isabel Brahmas",
       "modalPhrase": "our Isabel Brahmas",
       "type": "chicken",
-      "status": "coming-soon"
+      "status": "available"
     },
     "bantam-salmon-favorelles": {
       "name": "Bantam Salmon Favorelles",
       "modalPhrase": "our Bantam Salmon Favorelles",
       "type": "chicken",
-      "status": "coming-soon"
+      "status": "available"
     },
     "white-embden": {
       "name": "White Embden",

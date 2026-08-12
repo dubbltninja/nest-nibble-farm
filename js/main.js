@@ -40,6 +40,11 @@
       cta: "I'm interested",
       note: "",
     },
+    "laying-hens-available": {
+      label: "Laying Hens Available",
+      cta: "I'm interested",
+      note: "",
+    },
     "coming-soon": {
       label: "Coming soon",
       cta: "Get updates",
