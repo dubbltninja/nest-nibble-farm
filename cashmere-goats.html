@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
     <title>Cashmere Goats | Nest & Nibble Farm</title>
-    <meta
-      name="description"
-      content="Learn about Nest & Nibble Farm Cashmere goats. Availability is limited; contact us for current information."
-    />
+    <meta name="description" content="American Cashmere goats raised at Nest & Nibble Farm. Availability is limited; contact us for current information." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Sora:wght@300;400;500;600&display=swap"
       rel="stylesheet"
@@ -19,179 +18,157 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <div class="container">
-        <div class="header-inner">
-          <a class="logo" href="index.html">Nest & Nibble Farm</a>
-          <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false">
-            Menu
-          </button>
-          <nav>
-            <div class="nav-links" data-nav-menu>
-              <a href="index.html">Home</a>
+      <a class="logo" href="index.html">Nest &amp; Nibble</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav-menu>
+        <div class="nav-links">
+          <div class="nav-flyout-item" data-nav-flyout>
+            <button type="button" data-nav-flyout-toggle aria-expanded="false">Flock</button>
+            <div class="nav-flyout">
               <a href="chickens.html">Chickens</a>
               <a href="ducks.html">Ducks</a>
               <a href="geese.html">Geese</a>
-              <a href="dna-poultry-testing.html">DNA Poultry Testing</a>
-              <a href="cashmere-goats.html" aria-current="page">Cashmere Goats</a>
-              <a href="about.html">About</a>
-              <a href="contact.html">Contact</a>
             </div>
-          </nav>
+          </div>
+          <a href="cashmere-goats.html" aria-current="page">Fiber</a>
+          <a href="dna-poultry-testing.html">Testing</a>
+          <a href="about.html">About</a>
         </div>
-      </div>
+        <button class="btn btn-nav" type="button" data-waitlist data-breed="Cashmere Goats" data-modal-phrase="our Cashmere goats" data-type="goats" data-status="limited">I'm interested</button>
+      </nav>
     </header>
 
     <main id="main">
-      <section class="hero hero--goats">
-        <div class="container hero-grid">
-          <div>
-            <h1>Cashmere goats, raised with care on a small farm.</h1>
-            <p>
-              Cashmere goats are part of our small farm, but availability is limited and may change
-              with the season. Contact us for the most current information.
-            </p>
-            <div class="hero-actions">
-              <button class="btn btn-primary" type="button" data-waitlist data-breed-id="cashmere-goats" data-breed="Cashmere Goats" data-modal-phrase="our Cashmere goats" data-type="goats" data-status="limited">
-                Contact for info
-              </button>
-              <a class="btn btn-outline" href="#about-cashmere">Learn more</a>
+      <section class="page-dawn page-dawn--goats">
+        <img
+          class="page-dawn-photo"
+          src="https://res.cloudinary.com/drqir7lka/image/upload/f_auto,q_auto,c_fill,g_auto,w_2400,h_1500/cashmere-goats.jpg"
+          alt="American Cashmere goats in the pasture"
+          data-cloudinary-slot="cashmere-goats"
+          data-fallback-src="assets/images/placeholder-goat.svg"
+        />
+        <div class="page-dawn-copy">
+          <p class="eyebrow">American Cashmere</p>
+          <h1>A coat grown for winter.</h1>
+          <p>A small herd, handled daily. Availability is limited and changes with the season.</p>
+        </div>
+      </section>
+
+      <section id="about-cashmere" class="goat-gallery-wrap">
+        <div class="section-header">
+          <span class="section-label">Goat gallery</span>
+          <h2 class="section-title">A closer look at our American Cashmere goats.</h2>
+          <p class="section-subtitle">Browse a few farm photos. Click any image to view it larger.</p>
+        </div>
+        <div class="goat-gallery" data-goat-gallery>
+          <button class="goat-gallery-arrow goat-gallery-arrow--prev" type="button" data-goat-prev aria-label="Previous goat photo">
+            <span aria-hidden="true">&lsaquo;</span>
+          </button>
+          <div class="goat-gallery-viewport">
+            <div class="goat-gallery-track" data-goat-track>
+              <figure class="goat-gallery-slide">
+                <button class="goat-gallery-image-button" type="button" data-goat-open aria-label="View Cashmere goat photo 1">
+                  <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat photo 1" data-goat-photo="cashmere-1" data-goat-caption="Bernice and her two soon to be available doelings." />
+                  <span class="goat-gallery-caption">Bernice and her two soon to be available doelings.</span>
+                </button>
+              </figure>
+              <figure class="goat-gallery-slide">
+                <button class="goat-gallery-image-button" type="button" data-goat-open aria-label="View Cashmere goat photo 2">
+                  <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat photo 2" data-goat-photo="cashmere-2" data-goat-caption="These two doelings will be available later this season!" />
+                  <span class="goat-gallery-caption">These two doelings will be available later this season!</span>
+                </button>
+              </figure>
+              <figure class="goat-gallery-slide">
+                <button class="goat-gallery-image-button" type="button" data-goat-open aria-label="View Cashmere goat photo 3">
+                  <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat photo 3" data-goat-photo="cashmere-3" data-goat-caption="Just look at that face!" />
+                  <span class="goat-gallery-caption">Just look at that face!</span>
+                </button>
+              </figure>
+              <figure class="goat-gallery-slide">
+                <button class="goat-gallery-image-button" type="button" data-goat-open aria-label="View Cashmere goat photo 4">
+                  <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat photo 4" data-goat-photo="cashmere-4" data-goat-caption="Our doelings this year were sired by Snowball from Pine Hill Farm." />
+                  <span class="goat-gallery-caption">Our doelings this year were sired by Snowball from Pine Hill Farm.</span>
+                </button>
+              </figure>
             </div>
           </div>
-          <div class="hero-card">
-            <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat" data-cloudinary-slot="cashmere-goats" />
+          <button class="goat-gallery-arrow goat-gallery-arrow--next" type="button" data-goat-next aria-label="Next goat photo">
+            <span aria-hidden="true">&rsaquo;</span>
+          </button>
+          <div class="goat-gallery-dots" aria-hidden="true">
+            <span data-goat-dot></span>
+            <span data-goat-dot></span>
+            <span data-goat-dot></span>
+            <span data-goat-dot></span>
           </div>
         </div>
       </section>
 
-      <section id="about-cashmere" class="section">
-        <div class="container">
-          <div class="goat-gallery-wrap">
-            <div class="section-header">
-              <span class="section-label">Goat gallery</span>
-              <h2 class="section-title">A closer look at our American Cashmere goats.</h2>
-              <p class="section-subtitle">
-                Browse a few farm photos. Click any image to view it larger.
-              </p>
-            </div>
-            <div class="goat-gallery" data-goat-gallery>
-              <button class="goat-gallery-arrow goat-gallery-arrow--prev" type="button" data-goat-prev aria-label="Previous goat photo">
-                <span aria-hidden="true">&lsaquo;</span>
-              </button>
-              <div class="goat-gallery-viewport">
-                <div class="goat-gallery-track" data-goat-track>
-                  <figure class="goat-gallery-slide">
-                    <button class="goat-gallery-image-button" type="button" data-goat-open aria-label="View Cashmere goat photo 1">
-                      <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat photo 1" data-goat-photo="cashmere-1" data-goat-caption="Bernice and her two soon to be available doelings." />
-                      <span class="goat-gallery-caption">Bernice and her two soon to be available doelings.</span>
-                    </button>
-                  </figure>
-                  <figure class="goat-gallery-slide">
-                    <button class="goat-gallery-image-button" type="button" data-goat-open aria-label="View Cashmere goat photo 2">
-                      <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat photo 2" data-goat-photo="cashmere-2" data-goat-caption="These two doelings will be available later this season!" />
-                      <span class="goat-gallery-caption">These two doelings will be available later this season!</span>
-                    </button>
-                  </figure>
-                  <figure class="goat-gallery-slide">
-                    <button class="goat-gallery-image-button" type="button" data-goat-open aria-label="View Cashmere goat photo 3">
-                      <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat photo 3" data-goat-photo="cashmere-3" data-goat-caption="Just look at that face!" />
-                      <span class="goat-gallery-caption">Just look at that face!</span>
-                    </button>
-                  </figure>
-                  <figure class="goat-gallery-slide">
-                    <button class="goat-gallery-image-button" type="button" data-goat-open aria-label="View Cashmere goat photo 4">
-                      <img src="assets/images/placeholder-goat.svg" alt="Cashmere goat photo 4" data-goat-photo="cashmere-4" data-goat-caption="Our doelings this year were sired by Snowball from Pine Hill Farm." />
-                      <span class="goat-gallery-caption">Our doelings this year were sired by Snowball from Pine Hill Farm.</span>
-                    </button>
-                  </figure>
-                </div>
-              </div>
-              <button class="goat-gallery-arrow goat-gallery-arrow--next" type="button" data-goat-next aria-label="Next goat photo">
-                <span aria-hidden="true">&rsaquo;</span>
-              </button>
-              <div class="goat-gallery-dots" aria-hidden="true">
-                <span data-goat-dot></span>
-                <span data-goat-dot></span>
-                <span data-goat-dot></span>
-                <span data-goat-dot></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="section-header">
-            <span class="section-label">Why Cashmere</span>
-            <h2 class="section-title">A heritage fiber animal with a regal presence.</h2>
-            <p class="section-subtitle">
-              Cashmere is the soft undercoat these goats grow for warmth as the weather cools. The
-              fiber can be collected, dehaired, processed, and spun into yarn for knitting, weaving,
-              and other handmade projects. Cashmere goats grow that coat through the fall and winter,
-              then naturally shed it in the spring, when it can be brushed out by hand.
-            </p>
-          </div>
-          <div class="value-grid">
-            <article class="value-card">
-              <h3>Small-farm pace</h3>
-              <p>We are not a large operation, so goat availability may be limited or seasonal. Our tight-knit herd allows us to provide individualized care and attention to each animal.</p>
-            </article>
-            <article class="value-card">
-              <h3>Friendly faces</h3>
-              <p>We care about raising animals responsibly and keeping the farm manageable. Our livestock is handled daily, so they are remarkably friendly and used to human interaction.</p>
-            </article>
-            <article class="value-card">
-              <h3>Transparent availability</h3>
-              <p>Contact us for the most current information before making plans as there may be others also interested in our 2026 kids.</p>
-            </article>
-          </div>
-          <p class="association-note">
-              Nest & Nibble Farm is proudly registered with the
-              <a href="https://cashmeregoatassociation.org/member.php?m=Member" target="_blank" rel="noopener">Cashmere Goat Association</a>,
-              a member community focused on education, research, and practical standards for North
-              American cashmere goats.
-            </p>
+      <section class="fiber-facts">
+        <div class="section-header">
+          <span class="section-label">The fiber</span>
+          <h2 class="section-title">Grown through winter. Gathered in spring.</h2>
+          <p class="section-subtitle">
+            Cashmere is the soft undercoat these goats grow for warmth as the weather cools. The fiber can be collected, dehaired, processed, and spun into yarn. They grow that coat through fall and winter, then naturally shed it in spring, when it can be brushed out by hand.
+          </p>
         </div>
+        <div class="value-grid">
+          <article class="value-card">
+            <h3>Small-farm pace</h3>
+            <p>A tight-knit herd, with individualized care. Availability may be limited or seasonal.</p>
+          </article>
+          <article class="value-card">
+            <h3>Friendly faces</h3>
+            <p>Handled daily, so they are used to people and remarkably approachable.</p>
+          </article>
+          <article class="value-card">
+            <h3>Transparent availability</h3>
+            <p>Contact us before making plans — others may also be interested in our 2026 kids.</p>
+          </article>
+        </div>
+        <p class="association-note">
+          Nest &amp; Nibble Farm is proudly registered with the
+          <a href="https://cashmeregoatassociation.org/member.php?m=Member" target="_blank" rel="noopener">Cashmere Goat Association</a>.
+        </p>
       </section>
 
-      <section class="section">
-        <div class="container">
-          <div class="waitlist-section">
-            <h2 class="section-title">Ask about Cashmere goats</h2>
-            <p class="section-subtitle goat-contact-line">
-              Contact us on
-              <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-              for the most current information on which doelings are available.
-            </p>
-            <br>
-            <button class="btn btn-primary" type="button" data-waitlist data-breed-id="cashmere-goats" data-breed="Cashmere Goats" data-modal-phrase="our Cashmere goats" data-type="goats" data-status="limited">
-              Contact for info
-            </button>
-          </div>
-        </div>
+      <section class="waitlist-section">
+        <h2 class="section-title">Ask about Cashmere goats</h2>
+        <p class="section-subtitle goat-contact-line">
+          Message us on
+          <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+          for the most current information on which doelings are available.
+        </p>
+        <button class="btn btn-primary" type="button" data-waitlist data-breed-id="cashmere-goats" data-breed="Cashmere Goats" data-modal-phrase="our Cashmere goats" data-type="goats" data-status="limited">
+          Contact for info
+        </button>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <p class="footer-title">Nest & Nibble Farm</p>
-          <p class="section-subtitle">
-            Poultry, waterfowl, and cashmere goats raised with care. NPIP tested. Certification pending.
-          </p>
+          <p class="footer-title">Nest &amp; Nibble Farm</p>
+          <p class="section-subtitle">Henderson, Maryland. NPIP tested. Certification pending.</p>
         </div>
         <div class="footer-links">
           <a href="chickens.html">Chickens</a>
           <a href="ducks.html">Ducks</a>
           <a href="geese.html">Geese</a>
-          <a href="dna-poultry-testing.html">DNA Poultry Testing</a>
-          <a href="about.html">About</a>
-          <a href="cashmere-goats.html">Cashmere Goats</a>
+          <a href="cashmere-goats.html">Cashmere goats</a>
+          <a href="dna-poultry-testing.html">DNA testing</a>
         </div>
         <div class="footer-links">
+          <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
           <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-          <span class="footer-meta">Email: maximumwags@gmail.com</span>
+          <span class="footer-meta">maximumwags@gmail.com</span>
         </div>
       </div>
       <div class="container">
-        <p class="footer-meta">&copy; <span data-year></span> Nest & Nibble Farm. All rights reserved.</p>
+        <p class="footer-meta">&copy; <span data-year></span> Nest &amp; Nibble Farm. All rights reserved.</p>
       </div>
     </footer>
 
@@ -210,46 +187,37 @@
       </div>
     </div>
 
-        <div class="modal" data-modal aria-hidden="true">
-      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button class="modal-close" type="button" aria-label="Close" data-modal-close>
-          &times;
-        </button>
-        <p class="section-label">Interest request</p>
+    <div class="drawer" data-modal aria-hidden="true">
+      <button class="drawer-backdrop" type="button" data-modal-close aria-label="Close"></button>
+      <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="drawer-close" type="button" aria-label="Close" data-modal-close>&times;</button>
+        <p class="section-label">A note to the farm</p>
         <h2 class="section-title" id="modal-title" data-modal-title>Get more info</h2>
-        <p class="section-subtitle">Breed: <span data-modal-breed>Selected breed</span></p>
+        <p class="section-subtitle">About: <span data-modal-breed>Selected breed</span></p>
         <form action="https://formspree.io/f/mvzqqngd" method="post" data-waitlist-form>
-          <!-- Hidden breed, type, and status fields are set dynamically via JavaScript. -->
           <input type="hidden" name="breed" data-modal-breed-input />
           <input type="hidden" name="type" data-modal-type-input />
           <input type="hidden" name="status" data-modal-status-input />
           <div data-waitlist-fields>
             <div class="form-group">
-              <label for="waitlist-name">Full Name</label>
-              <input id="waitlist-name" name="name" type="text" placeholder="Your name" required />
+              <label for="waitlist-name">Full name</label>
+              <input id="waitlist-name" name="name" type="text" autocomplete="name" required />
             </div>
             <div class="form-group">
               <label for="waitlist-email">Email</label>
-              <input id="waitlist-email" name="email" type="email" placeholder="you@email.com" required />
+              <input id="waitlist-email" name="email" type="email" autocomplete="email" required />
             </div>
             <div class="form-group">
-              <label for="waitlist-phone">Phone Number</label>
-              <input id="waitlist-phone" name="phone" type="tel" placeholder="(555) 123-4567" />
+              <label for="waitlist-phone">Phone</label>
+              <input id="waitlist-phone" name="phone" type="tel" autocomplete="tel" />
             </div>
-            
-            <p class="facebook-option">
-              Prefer Facebook?
-              <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">
-                Message Lindsey directly
-              </a>
-            </p>
+            <p class="facebook-option">Prefer Facebook? <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">Message Lindsey directly</a></p>
             <button class="btn btn-primary" type="submit">Send interest request</button>
           </div>
           <p class="form-feedback" data-waitlist-status role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
-
     <script src="js/main.js"></script>
   </body>
 </html>

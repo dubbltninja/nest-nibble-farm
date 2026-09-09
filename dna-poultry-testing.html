@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
     <title>DNA Poultry Testing | Nest & Nibble Farm</title>
     <meta
       name="description"
@@ -19,30 +20,31 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <div class="container">
-        <div class="header-inner">
-          <a class="logo" href="index.html">Nest &amp; Nibble Farm</a>
-          <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false">Menu</button>
-          <nav>
-            <div class="nav-links" data-nav-menu>
-              <a href="index.html">Home</a>
+      <a class="logo" href="index.html">Nest &amp; Nibble</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav-menu>
+        <div class="nav-links">
+          <div class="nav-flyout-item" data-nav-flyout>
+            <button type="button" data-nav-flyout-toggle aria-expanded="false">Flock</button>
+            <div class="nav-flyout">
               <a href="chickens.html">Chickens</a>
               <a href="ducks.html">Ducks</a>
               <a href="geese.html">Geese</a>
-              <a href="dna-poultry-testing.html" aria-current="page">DNA Poultry Testing</a>
-              <a href="cashmere-goats.html">Cashmere Goats</a>
-              <a href="about.html">About</a>
-              <a href="contact.html">Contact</a>
             </div>
-          </nav>
+          </div>
+          <a href="cashmere-goats.html">Fiber</a>
+          <a href="dna-poultry-testing.html" aria-current="page">Testing</a>
+          <a href="about.html">About</a>
         </div>
-      </div>
+        <button class="btn btn-nav" type="button" data-waitlist data-breed="DNA poultry testing" data-modal-phrase="DNA poultry testing" data-type="farm" data-status="available">I'm interested</button>
+      </nav>
     </header>
 
     <main id="main">
-      <section class="dna-hero hero parallax-section">
+      <section class="dna-hero">
         <div class="dna-hero-glow" aria-hidden="true"></div>
-        <img class="dna-hero-image" src="assets/images/hero-farm.svg" alt="" aria-hidden="true" />
         <div class="container dna-hero-grid">
           <div class="dna-hero-copy">
             <span class="section-label">Nest &amp; Nibble Farm</span>
@@ -200,12 +202,60 @@
 
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div><p class="footer-title">Nest &amp; Nibble Farm</p><p class="section-subtitle">Poultry, waterfowl, and cashmere goats raised with care. NPIP tested. Certification pending.</p></div>
-        <div class="footer-links"><a href="chickens.html">Chickens</a><a href="ducks.html">Ducks</a><a href="geese.html">Geese</a><a href="dna-poultry-testing.html">DNA Poultry Testing</a><a href="about.html">About</a><a href="cashmere-goats.html">Cashmere Goats</a></div>
-        <div class="footer-links"><a href="contact.html">Contact</a><a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a><span class="footer-meta">Email: maximumwags@gmail.com</span></div>
+        <div>
+          <p class="footer-title">Nest &amp; Nibble Farm</p>
+          <p class="section-subtitle">Henderson, Maryland. NPIP tested. Certification pending.</p>
+        </div>
+        <div class="footer-links">
+          <a href="chickens.html">Chickens</a>
+          <a href="ducks.html">Ducks</a>
+          <a href="geese.html">Geese</a>
+          <a href="cashmere-goats.html">Cashmere goats</a>
+          <a href="dna-poultry-testing.html">DNA testing</a>
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+          <span class="footer-meta">maximumwags@gmail.com</span>
+        </div>
       </div>
-      <div class="container"><p class="footer-meta">&copy; <span data-year></span> Nest &amp; Nibble Farm. All rights reserved.</p></div>
+      <div class="container">
+        <p class="footer-meta">&copy; <span data-year></span> Nest &amp; Nibble Farm. All rights reserved.</p>
+      </div>
     </footer>
+
+    <div class="drawer" data-modal aria-hidden="true">
+      <button class="drawer-backdrop" type="button" data-modal-close aria-label="Close"></button>
+      <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="drawer-close" type="button" aria-label="Close" data-modal-close>&times;</button>
+        <p class="section-label">A note to the farm</p>
+        <h2 class="section-title" id="modal-title" data-modal-title>Get more info</h2>
+        <p class="section-subtitle">About: <span data-modal-breed>Selected breed</span></p>
+        <form action="https://formspree.io/f/mvzqqngd" method="post" data-waitlist-form>
+          <input type="hidden" name="breed" data-modal-breed-input />
+          <input type="hidden" name="type" data-modal-type-input />
+          <input type="hidden" name="status" data-modal-status-input />
+          <div data-waitlist-fields>
+            <div class="form-group">
+              <label for="waitlist-name">Full name</label>
+              <input id="waitlist-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label for="waitlist-email">Email</label>
+              <input id="waitlist-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="form-group">
+              <label for="waitlist-phone">Phone</label>
+              <input id="waitlist-phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+            <p class="facebook-option">Prefer Facebook? <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">Message Lindsey directly</a></p>
+            <button class="btn btn-primary" type="submit">Send interest request</button>
+          </div>
+          <p class="form-feedback" data-waitlist-status role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
     <script src="js/main.js"></script>
   </body>
 </html>

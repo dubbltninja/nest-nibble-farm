@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
     <title>Chickens | Nest & Nibble Farm</title>
-    <meta
-      name="description"
-      content="Explore Nest & Nibble Farm chicken breeds and occasional availability."
-    />
+    <meta name="description" content="Chicken breeds raised at Nest & Nibble Farm for temperament and egg color." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Sora:wght@300;400;500;600&display=swap"
       rel="stylesheet"
@@ -19,191 +18,213 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <div class="container">
-        <div class="header-inner">
-          <a class="logo" href="index.html">Nest & Nibble Farm</a>
-          <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false">
-            Menu
-          </button>
-          <nav>
-            <div class="nav-links" data-nav-menu>
-              <a href="index.html">Home</a>
+      <a class="logo" href="index.html">Nest &amp; Nibble</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav-menu>
+        <div class="nav-links">
+          <div class="nav-flyout-item is-current" data-nav-flyout>
+            <button type="button" data-nav-flyout-toggle aria-expanded="false">Flock</button>
+            <div class="nav-flyout">
               <a href="chickens.html" aria-current="page">Chickens</a>
               <a href="ducks.html">Ducks</a>
               <a href="geese.html">Geese</a>
-              <a href="dna-poultry-testing.html">DNA Poultry Testing</a>
-              <a href="cashmere-goats.html">Cashmere Goats</a>
-              <a href="about.html">About</a>
-              <a href="contact.html">Contact</a>
             </div>
-          </nav>
+          </div>
+          <a href="cashmere-goats.html">Fiber</a>
+          <a href="dna-poultry-testing.html">Testing</a>
+          <a href="about.html">About</a>
         </div>
-      </div>
+        <button class="btn btn-nav" type="button" data-waitlist data-breed="the farm" data-modal-phrase="the farm" data-type="farm" data-status="available">I'm interested</button>
+      </nav>
     </header>
 
     <main id="main">
-      <section class="page-hero page-hero--chickens">
-        <div class="container">
+      <section class="page-dawn page-dawn--chickens">
+        <img
+          class="page-dawn-photo"
+          src="https://res.cloudinary.com/drqir7lka/image/upload/f_auto,q_auto,c_fill,g_auto,w_2400,h_1500/salmon-favorelles.jpg"
+          alt="Salmon Faverolles in the pasture"
+          data-cloudinary-slot="page-chickens"
+          data-fallback-src="assets/images/placeholder-chicken.svg"
+        />
+        <div class="page-dawn-copy">
+          <p class="eyebrow">The flock</p>
           <h1>Chickens</h1>
-          <p>
-            Chicken breeds we raise or are developing. Availability may be seasonal and interest based.
-          </p>
+          <p>Raised for friendly temperaments and a carton worth collecting.</p>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
-          <div class="breed-grid">
-            <article class="breed-card specimen-card" data-breed-id="salmon-favorelles">
-              <img src="assets/images/placeholder-chicken.svg" alt="Salmon Favorelles" />
-              <p class="breed-status status-available" data-breed-status>Available</p>
-              <h3>Salmon Favorelles</h3>
-              <p>Gentle large fowl with muffs, feathered feet, five toes, and cream-tinted eggs.</p>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Salmon Favorelles" data-modal-phrase="our Salmon Favorelles" data-type="chicken" data-status="available">I'm interested</button>
-            </article>
-            <article class="breed-card specimen-card" data-breed-id="cochins">
-              <img src="assets/images/placeholder-chicken.svg" alt="Cochins" />
-              <p class="breed-status status-available" data-breed-status>Available</p>
-              <h3>Cochins</h3>
-              <p>Full-bodied, feathered birds that bring a calm, collected energy to the yard.</p>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Cochins" data-modal-phrase="our Cochins" data-type="chicken" data-status="available">I'm interested</button>
-            </article>
-            <article class="breed-card specimen-card" data-breed-id="chocolate-eggers" data-card-label="Egg color line">
-              <img src="assets/images/placeholder-chicken.svg" alt="Chocolate Eggers" />
-              <p class="breed-status status-available" data-breed-status>Available</p>
-              <h3 data-card-label="Egg color line">Chocolate Eggers</h3>
-              <p>A Maran mix bred for pretty dark brown speckled &quot;chocolate&quot; eggs.</p>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Chocolate Eggers" data-modal-phrase="our Chocolate Eggers" data-type="chicken" data-status="available">I'm interested</button>
-            </article>
-            <article class="breed-card specimen-card" data-breed-id="rainbow-eggers" data-card-label="Egg color line">
-              <img src="assets/images/placeholder-chicken.svg" alt="Rainbow Eggers" />
-              <p class="breed-status status-available" data-breed-status>Available</p>
-              <h3 data-card-label="Egg color line">Rainbow Eggers</h3>
-              <p>A varied mix for people who enjoy a colorful egg basket.</p>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Rainbow Eggers" data-modal-phrase="our Rainbow Eggers" data-type="chicken" data-status="available">I'm interested</button>
-            </article>
-            <article class="breed-card specimen-card" data-breed-id="isabel-brahmas">
-              <img src="assets/images/placeholder-chicken.svg" alt="Isabel Brahmas" />
-              <p class="breed-status status-available" data-breed-status>Available</p>
-              <h3>Isabel Brahmas</h3>
-              <p>Gentle giants with feathered feet and warm-toned eggs in elegant shells.</p>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Isabel Brahmas" data-modal-phrase="our Isabel Brahmas" data-type="chicken" data-status="available">I'm interested</button>
-            </article>
-            <article class="breed-card specimen-card" data-breed-id="bantam-salmon-favorelles">
-              <img src="assets/images/placeholder-chicken.svg" alt="Bantam Salmon Favorelles" />
-              <p class="breed-status status-available" data-breed-status>Available</p>
-              <h3>Bantam Salmon Favorelles</h3>
-              <p>A smaller bantam version with the same bearded, feather-footed Faverolles charm.</p>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Bantam Salmon Favorelles" data-modal-phrase="our Bantam Salmon Favorelles" data-type="chicken" data-status="available">I'm interested</button>
-            </article>
-            <article class="breed-card specimen-card" data-breed-id="speckled-sussex">
-              <img src="assets/images/placeholder-chicken.svg" alt="Speckled Sussex" />
-              <p class="breed-status status-laying-hens-available" data-breed-status>Laying Hens Available</p>
-              <h3>Speckled Sussex</h3>
-              <p>Classic speckled feathers with steady, dependable brown eggs.</p>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Speckled Sussex" data-modal-phrase="our Speckled Sussex" data-type="chicken" data-status="laying-hens-available">I'm interested</button>
-            </article>
-            <article class="breed-card specimen-card" data-breed-id="ermine-americanas">
-              <img src="assets/images/placeholder-chicken.svg" alt="Ermine Ameraucanas" />
-              <p class="breed-status status-limited" data-breed-status>Limited availability</p>
-              <h3>Ermine Ameraucanas</h3>
-              <p>Soft silver plumage paired with icy blue eggs and an inquisitive flock presence.</p>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Ermine Ameraucanas" data-modal-phrase="our Ermine Ameraucanas" data-type="chicken" data-status="limited">Contact for info</button>
-            </article>
-          </div>
-        </div>
-      </section>
+      <nav class="breed-rail" aria-label="Chicken breeds">
+        <a href="#salmon-favorelles">Salmon Favorelles</a>
+        <a href="#cochins">Cochins</a>
+        <a href="#chocolate-eggers">Chocolate Eggers</a>
+        <a href="#rainbow-eggers">Rainbow Eggers</a>
+        <a href="#isabel-brahmas">Isabel Brahmas</a>
+        <a href="#bantam-salmon-favorelles">Bantam Favorelles</a>
+        <a href="#speckled-sussex">Speckled Sussex</a>
+        <a href="#ermine-americanas">Ermine Ameraucanas</a>
+      </nav>
 
-      <section class="section">
-        <div class="container">
-          <div class="cta">
-            <div>
-              <h2>Need help selecting the right line?</h2>
-              <p>Share your goals and we will guide you to the best egg palette and temperament.</p>
-            </div>
-            <a class="btn btn-outline" href="contact.html">Ask the farm team</a>
-          </div>
+      <article id="salmon-favorelles" class="breed-card specimen-card breed-chapter breed-chapter--cream" data-breed-id="salmon-favorelles">
+        <div class="breed-visual">
+          <img src="assets/images/placeholder-chicken.svg" alt="Salmon Favorelles" />
         </div>
-      </section>
+        <div class="breed-copy">
+          <p class="breed-status status-available" data-breed-status>Available</p>
+          <h3>Salmon Favorelles</h3>
+          <p>Gentle large fowl with muffs, feathered feet, five toes, and cream-tinted eggs.</p>
+          <button class="btn btn-outline" type="button" data-waitlist data-breed="Salmon Favorelles" data-modal-phrase="our Salmon Favorelles" data-type="chicken" data-status="available">I'm interested</button>
+        </div>
+      </article>
+
+      <article id="cochins" class="breed-card specimen-card breed-chapter breed-chapter--mist" data-breed-id="cochins">
+        <div class="breed-visual">
+          <img src="assets/images/placeholder-chicken.svg" alt="Cochins" />
+        </div>
+        <div class="breed-copy">
+          <p class="breed-status status-available" data-breed-status>Available</p>
+          <h3>Cochins</h3>
+          <p>Full-bodied, feathered birds that bring a calm, collected energy to the yard.</p>
+          <button class="btn btn-outline" type="button" data-waitlist data-breed="Cochins" data-modal-phrase="our Cochins" data-type="chicken" data-status="available">I'm interested</button>
+        </div>
+      </article>
+
+      <article id="chocolate-eggers" class="breed-card specimen-card breed-chapter breed-chapter--copper" data-breed-id="chocolate-eggers">
+        <div class="breed-visual">
+          <img src="assets/images/placeholder-chicken.svg" alt="Chocolate Eggers" />
+        </div>
+        <div class="breed-copy">
+          <p class="breed-status status-available" data-breed-status>Available</p>
+          <h3>Chocolate Eggers</h3>
+          <p>A Maran mix bred for pretty dark brown speckled chocolate eggs.</p>
+          <button class="btn btn-outline" type="button" data-waitlist data-breed="Chocolate Eggers" data-modal-phrase="our Chocolate Eggers" data-type="chicken" data-status="available">I'm interested</button>
+        </div>
+      </article>
+
+      <article id="rainbow-eggers" class="breed-card specimen-card breed-chapter breed-chapter--sage" data-breed-id="rainbow-eggers">
+        <div class="breed-visual">
+          <img src="assets/images/placeholder-chicken.svg" alt="Rainbow Eggers" />
+        </div>
+        <div class="breed-copy">
+          <p class="breed-status status-available" data-breed-status>Available</p>
+          <h3>Rainbow Eggers</h3>
+          <p>A varied mix for people who enjoy a colorful egg basket.</p>
+          <button class="btn btn-outline" type="button" data-waitlist data-breed="Rainbow Eggers" data-modal-phrase="our Rainbow Eggers" data-type="chicken" data-status="available">I'm interested</button>
+        </div>
+      </article>
+
+      <article id="isabel-brahmas" class="breed-card specimen-card breed-chapter breed-chapter--cream" data-breed-id="isabel-brahmas">
+        <div class="breed-visual">
+          <img src="assets/images/placeholder-chicken.svg" alt="Isabel Brahmas" />
+        </div>
+        <div class="breed-copy">
+          <p class="breed-status status-available" data-breed-status>Available</p>
+          <h3>Isabel Brahmas</h3>
+          <p>Gentle giants with feathered feet and warm-toned eggs in elegant shells.</p>
+          <button class="btn btn-outline" type="button" data-waitlist data-breed="Isabel Brahmas" data-modal-phrase="our Isabel Brahmas" data-type="chicken" data-status="available">I'm interested</button>
+        </div>
+      </article>
+
+      <article id="bantam-salmon-favorelles" class="breed-card specimen-card breed-chapter breed-chapter--cream" data-breed-id="bantam-salmon-favorelles">
+        <div class="breed-visual">
+          <img src="assets/images/placeholder-chicken.svg" alt="Bantam Salmon Favorelles" />
+        </div>
+        <div class="breed-copy">
+          <p class="breed-status status-available" data-breed-status>Available</p>
+          <h3>Bantam Salmon Favorelles</h3>
+          <p>A smaller bantam version with the same bearded, feather-footed Faverolles charm.</p>
+          <button class="btn btn-outline" type="button" data-waitlist data-breed="Bantam Salmon Favorelles" data-modal-phrase="our Bantam Salmon Favorelles" data-type="chicken" data-status="available">I'm interested</button>
+        </div>
+      </article>
+
+      <article id="speckled-sussex" class="breed-card specimen-card breed-chapter breed-chapter--copper" data-breed-id="speckled-sussex">
+        <div class="breed-visual">
+          <img src="assets/images/placeholder-chicken.svg" alt="Speckled Sussex" />
+        </div>
+        <div class="breed-copy">
+          <p class="breed-status status-laying-hens-available" data-breed-status>Laying Hens Available</p>
+          <h3>Speckled Sussex</h3>
+          <p>Classic speckled feathers with steady, dependable brown eggs.</p>
+          <button class="btn btn-outline" type="button" data-waitlist data-breed="Speckled Sussex" data-modal-phrase="our Speckled Sussex" data-type="chicken" data-status="laying-hens-available">I'm interested</button>
+        </div>
+      </article>
+
+      <article id="ermine-americanas" class="breed-card specimen-card breed-chapter breed-chapter--blue" data-breed-id="ermine-americanas">
+        <div class="breed-visual">
+          <img src="assets/images/placeholder-chicken.svg" alt="Ermine Ameraucanas" />
+        </div>
+        <div class="breed-copy">
+          <p class="breed-status status-limited" data-breed-status>Limited availability</p>
+          <h3>Ermine Ameraucanas</h3>
+          <p>Soft silver plumage paired with icy blue eggs and an inquisitive flock presence.</p>
+          <button class="btn btn-outline" type="button" data-waitlist data-breed="Ermine Ameraucanas" data-modal-phrase="our Ermine Ameraucanas" data-type="chicken" data-status="limited">Contact for info</button>
+        </div>
+      </article>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <p class="footer-title">Nest & Nibble Farm</p>
-          <p class="section-subtitle">
-            Poultry, waterfowl, and cashmere goats raised with care. NPIP tested. Certification pending.
-          </p>
+          <p class="footer-title">Nest &amp; Nibble Farm</p>
+          <p class="section-subtitle">Henderson, Maryland. NPIP tested. Certification pending.</p>
         </div>
         <div class="footer-links">
           <a href="chickens.html">Chickens</a>
           <a href="ducks.html">Ducks</a>
           <a href="geese.html">Geese</a>
-          <a href="dna-poultry-testing.html">DNA Poultry Testing</a>
-          <a href="about.html">About</a>
-          <a href="cashmere-goats.html">Cashmere Goats</a>
+          <a href="cashmere-goats.html">Cashmere goats</a>
+          <a href="dna-poultry-testing.html">DNA testing</a>
         </div>
         <div class="footer-links">
+          <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
           <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-          <span class="footer-meta">Email: maximumwags@gmail.com</span>
+          <span class="footer-meta">maximumwags@gmail.com</span>
         </div>
       </div>
       <div class="container">
-        <p class="footer-meta">&copy; <span data-year></span> Nest & Nibble Farm. All rights reserved.</p>
+        <p class="footer-meta">&copy; <span data-year></span> Nest &amp; Nibble Farm. All rights reserved.</p>
       </div>
     </footer>
 
-        <div class="modal" data-modal aria-hidden="true">
-      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button class="modal-close" type="button" aria-label="Close" data-modal-close>
-          &times;
-        </button>
-        <p class="section-label">Interest request</p>
+    <div class="drawer" data-modal aria-hidden="true">
+      <button class="drawer-backdrop" type="button" data-modal-close aria-label="Close"></button>
+      <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="drawer-close" type="button" aria-label="Close" data-modal-close>&times;</button>
+        <p class="section-label">A note to the farm</p>
         <h2 class="section-title" id="modal-title" data-modal-title>Get more info</h2>
-        <p class="section-subtitle">Breed: <span data-modal-breed>Selected breed</span></p>
+        <p class="section-subtitle">About: <span data-modal-breed>Selected breed</span></p>
         <form action="https://formspree.io/f/mvzqqngd" method="post" data-waitlist-form>
-          <!-- Hidden breed, type, and status fields are set dynamically via JavaScript. -->
           <input type="hidden" name="breed" data-modal-breed-input />
           <input type="hidden" name="type" data-modal-type-input />
           <input type="hidden" name="status" data-modal-status-input />
           <div data-waitlist-fields>
             <div class="form-group">
-              <label for="waitlist-name">Full Name</label>
-              <input id="waitlist-name" name="name" type="text" placeholder="Your name" required />
+              <label for="waitlist-name">Full name</label>
+              <input id="waitlist-name" name="name" type="text" autocomplete="name" required />
             </div>
             <div class="form-group">
               <label for="waitlist-email">Email</label>
-              <input id="waitlist-email" name="email" type="email" placeholder="you@email.com" required />
+              <input id="waitlist-email" name="email" type="email" autocomplete="email" required />
             </div>
             <div class="form-group">
-              <label for="waitlist-phone">Phone Number</label>
-              <input id="waitlist-phone" name="phone" type="tel" placeholder="(555) 123-4567" />
+              <label for="waitlist-phone">Phone</label>
+              <input id="waitlist-phone" name="phone" type="tel" autocomplete="tel" />
             </div>
             <fieldset class="form-group options-group" data-bird-options>
               <legend>Interest</legend>
-              <label class="checkbox">
-                <input type="checkbox" name="hatching_eggs" value="true" data-egg-checkbox />
-                Hatching Eggs
-              </label>
-              <label class="checkbox">
-                <input type="checkbox" name="live_birds" value="true" data-live-checkbox />
-                <span data-live-label>Chicks</span>
-              </label>
+              <label class="checkbox"><input type="checkbox" name="hatching_eggs" value="true" data-egg-checkbox /> Hatching eggs</label>
+              <label class="checkbox"><input type="checkbox" name="live_birds" value="true" data-live-checkbox /> <span data-live-label>Chicks</span></label>
             </fieldset>
-            <p class="facebook-option">
-              Prefer Facebook?
-              <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">
-                Message Lindsey directly
-              </a>
-            </p>
+            <p class="facebook-option">Prefer Facebook? <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">Message Lindsey directly</a></p>
             <button class="btn btn-primary" type="submit">Send interest request</button>
           </div>
           <p class="form-feedback" data-waitlist-status role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
-
     <script src="js/main.js"></script>
   </body>
 </html>

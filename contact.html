@@ -3,11 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
     <title>Contact | Nest & Nibble Farm</title>
-    <meta
-      name="description"
-      content="Contact Nest & Nibble Farm about current availability, breed interest, and farm updates."
-    />
+    <meta name="description" content="Contact Nest & Nibble Farm about current availability, breed interest, and farm updates." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,109 +17,95 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <div class="container">
-        <div class="header-inner">
-          <a class="logo" href="index.html">Nest & Nibble Farm</a>
-          <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false">
-            Menu
-          </button>
-          <nav>
-            <div class="nav-links" data-nav-menu>
-              <a href="index.html">Home</a>
+      <a class="logo" href="index.html">Nest &amp; Nibble</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav-menu>
+        <div class="nav-links">
+          <div class="nav-flyout-item" data-nav-flyout>
+            <button type="button" data-nav-flyout-toggle aria-expanded="false">Flock</button>
+            <div class="nav-flyout">
               <a href="chickens.html">Chickens</a>
               <a href="ducks.html">Ducks</a>
               <a href="geese.html">Geese</a>
-              <a href="dna-poultry-testing.html">DNA Poultry Testing</a>
-              <a href="cashmere-goats.html">Cashmere Goats</a>
-              <a href="about.html">About</a>
-              <a href="contact.html" aria-current="page">Contact</a>
             </div>
-          </nav>
+          </div>
+          <a href="cashmere-goats.html">Fiber</a>
+          <a href="dna-poultry-testing.html">Testing</a>
+          <a href="about.html">About</a>
         </div>
-      </div>
+        <a class="btn btn-nav" href="#contact-form">Write a note</a>
+      </nav>
     </header>
 
     <main id="main">
-      <section class="page-hero">
-        <div class="container">
-          <h1>Contact the farm team</h1>
-          <p>
-            Tell us what you are interested in. We would love to answer your questions and help you find the right fit for your homestead!
+      <section class="contact-layout">
+        <div>
+          <p class="eyebrow">Henderson, Maryland</p>
+          <h1 class="section-title">Write the farm.</h1>
+          <p class="lede">
+            Tell us what you are looking for. We would love to help you find the right fit for your homestead.
+          </p>
+          <p class="facebook-option" style="color: var(--color-muted); margin-top: 24px;">
+            Prefer Facebook?
+            <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">Message Lindsey directly</a>
           </p>
         </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="waitlist-section">
-            <h2 class="section-title">Send an interest request</h2>
-            <p class="section-subtitle">
-              Use this form for general questions or breed interest.
-            </p>
-            <form action="" method="post">
-              <!-- TODO: Connect to Google Forms or backend endpoint. -->
+        <div class="contact-panel" id="contact-form">
+          <h2 class="section-title">Send a note</h2>
+          <p class="section-subtitle">General questions, breed interest, or timing.</p>
+          <form action="https://formspree.io/f/mvzqqngd" method="post" data-contact-form>
+            <input type="hidden" name="_subject" value="Nest & Nibble farm inquiry" />
+            <div data-contact-fields>
               <div class="form-group">
                 <label for="contact-name">Full name</label>
-                <input id="contact-name" name="name" type="text" placeholder="Your name" required />
+                <input id="contact-name" name="name" type="text" autocomplete="name" required />
               </div>
               <div class="form-group">
-                <label for="contact-email">Email address</label>
-                <input id="contact-email" name="email" type="email" placeholder="you@email.com" required />
+                <label for="contact-email">Email</label>
+                <input id="contact-email" name="email" type="email" autocomplete="email" required />
               </div>
               <div class="form-group">
-                <label for="contact-phone">Phone number</label>
-                <input id="contact-phone" name="phone" type="tel" placeholder="(555) 123-4567" required />
+                <label for="contact-phone">Phone</label>
+                <input id="contact-phone" name="phone" type="tel" autocomplete="tel" required />
               </div>
               <div class="form-group">
                 <label for="contact-notes">Notes</label>
-                <input
-                  id="contact-notes"
-                  name="notes"
-                  type="text"
-                  placeholder="Breed interest, questions, or timing"
-                />
+                <textarea id="contact-notes" name="notes" placeholder="Breed interest, questions, or timing"></textarea>
               </div>
-              <p class="facebook-option">
-                Prefer Facebook?
-                <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">
-                  Message Lindsey directly
-                </a>
-              </p>
               <button class="btn btn-primary" type="submit">Send request</button>
-            </form>
-          </div>
+            </div>
+            <p class="form-feedback" data-contact-status role="status" aria-live="polite"></p>
+          </form>
         </div>
       </section>
-
     </main>
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <p class="footer-title">Nest & Nibble Farm</p>
-          <p class="section-subtitle">
-            Poultry, waterfowl, and cashmere goats raised with care. NPIP tested. Certification pending.
-          </p>
+          <p class="footer-title">Nest &amp; Nibble Farm</p>
+          <p class="section-subtitle">Henderson, Maryland. NPIP tested. Certification pending.</p>
         </div>
         <div class="footer-links">
           <a href="chickens.html">Chickens</a>
           <a href="ducks.html">Ducks</a>
           <a href="geese.html">Geese</a>
-          <a href="dna-poultry-testing.html">DNA Poultry Testing</a>
-          <a href="about.html">About</a>
-          <a href="cashmere-goats.html">Cashmere Goats</a>
+          <a href="cashmere-goats.html">Cashmere goats</a>
+          <a href="dna-poultry-testing.html">DNA testing</a>
         </div>
         <div class="footer-links">
+          <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
           <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-          <span class="footer-meta">Email: maximumwags@gmail.com</span>
+          <span class="footer-meta">maximumwags@gmail.com</span>
         </div>
       </div>
       <div class="container">
-        <p class="footer-meta">&copy; <span data-year></span> Nest & Nibble Farm. All rights reserved.</p>
+        <p class="footer-meta">&copy; <span data-year></span> Nest &amp; Nibble Farm. All rights reserved.</p>
       </div>
     </footer>
-
     <script src="js/main.js"></script>
   </body>
 </html>

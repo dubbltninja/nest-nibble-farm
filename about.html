@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
     <title>About | Nest & Nibble Farm</title>
-    <meta
-      name="description"
-      content="Learn about Nest & Nibble Farm, a small farm raising chickens, ducks, geese, and Cashmere goats."
-    />
+    <meta name="description" content="Lindsey and Tim raise chickens, ducks, geese, and cashmere goats on a small farm in Henderson, Maryland." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Sora:wght@300;400;500;600&display=swap"
       rel="stylesheet"
@@ -19,86 +18,69 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <div class="container">
-        <div class="header-inner">
-          <a class="logo" href="index.html">Nest & Nibble Farm</a>
-          <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false">
-            Menu
-          </button>
-          <nav>
-            <div class="nav-links" data-nav-menu>
-              <a href="index.html">Home</a>
+      <a class="logo" href="index.html">Nest &amp; Nibble</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav-menu>
+        <div class="nav-links">
+          <div class="nav-flyout-item" data-nav-flyout>
+            <button type="button" data-nav-flyout-toggle aria-expanded="false">Flock</button>
+            <div class="nav-flyout">
               <a href="chickens.html">Chickens</a>
               <a href="ducks.html">Ducks</a>
               <a href="geese.html">Geese</a>
-              <a href="dna-poultry-testing.html">DNA Poultry Testing</a>
-              <a href="cashmere-goats.html">Cashmere Goats</a>
-              <a href="about.html" aria-current="page">About</a>
-              <a href="contact.html">Contact</a>
             </div>
-          </nav>
+          </div>
+          <a href="cashmere-goats.html">Fiber</a>
+          <a href="dna-poultry-testing.html">Testing</a>
+          <a href="about.html" aria-current="page">About</a>
         </div>
-      </div>
+        <button class="btn btn-nav" type="button" data-waitlist data-breed="the farm" data-modal-phrase="the farm" data-type="farm" data-status="available">I'm interested</button>
+      </nav>
     </header>
 
     <main id="main">
-      <section class="page-hero">
-        <div class="container">
+      <section class="page-dawn">
+        <img
+          class="page-dawn-photo"
+          src="https://res.cloudinary.com/drqir7lka/image/upload/f_auto,q_auto,c_fill,g_auto,w_2400,h_1500/about-image.jpg"
+          alt="Lindsey and Tim with cashmere kids"
+          data-cloudinary-slot="about-image"
+          data-fallback-src="assets/images/hero-farm.svg"
+        />
+        <div class="page-dawn-copy">
+          <p class="eyebrow">Henderson, Maryland</p>
           <h1>About the farm</h1>
+          <p>Lindsey and Tim. A small flock, a small herd, and an animal-first pace.</p>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
-          <div class="about-feature">
-            <div class="section-header">
-              <span class="section-label">Our approach</span>
-              <h2 class="section-title">Built around ethical animal raising.</h2>
-              <p class="section-subtitle">
-                Nest & Nibble Farm is a small business based in Henderson, Maryland, raising chickens,
-                ducks, geese, and cashmere goats. Lindsey and Tim own and operate the farm, and
-                have a love for animals and believe in raising them responsibly.
-              </p>
-              <p class="section-subtitle">
-                We are a small farm, not a large hatchery, so availability may be seasonal and interest based.
-                If a breed catches your eye, send an interest request or message Lindsey directly on
-                <a class="highlight-link" href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>.
-              </p>
-            </div>
-            <figure class="about-image-card">
-              <img
-                src="assets/images/hero-farm.svg"
-                alt="Nest & Nibble Farm"
-                data-cloudinary-slot="about-image"
-              />
-              <figcaption>Meet the owners, Lindsey and Tim.</figcaption>
-            </figure>
-          </div>
-          <div class="value-grid">
-            <article class="value-card">
-              <h3>Hands-on experience</h3>
-              <p>Lindsey spent 9 years raising chickens, pigs, goats, steer, and market lambs through her local 4-H club - animals have always been a huge part of our family!</p>
-            </article>
-            <article class="value-card">
-              <h3>Selective hatching</h3>
-              <p>We hatch birds depending on fertility and customer interest. Hatchlings can be picked up locally here in Henderson, MD, and fertile eggs are also available for shipping.</p>
-            </article>
-            <article class="value-card">
-              <h3>Health-minded standards</h3>
-              <p>We keep our animals' health and living standards as a top priority. Our farm is NPIP tested, with a certification pending.</p>
-            </article>
-          </div>
+      <section class="about-story">
+        <div class="about-prose">
+          <p class="eyebrow">Our approach</p>
+          <h2 class="section-title">Built around ethical animal raising.</h2>
+          <p>
+            Nest &amp; Nibble is a small business raising chickens, ducks, geese, and cashmere goats.
+            We are not a large hatchery. Availability follows the season, fertility, and genuine interest.
+          </p>
+          <p>
+            If a breed catches your eye, send a note or message Lindsey on
+            <a class="highlight-link" href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>.
+          </p>
         </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="cta">
-            <div>
-              <h2>Interested in a breed?</h2>
-              <p>Tell us what you are looking for and we will respond based on current farm availability.</p>
-            </div>
-            <a class="btn btn-outline" href="contact.html">Start the conversation</a>
+        <div class="fact-row">
+          <div>
+            <strong>4-H roots</strong>
+            <span>Lindsey spent nine years raising chickens, pigs, goats, steer, and market lambs.</span>
+          </div>
+          <div>
+            <strong>Selective hatches</strong>
+            <span>Hatchlings for local pickup in Henderson. Fertile eggs available for shipping.</span>
+          </div>
+          <div>
+            <strong>NPIP tested</strong>
+            <span>Health and living standards come first. Certification pending.</span>
           </div>
         </div>
       </section>
@@ -107,30 +89,64 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <p class="footer-title">Nest & Nibble Farm</p>
-          <p class="section-subtitle">
-            Poultry, waterfowl, and cashmere goats raised with care. NPIP tested. Certification pending.
-          </p>
+          <p class="footer-title">Nest &amp; Nibble Farm</p>
+          <p class="section-subtitle">Henderson, Maryland. NPIP tested. Certification pending.</p>
         </div>
         <div class="footer-links">
           <a href="chickens.html">Chickens</a>
           <a href="ducks.html">Ducks</a>
           <a href="geese.html">Geese</a>
-          <a href="dna-poultry-testing.html">DNA Poultry Testing</a>
-          <a href="about.html">About</a>
-          <a href="cashmere-goats.html">Cashmere Goats</a>
+          <a href="cashmere-goats.html">Cashmere goats</a>
+          <a href="dna-poultry-testing.html">DNA testing</a>
         </div>
         <div class="footer-links">
+          <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
           <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-          <span class="footer-meta">Email: maximumwags@gmail.com</span>
+          <span class="footer-meta">maximumwags@gmail.com</span>
         </div>
       </div>
       <div class="container">
-        <p class="footer-meta">&copy; <span data-year></span> Nest & Nibble Farm. All rights reserved.</p>
+        <p class="footer-meta">&copy; <span data-year></span> Nest &amp; Nibble Farm. All rights reserved.</p>
       </div>
     </footer>
 
+    <div class="drawer" data-modal aria-hidden="true">
+      <button class="drawer-backdrop" type="button" data-modal-close aria-label="Close"></button>
+      <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="drawer-close" type="button" aria-label="Close" data-modal-close>&times;</button>
+        <p class="section-label">A note to the farm</p>
+        <h2 class="section-title" id="modal-title" data-modal-title>Get more info</h2>
+        <p class="section-subtitle">About: <span data-modal-breed>Selected breed</span></p>
+        <form action="https://formspree.io/f/mvzqqngd" method="post" data-waitlist-form>
+          <input type="hidden" name="breed" data-modal-breed-input />
+          <input type="hidden" name="type" data-modal-type-input />
+          <input type="hidden" name="status" data-modal-status-input />
+          <div data-waitlist-fields>
+            <div class="form-group">
+              <label for="waitlist-name">Full name</label>
+              <input id="waitlist-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label for="waitlist-email">Email</label>
+              <input id="waitlist-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="form-group">
+              <label for="waitlist-phone">Phone</label>
+              <input id="waitlist-phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+            <fieldset class="form-group options-group" data-bird-options>
+              <legend>Interest</legend>
+              <label class="checkbox"><input type="checkbox" name="hatching_eggs" value="true" data-egg-checkbox /> Hatching eggs</label>
+              <label class="checkbox"><input type="checkbox" name="live_birds" value="true" data-live-checkbox /> <span data-live-label>Chicks</span></label>
+            </fieldset>
+            <p class="facebook-option">Prefer Facebook? <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">Message Lindsey directly</a></p>
+            <button class="btn btn-primary" type="submit">Send interest request</button>
+          </div>
+          <p class="form-feedback" data-waitlist-status role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
     <script src="js/main.js"></script>
   </body>
 </html>

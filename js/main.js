@@ -1,17 +1,46 @@
 (() => {
-  // Mobile nav toggle.
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const navToggle = document.querySelector("[data-nav-toggle]");
   const navMenu = document.querySelector("[data-nav-menu]");
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const navToggleLabel = document.querySelector(".nav-toggle-label");
+  const header = document.querySelector(".site-header");
+
+  const setNavOpen = (isOpen) => {
+    if (!navMenu || !navToggle) return;
+    navMenu.classList.toggle("is-open", isOpen);
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    document.body.classList.toggle("nav-open", isOpen);
+    if (navToggleLabel) {
+      navToggleLabel.textContent = isOpen ? "Close" : "Menu";
+    }
+  };
 
   if (navToggle && navMenu) {
     navToggle.addEventListener("click", () => {
-      const isOpen = navMenu.classList.toggle("is-open");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
+      setNavOpen(!navMenu.classList.contains("is-open"));
+    });
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setNavOpen(false));
     });
   }
 
-  // Shared interest modal behavior. Internal data names stay stable for existing markup.
+  document.querySelectorAll("[data-nav-flyout]").forEach((item) => {
+    const toggle = item.querySelector("[data-nav-flyout-toggle]");
+    if (!toggle) return;
+    toggle.addEventListener("click", () => {
+      const isOpen = item.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  });
+
+  if (header) {
+    const onScroll = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 24);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
   const modal = document.querySelector("[data-modal]");
   const modalTitle = document.querySelector("[data-modal-title]");
   const modalBreed = document.querySelector("[data-modal-breed]");
@@ -27,7 +56,6 @@
   const eggCheckbox = modal ? modal.querySelector("[data-egg-checkbox]") : null;
   const liveCheckbox = modal ? modal.querySelector("[data-live-checkbox]") : null;
   const liveLabel = modal ? modal.querySelector("[data-live-label]") : null;
-  // Bird-only checkbox options are hidden for goats and require one selection for birds.
   const birdTypes = new Set(["chicken", "ducks", "geese"]);
   const liveLabelMap = {
     chicken: "Chicks",
@@ -59,30 +87,22 @@
   let currentType = "";
 
   const resetWaitlistForm = () => {
-    if (waitlistForm) {
-      waitlistForm.reset();
-    }
+    if (waitlistForm) waitlistForm.reset();
     if (waitlistStatus) {
       waitlistStatus.textContent = "";
       waitlistStatus.classList.remove("is-visible");
     }
-    if (waitlistFields) {
-      waitlistFields.removeAttribute("hidden");
-    }
+    if (waitlistFields) waitlistFields.removeAttribute("hidden");
   };
 
   const updateBirdValidity = () => {
     if (!birdTypes.has(currentType)) {
-      if (eggCheckbox) {
-        eggCheckbox.setCustomValidity("");
-      }
+      if (eggCheckbox) eggCheckbox.setCustomValidity("");
       return;
     }
     const isChecked = [eggCheckbox, liveCheckbox].some((checkbox) => checkbox && checkbox.checked);
     const message = isChecked ? "" : "Select at least one interest option.";
-    if (eggCheckbox) {
-      eggCheckbox.setCustomValidity(message);
-    }
+    if (eggCheckbox) eggCheckbox.setCustomValidity(message);
   };
 
   const updateBirdOptions = (typeName) => {
@@ -90,26 +110,15 @@
     if (!birdOptions) return;
     if (!birdTypes.has(typeName)) {
       birdOptions.setAttribute("hidden", "");
-      // Disable bird-only inputs for goats so they never submit values.
-      if (eggCheckbox) {
-        eggCheckbox.disabled = true;
-      }
-      if (liveCheckbox) {
-        liveCheckbox.disabled = true;
-      }
+      if (eggCheckbox) eggCheckbox.disabled = true;
+      if (liveCheckbox) liveCheckbox.disabled = true;
       updateBirdValidity();
       return;
     }
     birdOptions.removeAttribute("hidden");
-    if (eggCheckbox) {
-      eggCheckbox.disabled = false;
-    }
-    if (liveCheckbox) {
-      liveCheckbox.disabled = false;
-    }
-    if (liveLabel) {
-      liveLabel.textContent = liveLabelMap[typeName] || "Live birds";
-    }
+    if (eggCheckbox) eggCheckbox.disabled = false;
+    if (liveCheckbox) liveCheckbox.disabled = false;
+    if (liveLabel) liveLabel.textContent = liveLabelMap[typeName] || "Live birds";
     updateBirdValidity();
   };
 
@@ -117,40 +126,31 @@
     if (!modal) return;
     resetWaitlistForm();
     if (modalTitle) {
-      modalTitle.textContent = `Get more info about ${titlePhrase}`;
+      modalTitle.textContent =
+        typeName === "farm" ? "Tell us what you're looking for" : `Get more info about ${titlePhrase}`;
     }
-    if (modalBreed) {
-      modalBreed.textContent = breedName;
-    }
-    // Hidden fields help Formspree group submissions by breed, type, and availability status.
-    if (modalBreedInput) {
-      modalBreedInput.value = breedName;
-    }
-    if (modalTypeInput) {
-      modalTypeInput.value = typeName;
-    }
-    if (modalStatusInput) {
-      modalStatusInput.value = statusName;
-    }
+    if (modalBreed) modalBreed.textContent = breedName;
+    if (modalBreedInput) modalBreedInput.value = breedName;
+    if (modalTypeInput) modalTypeInput.value = typeName;
+    if (modalStatusInput) modalStatusInput.value = statusName;
     updateBirdOptions(typeName);
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("drawer-open");
     const firstInput = modal.querySelector('input:not([type="hidden"])');
-    if (firstInput) {
-      firstInput.focus();
-    }
+    if (firstInput) firstInput.focus();
   };
 
   const closeModal = () => {
     if (!modal) return;
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
+    document.body.classList.remove("drawer-open");
   };
 
   openButtons.forEach((button) => {
     button.addEventListener("click", () => {
+      setNavOpen(false);
       const breedName = button.getAttribute("data-breed") || "this breed";
       const typeName = button.getAttribute("data-type") || "";
       const statusName = button.getAttribute("data-status") || "available";
@@ -159,23 +159,47 @@
     });
   });
 
-  modalClose.forEach((button) => {
-    button.addEventListener("click", closeModal);
-  });
+  modalClose.forEach((button) => button.addEventListener("click", closeModal));
 
-  if (modal) {
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        closeModal();
-      }
-    });
-  }
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    closeModal();
+    setNavOpen(false);
+  });
 
   [eggCheckbox, liveCheckbox].forEach((checkbox) => {
-    if (checkbox) {
-      checkbox.addEventListener("change", updateBirdValidity);
-    }
+    if (checkbox) checkbox.addEventListener("change", updateBirdValidity);
   });
+
+  const submitFormspree = async (form, statusEl, fieldsEl, successMessage) => {
+    if (statusEl) {
+      statusEl.textContent = "Sending your request...";
+      statusEl.classList.add("is-visible");
+    }
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (response.ok) {
+        if (fieldsEl) fieldsEl.setAttribute("hidden", "");
+        if (statusEl) {
+          statusEl.textContent = successMessage;
+          statusEl.classList.add("is-visible");
+        }
+        form.reset();
+      } else if (statusEl) {
+        statusEl.textContent = "Something went wrong. Please try again.";
+        statusEl.classList.add("is-visible");
+      }
+    } catch (error) {
+      if (statusEl) {
+        statusEl.textContent = "Something went wrong. Please try again.";
+        statusEl.classList.add("is-visible");
+      }
+    }
+  };
 
   if (waitlistForm) {
     waitlistForm.addEventListener("submit", async (event) => {
@@ -185,52 +209,37 @@
         waitlistForm.reportValidity();
         return;
       }
-      if (waitlistStatus) {
-        waitlistStatus.textContent = "Sending your request...";
-        waitlistStatus.classList.add("is-visible");
-      }
       const submittedBreed = modalBreedInput ? modalBreedInput.value : "your interest request";
-      try {
-        const response = await fetch(waitlistForm.action, {
-          method: "POST",
-          body: new FormData(waitlistForm),
-          headers: {
-            Accept: "application/json",
-          },
-        });
-
-        if (response.ok) {
-          if (waitlistFields) {
-            waitlistFields.setAttribute("hidden", "");
-          }
-          if (waitlistStatus) {
-            waitlistStatus.textContent = `Thanks! We'll follow up about ${submittedBreed}.`;
-            waitlistStatus.classList.add("is-visible");
-          }
-          waitlistForm.reset();
-        } else if (waitlistStatus) {
-          waitlistStatus.textContent = "Something went wrong. Please try again.";
-          waitlistStatus.classList.add("is-visible");
-        }
-      } catch (error) {
-        if (waitlistStatus) {
-          waitlistStatus.textContent = "Something went wrong. Please try again.";
-          waitlistStatus.classList.add("is-visible");
-        }
-      }
+      await submitFormspree(
+        waitlistForm,
+        waitlistStatus,
+        waitlistFields,
+        `Thanks! We'll follow up about ${submittedBreed}.`
+      );
     });
   }
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeModal();
-    }
-  });
+  const contactForm = document.querySelector("[data-contact-form]");
+  if (contactForm) {
+    const contactStatus = contactForm.querySelector("[data-contact-status]");
+    const contactFields = contactForm.querySelector("[data-contact-fields]");
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+      await submitFormspree(
+        contactForm,
+        contactStatus,
+        contactFields,
+        "Thanks! We'll be in touch shortly."
+      );
+    });
+  }
 
   const year = document.querySelector("[data-year]");
-  if (year) {
-    year.textContent = new Date().getFullYear();
-  }
+  if (year) year.textContent = new Date().getFullYear();
 
   const applyBreedStatus = (card, breed, statuses) => {
     const statusName = breed.status || "available";
@@ -246,11 +255,8 @@
 
     const note = card.querySelector("[data-status-note]");
     if (note) {
-      if (status.note) {
-        note.textContent = status.note;
-      } else {
-        note.remove();
-      }
+      if (status.note) note.textContent = status.note;
+      else note.remove();
     }
 
     const button = card.querySelector("[data-waitlist]");
@@ -266,10 +272,7 @@
   const normalizeImageConfig = (entry, fallbackPublicId, fallbackTransform = "breed") => {
     if (entry === false || entry === null) return null;
     if (typeof entry === "string") {
-      return {
-        publicId: entry,
-        transform: fallbackTransform,
-      };
+      return { publicId: entry, transform: fallbackTransform };
     }
     return {
       publicId: entry && entry.publicId ? entry.publicId : fallbackPublicId,
@@ -281,44 +284,47 @@
     if (!cloudinary || !cloudinary.baseUrl || !imageConfig || !imageConfig.publicId) return "";
     const publicId = imageConfig.publicId;
     if (/^https?:\/\//i.test(publicId)) return publicId;
-
     const extension = cloudinary.extension || "jpg";
     const hasExtension = /\.[a-z0-9]+$/i.test(publicId);
     const fileName = hasExtension ? publicId : `${publicId}.${extension}`;
     const transforms = cloudinary.transforms || {};
     const transform = transforms[imageConfig.transform] || imageConfig.transform || "";
     const baseUrl = cloudinary.baseUrl.replace(/\/$/, "");
-
     return [baseUrl, transform, fileName].filter(Boolean).join("/");
   };
+
+  const eagerSlots = new Set([
+    "home-hero",
+    "home-dawn",
+    "page-chickens",
+    "page-ducks",
+    "page-geese",
+    "cashmere-goats",
+  ]);
 
   const loadCloudinaryImage = (image, cloudinary, imageConfig, options = {}) => {
     const url = buildCloudinaryUrl(cloudinary, imageConfig);
     if (!image || !url) return;
 
-    const wrapper = image.closest(".specimen-card, .hero-card, .farm-stage, .about-image-card");
+    const wrapper = image.closest(
+      ".specimen-card, .hero-card, .farm-stage, .about-image-card, .breed-visual, .dawn, .page-dawn, .world-portal, .chapter"
+    );
     const fallbackSrc = image.dataset.fallbackSrc || image.getAttribute("src") || "";
     image.dataset.fallbackSrc = fallbackSrc;
     image.decoding = "async";
     image.loading = options.eager ? "eager" : "lazy";
-    if (options.eager) {
-      image.setAttribute("fetchpriority", "high");
-    }
+    if (options.eager) image.setAttribute("fetchpriority", "high");
 
     const handleLoad = () => {
       image.classList.add("is-cloudinary-photo");
-      if (wrapper) {
-        wrapper.classList.add("has-cloudinary-photo");
-      }
+      if (wrapper) wrapper.classList.add("has-cloudinary-photo");
     };
 
     const handleError = () => {
       image.removeEventListener("load", handleLoad);
       image.removeEventListener("error", handleError);
       image.classList.remove("is-cloudinary-photo");
-      if (wrapper) {
-        wrapper.classList.remove("has-cloudinary-photo");
-      }
+      if (wrapper) wrapper.classList.remove("has-cloudinary-photo");
       if (fallbackSrc && image.getAttribute("src") !== fallbackSrc) {
         image.removeAttribute("fetchpriority");
         image.src = fallbackSrc;
@@ -327,7 +333,8 @@
 
     image.addEventListener("load", handleLoad, { once: true });
     image.addEventListener("error", handleError, { once: true });
-    image.src = url;
+    if (image.getAttribute("src") !== url) image.src = url;
+    else if (image.complete && image.naturalWidth) handleLoad();
   };
 
   const applyCloudinaryImages = (cloudinary) => {
@@ -344,10 +351,10 @@
 
     document.querySelectorAll("[data-cloudinary-slot]").forEach((image) => {
       const slotName = image.dataset.cloudinarySlot;
-      const fallbackTransform = slotName === "home-hero" ? "hero" : "feature";
+      const fallbackTransform = eagerSlots.has(slotName) ? "wide" : "feature";
       const imageConfig = normalizeImageConfig(slots[slotName], slotName, fallbackTransform);
       loadCloudinaryImage(image, cloudinary, imageConfig, {
-        eager: slotName === "home-hero",
+        eager: eagerSlots.has(slotName),
       });
     });
   };
@@ -401,9 +408,7 @@
         if (!image) return;
         lightboxImage.src = image.dataset.lightboxSrc || image.currentSrc || image.src;
         lightboxImage.alt = image.alt || "Cashmere goat photo";
-        if (lightboxCaption) {
-          lightboxCaption.textContent = image.dataset.goatCaption || "";
-        }
+        if (lightboxCaption) lightboxCaption.textContent = image.dataset.goatCaption || "";
       };
 
       const setIndex = (index) => {
@@ -412,9 +417,7 @@
         dots.forEach((dot, dotIndex) => {
           dot.classList.toggle("is-active", dotIndex === activeIndex);
         });
-        if (lightbox && lightbox.classList.contains("is-open")) {
-          updateLightboxImage();
-        }
+        if (lightbox && lightbox.classList.contains("is-open")) updateLightboxImage();
       };
 
       const openLightbox = (index) => {
@@ -425,9 +428,7 @@
         lightbox.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
         const closeButton = lightbox.querySelector("[data-goat-close]");
-        if (closeButton) {
-          closeButton.focus();
-        }
+        if (closeButton) closeButton.focus();
       };
 
       const closeLightbox = () => {
@@ -441,22 +442,16 @@
       nextButton?.addEventListener("click", () => setIndex(activeIndex + 1));
       lightboxPrev?.addEventListener("click", () => setIndex(activeIndex - 1));
       lightboxNext?.addEventListener("click", () => setIndex(activeIndex + 1));
-      lightboxClose.forEach((button) => {
-        button.addEventListener("click", closeLightbox);
-      });
+      lightboxClose.forEach((button) => button.addEventListener("click", closeLightbox));
       openButtons.forEach((button, index) => {
         button.addEventListener("click", () => openLightbox(index));
       });
 
       document.addEventListener("keydown", (event) => {
         if (!lightbox || !lightbox.classList.contains("is-open")) return;
-        if (event.key === "Escape") {
-          closeLightbox();
-        } else if (event.key === "ArrowLeft") {
-          setIndex(activeIndex - 1);
-        } else if (event.key === "ArrowRight") {
-          setIndex(activeIndex + 1);
-        }
+        if (event.key === "Escape") closeLightbox();
+        else if (event.key === "ArrowLeft") setIndex(activeIndex - 1);
+        else if (event.key === "ArrowRight") setIndex(activeIndex + 1);
       });
 
       setIndex(0);
@@ -476,13 +471,11 @@
 
       document.querySelectorAll(".breed-card[data-breed-id]").forEach((card) => {
         const breed = breeds[card.dataset.breedId];
-        if (breed) {
-          applyBreedStatus(card, breed, statuses);
-        }
+        if (breed) applyBreedStatus(card, breed, statuses);
       });
 
       document.querySelectorAll("[data-waitlist][data-breed-id]").forEach((button) => {
-        if (button.closest(".breed-card")) return;
+        if (button.closest(".breed-card") || button.classList.contains("btn-nav")) return;
         const breed = breeds[button.dataset.breedId];
         if (!breed) return;
         const statusName = breed.status || "available";
@@ -495,9 +488,7 @@
       });
 
       document.querySelectorAll("[data-facebook-link]").forEach((link) => {
-        if (config.facebookUrl) {
-          link.href = config.facebookUrl;
-        }
+        if (config.facebookUrl) link.href = config.facebookUrl;
       });
     } catch (error) {
       // Static HTML remains accurate if local JSON cannot be fetched.
@@ -507,264 +498,78 @@
   applyFarmConfig();
   initGoatGalleries();
 
-  // Progressive reveal animations using IntersectionObserver.
-  const revealTargets = new Set();
-
-  const registerReveal = (element, type) => {
-    if (!element || revealTargets.has(element)) return;
-    element.classList.add("reveal");
-    if (type) {
-      element.dataset.reveal = type;
-    }
-    revealTargets.add(element);
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const hexToRgb = (hex) => {
+    const value = hex.replace("#", "");
+    return [
+      Number.parseInt(value.slice(0, 2), 16),
+      Number.parseInt(value.slice(2, 4), 16),
+      Number.parseInt(value.slice(4, 6), 16),
+    ];
   };
+  const rgbToCss = (rgb) => `rgb(${rgb[0].toFixed(0)}, ${rgb[1].toFixed(0)}, ${rgb[2].toFixed(0)})`;
 
-  const staggerChildren = (container, step = 80, type = "fade") => {
-    if (!container) return;
-    const children = Array.from(container.children);
-    children.forEach((child, index) => {
-      registerReveal(child, type);
-      child.style.setProperty("--delay", `${index * step}ms`);
-    });
-  };
+  const eggWorld = document.querySelector("[data-egg-world]");
+  if (eggWorld) {
+    const steps = Array.from(eggWorld.querySelectorAll("[data-egg-step]"));
+    const photos = Array.from(eggWorld.querySelectorAll("[data-egg-photo]"));
+    const dots = Array.from(eggWorld.querySelectorAll(".egg-progress span"));
+    const washes = ["#10262c", "#18261a", "#2a1814", "#2a2418"].map(hexToRgb);
+    const glows = [
+      "rgba(155, 199, 199, 0.34)",
+      "rgba(159, 181, 150, 0.34)",
+      "rgba(157, 91, 57, 0.38)",
+      "rgba(241, 220, 193, 0.28)",
+    ];
 
-  const hero = document.querySelector(".hero");
-  if (hero) {
-    const heroElements = [hero.querySelector("h1"), hero.querySelector("p")].filter(Boolean);
-    heroElements.forEach((element, index) => {
-      registerReveal(element, "fade");
-      element.style.setProperty("--delay", `${index * 80}ms`);
-    });
-    const heroActions = hero.querySelector(".hero-actions");
-    if (heroActions) {
-      Array.from(heroActions.children).forEach((action, index) => {
-        registerReveal(action, "up");
-        action.style.setProperty("--delay", `${index * 80}ms`);
+    const setStep = (step) => {
+      eggWorld.dataset.step = String(step);
+      eggWorld.style.setProperty("--egg-step", String(step));
+      steps.forEach((chapter) => {
+        chapter.classList.toggle("is-current", chapter.dataset.eggStep === String(step));
       });
+      photos.forEach((photo) => {
+        photo.classList.toggle("is-current", photo.dataset.eggPhoto === String(step));
+      });
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("is-active", index === step - 1);
+      });
+    };
+
+    if (prefersReducedMotion.matches) {
+      eggWorld.classList.add("is-static");
+      steps.forEach((chapter) => chapter.classList.add("is-current"));
+      photos.forEach((photo) => photo.classList.add("is-current"));
+    } else {
+      let ticking = false;
+      const updateEggWorld = () => {
+        ticking = false;
+        const rect = eggWorld.getBoundingClientRect();
+        const travel = Math.max(eggWorld.offsetHeight - window.innerHeight, 1);
+        const progress = Math.min(Math.max(-rect.top / travel, 0), 1);
+        const scaled = progress * (washes.length - 1);
+        const index = Math.min(Math.floor(scaled), washes.length - 2);
+        const local = scaled - index;
+        const wash = [
+          lerp(washes[index][0], washes[index + 1][0], local),
+          lerp(washes[index][1], washes[index + 1][1], local),
+          lerp(washes[index][2], washes[index + 1][2], local),
+        ];
+        eggWorld.style.setProperty("--wash", rgbToCss(wash));
+        eggWorld.style.setProperty("--glow", glows[Math.round(scaled)] || glows[0]);
+        const pin = eggWorld.querySelector(".egg-world-pin");
+        if (pin) pin.style.background = rgbToCss(wash);
+        setStep(Math.min(Math.floor(progress * 4) + 1, 4));
+      };
+      const requestUpdate = () => {
+        if (!ticking) {
+          ticking = true;
+          window.requestAnimationFrame(updateEggWorld);
+        }
+      };
+      window.addEventListener("scroll", requestUpdate, { passive: true });
+      window.addEventListener("resize", requestUpdate);
+      requestUpdate();
     }
-    const heroCard = hero.querySelector(".hero-card");
-    registerReveal(heroCard, "up");
-    if (heroCard) {
-      heroCard.style.setProperty("--delay", "90ms");
-    }
-    const heroImage = hero.querySelector(".hero-card img");
-    registerReveal(heroImage, "zoom");
-    if (heroImage) {
-      heroImage.style.setProperty("--delay", "140ms");
-    }
-  }
-
-  document.querySelectorAll(".section-header").forEach((header) => {
-    staggerChildren(header, 60, "fade");
-  });
-
-  document.querySelectorAll(".page-hero").forEach((heroSection) => {
-    const inner = heroSection.querySelector(".container");
-    staggerChildren(inner, 70, "fade");
-  });
-
-  document.querySelectorAll(".value-grid").forEach((grid) => {
-    const cards = Array.from(grid.querySelectorAll(".value-card"));
-    cards.forEach((card, index) => {
-      registerReveal(card, "up");
-      card.style.setProperty("--delay", `${index * 70}ms`);
-    });
-  });
-
-  document.querySelectorAll(".breed-grid").forEach((grid) => {
-    const cards = Array.from(grid.querySelectorAll(".breed-card"));
-    cards.forEach((card, index) => {
-      registerReveal(card, "up");
-      card.style.setProperty("--delay", `${index * 70}ms`);
-      const image = card.querySelector("img");
-      registerReveal(image, "zoom");
-      if (image) {
-        image.style.setProperty("--delay", `${index * 70 + 70}ms`);
-      }
-    });
-  });
-
-  document.querySelectorAll(".cta, .waitlist-section").forEach((block, index) => {
-    registerReveal(block, "up");
-    block.style.setProperty("--delay", `${index * 60}ms`);
-  });
-
-  document.querySelectorAll(".story-scene").forEach((scene) => {
-    registerReveal(scene.querySelector(".sticky-visual"), "zoom");
-    scene.querySelectorAll("[data-story-step]").forEach((chapter, index) => {
-      registerReveal(chapter, "up");
-      chapter.style.setProperty("--delay", `${index * 90}ms`);
-    });
-  });
-
-  document.querySelectorAll(".palette-card:not(.story-palette-card)").forEach((card, index) => {
-    registerReveal(card, "up");
-    card.style.setProperty("--delay", `${index * 80}ms`);
-  });
-
-  document.querySelectorAll(".footer-grid").forEach((grid) => {
-    staggerChildren(grid, 80, "fade");
-  });
-
-  const revealList = Array.from(revealTargets);
-  if (prefersReducedMotion.matches || !("IntersectionObserver" in window)) {
-    revealList.forEach((element) => element.classList.add("is-visible"));
-  } else if (revealList.length) {
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -5% 0px" }
-    );
-    revealList.forEach((element) => revealObserver.observe(element));
-  }
-
-  // Lightweight parallax for hero and category transitions.
-  const parallaxElements = Array.from(document.querySelectorAll("[data-parallax]"));
-  if (parallaxElements.length && !prefersReducedMotion.matches) {
-    const items = parallaxElements.map((element) => ({
-      element,
-      speed: Number.parseFloat(element.dataset.speed || "0.2"),
-      parent: element.closest(".parallax-section") || element.parentElement,
-      active: false,
-    }));
-
-    const itemMap = new Map(items.map((item) => [item.element, item]));
-    const activeItems = new Set();
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const item = itemMap.get(entry.target);
-          if (!item) return;
-          item.active = entry.isIntersecting;
-          if (item.active) {
-            activeItems.add(item);
-          } else {
-            activeItems.delete(item);
-          }
-        });
-      },
-      { rootMargin: "200px 0px" }
-    );
-
-    items.forEach((item) => observer.observe(item.element));
-
-    let ticking = false;
-    const updateParallax = () => {
-      ticking = false;
-      const baseDistance =
-        Number.parseFloat(
-          getComputedStyle(document.documentElement).getPropertyValue("--parallax-distance")
-        ) || 40;
-
-      activeItems.forEach((item) => {
-        if (!item.parent) return;
-        const rect = item.parent.getBoundingClientRect();
-        const offset = Math.max(
-          Math.min(rect.top * item.speed, baseDistance),
-          -baseDistance
-        );
-        item.element.style.setProperty("--parallax-offset", `${offset}px`);
-      });
-    };
-
-    const requestParallaxUpdate = () => {
-      if (!ticking) {
-        ticking = true;
-        window.requestAnimationFrame(updateParallax);
-      }
-    };
-
-    window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
-    window.addEventListener("resize", requestParallaxUpdate);
-    requestParallaxUpdate();
-  }
-
-  // Apple-inspired sticky story progress. Uses CSS custom properties so the
-  // scene remains static and readable if JavaScript is unavailable.
-  const storyScenes = Array.from(document.querySelectorAll("[data-story-scene]"));
-  if (storyScenes.length && !prefersReducedMotion.matches) {
-    const activeScenes = new Set();
-    const storyObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            activeScenes.add(entry.target);
-          } else {
-            activeScenes.delete(entry.target);
-          }
-        });
-      },
-      { rootMargin: "160px 0px" }
-    );
-
-    storyScenes.forEach((scene) => storyObserver.observe(scene));
-
-    let storyTicking = false;
-    const updateStories = () => {
-      storyTicking = false;
-      const viewportHeight = window.innerHeight || 1;
-      activeScenes.forEach((scene) => {
-        const rect = scene.getBoundingClientRect();
-        const travel = Math.max(rect.height + viewportHeight, viewportHeight);
-        const rawProgress = (viewportHeight - rect.top) / travel;
-        const progress = Math.min(Math.max(rawProgress, 0), 1);
-        const easedProgress = 1 - Math.pow(1 - progress, 1.45);
-        const step = Math.min(Math.floor(progress * 4) + 1, 4);
-        scene.style.setProperty("--story-progress", progress.toFixed(3));
-        scene.style.setProperty("--story-step", String(step));
-        scene.querySelectorAll("[data-story-step]").forEach((chapter) => {
-          chapter.classList.toggle("is-current", chapter.dataset.storyStep === String(step));
-        });
-        scene.style.setProperty("--story-spin", `${(progress * 220).toFixed(2)}deg`);
-        scene.style.setProperty("--story-spin-reverse", `${(progress * -270).toFixed(2)}deg`);
-        const orbitRadius = 34 + easedProgress * 132;
-        const spiralTurn = progress * Math.PI * 1.35;
-        const placeStoryEgg = (name, phase, radiusOffset, rotateOffset) => {
-          const angle = spiralTurn + phase;
-          const radius = orbitRadius + radiusOffset;
-          const x = Math.cos(angle) * radius;
-          const y = Math.sin(angle) * radius;
-          const rotation = angle * (180 / Math.PI) + rotateOffset + progress * 52;
-          scene.style.setProperty(`--story-${name}-x`, `${x.toFixed(2)}px`);
-          scene.style.setProperty(`--story-${name}-y`, `${y.toFixed(2)}px`);
-          scene.style.setProperty(`--story-${name}-rotate`, `${rotation.toFixed(2)}deg`);
-        };
-        placeStoryEgg("one", -Math.PI * 0.58, 0, -16);
-        placeStoryEgg("two", -Math.PI * 0.08, 10, 10);
-        placeStoryEgg("three", Math.PI * 0.46, -6, -8);
-        placeStoryEgg("four", Math.PI * 0.95, 6, 18);
-      });
-    };
-
-    const requestStoryUpdate = () => {
-      if (!storyTicking) {
-        storyTicking = true;
-        window.requestAnimationFrame(updateStories);
-      }
-    };
-
-    window.addEventListener("scroll", requestStoryUpdate, { passive: true });
-    window.addEventListener("resize", requestStoryUpdate);
-    requestStoryUpdate();
-  }
-
-  // Subtle spotlight for premium specimen cards.
-  if (!prefersReducedMotion.matches && window.matchMedia("(hover: hover)").matches) {
-    document.querySelectorAll(".specimen-card").forEach((card) => {
-      card.addEventListener("pointermove", (event) => {
-        const rect = card.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * 100;
-        const y = ((event.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty("--card-x", `${x.toFixed(1)}%`);
-        card.style.setProperty("--card-y", `${y.toFixed(1)}%`);
-      });
-    });
   }
 })();

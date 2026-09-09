@@ -4,9 +4,10 @@
     "baseUrl": "https://res.cloudinary.com/drqir7lka/image/upload",
     "extension": "jpg",
     "transforms": {
-      "breed": "f_auto,q_auto,c_fill,g_auto,w_900,h_650",
-      "hero": "f_auto,q_auto,c_fill,g_auto,w_1200,h_950",
-      "feature": "f_auto,q_auto,c_fill,g_auto,w_900,h_650",
+      "breed": "f_auto,q_auto,c_fill,g_auto,w_1400,h_1600",
+      "hero": "f_auto,q_auto,c_fill,g_auto,w_2400,h_1500",
+      "wide": "f_auto,q_auto,c_fill,g_auto,w_2400,h_1600",
+      "feature": "f_auto,q_auto,c_fill,g_auto,w_1600,h_1200",
       "gallery": "f_auto,q_auto,c_fill,g_auto,w_1200,h_820",
       "lightbox": "f_auto,q_auto,c_limit,w_2000"
     },
@@ -15,13 +16,49 @@
         "publicId": "home-hero",
         "transform": "hero"
       },
+      "home-dawn": {
+        "publicId": "salmon-favorelles",
+        "transform": "wide"
+      },
+      "portal-chickens": {
+        "publicId": "ermine-ameraucanas",
+        "transform": "wide"
+      },
+      "portal-ducks": {
+        "publicId": "indian-runner",
+        "transform": "wide"
+      },
+      "portal-geese": {
+        "publicId": "white-embden",
+        "transform": "wide"
+      },
+      "fiber-scene": {
+        "publicId": "cashmere-goats",
+        "transform": "wide"
+      },
+      "people-scene": {
+        "publicId": "about-image",
+        "transform": "wide"
+      },
+      "page-chickens": {
+        "publicId": "salmon-favorelles",
+        "transform": "wide"
+      },
+      "page-ducks": {
+        "publicId": "indian-runner",
+        "transform": "wide"
+      },
+      "page-geese": {
+        "publicId": "white-embden",
+        "transform": "wide"
+      },
       "cashmere-goats": {
         "publicId": "cashmere-goats",
-        "transform": "feature"
+        "transform": "wide"
       },
       "about-image": {
         "publicId": "about-image",
-        "transform": "feature"
+        "transform": "wide"
       }
     },
     "breedImages": {
