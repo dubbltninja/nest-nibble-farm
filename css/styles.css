@@ -19,14 +19,9 @@
   --display: "Cormorant Garamond", "Times New Roman", serif;
   --text: "Sora", "Helvetica Neue", Helvetica, sans-serif;
   --egg: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  --rail: 0px;
   --head: 60px;
   --gut: clamp(18px, 4.4vw, 72px);
   --line: 1.5px solid currentColor;
-}
-
-@media (min-width: 900px) {
-  :root { --rail: 36px; }
 }
 
 * { box-sizing: border-box; }
@@ -35,7 +30,6 @@ html { overflow-x: clip; scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  padding-left: var(--rail);
   font: 400 1.04rem/1.55 var(--text);
   color: var(--light);
   background: var(--bg);
@@ -62,7 +56,7 @@ h1, h2, h3, h4 {
   position: absolute; left: -999px; top: 8px; z-index: 99;
   padding: 0.7rem 1rem; background: var(--ink); color: var(--chalk);
 }
-.skip-link:focus { left: calc(var(--rail) + 8px); }
+.skip-link:focus { left: 8px; }
 
 /* ---------- grounds ---------- */
 .g-blue { background: var(--bg); color: var(--light); }
@@ -72,27 +66,6 @@ h1, h2, h3, h4 {
 .g-chalk { background: var(--chalk); color: var(--ink); }
 .hero-scene.g-blue {
   background: linear-gradient(135deg, #f9f1df 0%, #e8d5b2 45%, #9b7c4f 100%); color: var(--ink);
-}
-
-/* ---------- shell scale (left rail) ---------- */
-.rail {
-  display: none; position: fixed; left: 0; top: 0; bottom: 0; width: var(--rail);
-  z-index: 30; border-right: 1px solid rgba(214, 209, 196, 0.35); background: var(--chalk);
-}
-@media (min-width: 900px) { .rail { display: block; } }
-.rail i { position: absolute; left: 0; right: 10px; height: 25%; }
-.rail i:nth-child(1) { top: 0; background: var(--blue); }
-.rail i:nth-child(2) { top: 25%; background: var(--green); }
-.rail i:nth-child(3) { top: 50%; background: var(--choc); }
-.rail i:nth-child(4) { top: 75%; background: var(--cream); }
-.rail::after {
-  content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 10px;
-  background: repeating-linear-gradient(to bottom, var(--ink) 0 1px, transparent 1px 9px);
-  opacity: 0.55;
-}
-.rail b {
-  position: absolute; left: 0; right: 0; height: 4px; margin-top: -2px; z-index: 1;
-  top: calc(var(--page-p, 0) * 100%); background: var(--red);
 }
 
 /* ---------- header ---------- */
@@ -523,7 +496,7 @@ form .btn { justify-self: start; }
 /* 1. Content stops widening, and the whole scale grows a little on big screens. */
 :root {
   --max: 92rem;
-  --pad: max(var(--gut), calc((100vw - var(--rail) - var(--max)) / 2));
+  --pad: max(var(--gut), calc((100vw - var(--max)) / 2));
 }
 html { font-size: clamp(100%, 0.5vw + 8.8px, 118.75%); }
 .header-inner, .wrap, .hero-pin, .palette-head, .track-head, .cta, .site-footer,

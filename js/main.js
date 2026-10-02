@@ -435,7 +435,7 @@
   applyFarmConfig();
 
   // Scroll controller. CSS draws every scene; this only publishes scroll positions as
-  // custom properties (--p per scene or element, --page-p for the shell scale), because
+  // custom properties (--p per scene or element), because
   // scroll-driven CSS timelines are not available in every browser yet. With reduced
   // motion requested it never runs and the page stays in its still layout.
   const root = document.documentElement;
@@ -460,10 +460,6 @@
       const vh = window.innerHeight || 1;
       const header = document.querySelector(".site-header");
       const headerHeight = header ? header.offsetHeight : 0;
-      root.style.setProperty(
-        "--page-p",
-        clamp(window.scrollY / Math.max(root.scrollHeight - vh, 1)).toFixed(4)
-      );
       scenes.forEach((scene) => {
         const rect = scene.getBoundingClientRect();
         if (rect.bottom < -vh || rect.top > vh * 2) return;
