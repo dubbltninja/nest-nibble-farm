@@ -454,7 +454,7 @@ form .btn { justify-self: start; }
 .dna-hero-copy p { max-width: 50ch; }
 .dna-hero-copy .btn { justify-self: start; }
 .dna-price-panel { display: grid; gap: 0.9rem; align-content: start; padding: 1.6rem; background: var(--blue); border: 1.5px solid var(--ink); }
-.dna-price { font: 700 clamp(5rem, 13vw, 11rem)/0.8 var(--display); font-stretch: 70%; letter-spacing: -0.03em; }
+.dna-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 0.7rem; padding: 0.3rem 0 0.9rem; font: 700 clamp(4.5rem, 11vw, 9rem)/1 var(--display); font-variant-numeric: lining-nums; letter-spacing: -0.02em; }
 .dna-price span { font: 700 1rem/1 var(--text); letter-spacing: 0; }
 .dna-price-note { font-weight: 700; padding-top: 0.9rem; border-top: 1.5px solid var(--ink); }
 @media (min-width: 900px) { .dna-hero { grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.7fr); align-items: end; } }
