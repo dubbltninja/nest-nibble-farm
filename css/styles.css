@@ -1,18 +1,23 @@
 /* Nest & Nibble Farm
-   Idea: shell as ground. Every surface is a shell colour the flock is bred toward.
+   Layout and scroll scenes from the redesign; palette and typefaces from the earlier site.
    Base layout below is the complete still version. Rules under .motion pin and scrub
    scenes; .motion is only added by js/main.js when reduced motion is not requested. */
 
 :root {
-  --blue: #b9d7d9;   /* Ameraucana shell */
-  --green: #a8b68b;  /* olive / green egg */
-  --choc: #472619;   /* Marans shell */
-  --cream: #ecdfc6;  /* Faverolles tint */
-  --chalk: #f0f5f3;  /* bloom white, blue cast */
-  --ink: #21120c;
-  --red: #d21f3c;    /* comb red: actions and the reading marker only */
-  --display: "Anybody", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
-  --text: "Golos Text", "Helvetica Neue", Arial, sans-serif;
+  /* Palette and typefaces carried over from the site before the redesign. */
+  --bg: #0f1a13;          /* page ground, dark green */
+  --bg-2: #1f2d20;        /* second dark ground */
+  --slab: #1b261c;        /* call-to-action slab */
+  --light: #f4f2ea;       /* text on dark grounds */
+  --blue: #9bc7c7;        /* blue egg */
+  --green: #9fb596;       /* sage egg */
+  --choc: #763e32;        /* berry / copper shell */
+  --cream: #f1dcc1;       /* cream egg */
+  --chalk: #f6f0e3;       /* surface */
+  --ink: #101711;
+  --red: #c99b50;         /* accent (gold): actions and the reading marker */
+  --display: "Cormorant Garamond", "Times New Roman", serif;
+  --text: "Sora", "Helvetica Neue", Helvetica, sans-serif;
   --egg: 50% 50% 50% 50% / 60% 60% 40% 40%;
   --rail: 0px;
   --head: 60px;
@@ -32,8 +37,8 @@ body {
   margin: 0;
   padding-left: var(--rail);
   font: 400 1.04rem/1.55 var(--text);
-  color: var(--ink);
-  background: var(--blue);
+  color: var(--light);
+  background: var(--bg);
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
@@ -60,16 +65,19 @@ h1, h2, h3, h4 {
 .skip-link:focus { left: calc(var(--rail) + 8px); }
 
 /* ---------- grounds ---------- */
-.g-blue { background: var(--blue); }
-.g-green { background: var(--green); }
-.g-cream { background: var(--cream); }
-.g-chalk { background: var(--chalk); }
-.g-choc { background: var(--choc); color: var(--chalk); }
+.g-blue { background: var(--bg); color: var(--light); }
+.g-green { background: var(--bg-2); color: var(--light); }
+.g-choc { background: var(--slab); color: var(--light); }
+.g-cream { background: var(--cream); color: var(--ink); }
+.g-chalk { background: var(--chalk); color: var(--ink); }
+.hero-scene.g-blue {
+  background: linear-gradient(135deg, #f9f1df 0%, #e8d5b2 45%, #9b7c4f 100%); color: var(--ink);
+}
 
 /* ---------- shell scale (left rail) ---------- */
 .rail {
   display: none; position: fixed; left: 0; top: 0; bottom: 0; width: var(--rail);
-  z-index: 30; border-right: 1.5px solid var(--ink); background: var(--chalk);
+  z-index: 30; border-right: 1px solid rgba(214, 209, 196, 0.35); background: var(--chalk);
 }
 @media (min-width: 900px) { .rail { display: block; } }
 .rail i { position: absolute; left: 0; right: 10px; height: 25%; }
@@ -90,26 +98,26 @@ h1, h2, h3, h4 {
 /* ---------- header ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 20; min-height: var(--head);
-  background: var(--chalk); color: var(--ink); border-bottom: 1.5px solid var(--ink);
+  background: #0c1710; color: #f7f5ee; border-bottom: 1px solid rgba(214, 209, 196, 0.35);
 }
 .header-inner {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
   min-height: var(--head); padding: 0 var(--gut);
 }
 .logo {
-  font: 800 1.12rem/1 var(--display); font-stretch: 125%;
+  font: 700 1.12rem/1 var(--display); font-stretch: 125%;
   text-decoration: none; letter-spacing: -0.01em;
 }
 .nav-toggle {
-  min-height: 40px; padding: 0 1rem; border: 1.5px solid var(--ink);
+  min-height: 40px; padding: 0 1rem; border: 1.5px solid currentColor;
   background: transparent; font-weight: 600; cursor: pointer;
 }
-.nav-toggle[aria-expanded="true"] { background: var(--ink); color: var(--chalk); }
+.nav-toggle[aria-expanded="true"] { background: var(--chalk); color: var(--ink); }
 .site-header nav { flex-basis: 100%; }
 .nav-links { display: none; flex-direction: column; padding: 0.4rem 0 1.2rem; }
 .nav-links.is-open { display: flex; }
 .nav-links a {
-  padding: 0.7rem 0; border-top: 1px solid rgba(33, 18, 12, 0.25);
+  padding: 0.7rem 0; border-top: 1px solid rgba(214, 209, 196, 0.3);
   text-decoration: none; font-weight: 500;
 }
 .nav-links a[aria-current="page"] { font-weight: 700; box-shadow: inset 4px 0 0 var(--red); padding-left: 0.8rem; }
@@ -131,7 +139,7 @@ h1, h2, h3, h4 {
   font: 600 0.86rem/1.2 var(--text);
 }
 .section-label::before { content: ""; flex: none; width: 0.72em; height: 0.72em; background: var(--red); }
-.section-title { font-weight: 760; font-stretch: 86%; font-size: clamp(2.1rem, 5.2vw, 4.8rem); }
+.section-title { font-weight: 700; font-stretch: 86%; font-size: clamp(2.1rem, 5.2vw, 4.8rem); }
 .section-subtitle { max-width: 60ch; }
 
 .btn {
@@ -141,10 +149,11 @@ h1, h2, h3, h4 {
   font: 600 1rem/1.1 var(--text); text-decoration: none; cursor: pointer;
   transition: background-color 120ms, color 120ms, border-color 120ms;
 }
-.btn-primary:hover { background: var(--red); border-color: var(--red); }
+.btn-primary:hover { background: var(--red); border-color: var(--red); color: var(--ink); }
 .btn-outline { background: transparent; color: inherit; border-color: currentColor; }
 .btn-outline:hover { background: var(--ink); color: var(--chalk); border-color: var(--ink); }
-.g-choc .btn-outline:hover { background: var(--chalk); color: var(--ink); border-color: var(--chalk); }
+.g-choc .btn-outline:hover, .g-blue .btn-outline:hover, .g-green .btn-outline:hover { background: var(--chalk); color: var(--ink); border-color: var(--chalk); }
+.hero-scene.g-blue .btn-outline:hover { background: var(--ink); color: var(--chalk); border-color: var(--ink); }
 .text-link, .highlight-link, .facebook-option a {
   font-weight: 600; text-decoration: underline; text-decoration-color: var(--red);
   text-decoration-thickness: 2.5px; text-underline-offset: 0.22em;
@@ -158,7 +167,7 @@ h1, h2, h3, h4 {
 .hero-pin { display: grid; gap: 2.4rem; padding: clamp(2.4rem, 7vw, 5rem) var(--gut); }
 .hero-copy { display: grid; gap: 1.4rem; align-content: start; }
 .hero-copy h1 {
-  max-width: 11ch; font-weight: 800; font-stretch: 76%;
+  max-width: 11ch; font-weight: 700; font-stretch: 76%;
   font-size: clamp(3rem, 7.6vw, 7.8rem); line-height: 0.88;
 }
 .hero-copy p { max-width: 44ch; font-size: 1.1rem; }
@@ -223,11 +232,11 @@ h1, h2, h3, h4 {
 .stage-label { font: 700 clamp(1.3rem, 3vw, 2.2rem)/1.05 var(--display); font-stretch: 110%; }
 .stage-label span, .stage-label strong { display: inline; font-weight: inherit; }
 .chapter { display: grid; gap: 0.8rem; padding: clamp(2.4rem, 7vw, 5rem) var(--gut); }
-.chapter h3 { font-weight: 800; font-size: clamp(3rem, 8vw, 8rem); line-height: 0.84; }
+.chapter h3 { font-weight: 700; font-size: clamp(3rem, 8vw, 8rem); line-height: 0.84; }
 .chapter p:last-child { max-width: 34ch; font-size: 1.16rem; }
-.chapter--blue { background: var(--blue); }
-.chapter--sage { background: var(--green); }
-.chapter--cream { background: var(--cream); }
+.chapter--blue { background: var(--blue); color: var(--ink); }
+.chapter--sage { background: var(--green); color: var(--ink); }
+.chapter--cream { background: var(--cream); color: var(--ink); }
 .chapter--copper {
   background-color: var(--choc); color: var(--chalk);
   background-image: radial-gradient(circle, rgba(18, 8, 4, 0.75) 0 2px, transparent 2.6px),
@@ -240,7 +249,7 @@ h1, h2, h3, h4 {
   --x: calc(0.25 + var(--p, 0) * 3.5);
   --dark: clamp(0, min(calc((var(--x) - 2) * 5 + 0.5), calc((3 - var(--x)) * 5 + 0.5)), 1);
   position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden;
-  background: var(--blue); color: hsl(17 46% calc(9% + 85% * var(--dark)));
+  background: var(--blue); color: hsl(60 20% calc(8% + 86% * var(--dark)));
 }
 .motion .grounds i { position: absolute; inset: 0; }
 .motion .grounds i:nth-child(1) { background: var(--green); opacity: clamp(0, calc((var(--x) - 1) * 5 + 0.5), 1); }
@@ -285,7 +294,7 @@ h1, h2, h3, h4 {
 
 /* ---------- breeds ---------- */
 .breed-card { display: grid; gap: 0.9rem; align-content: start; }
-.breed-card h3 { font-weight: 740; font-stretch: 92%; font-size: clamp(1.7rem, 2.6vw, 2.5rem); }
+.breed-card h3 { font-weight: 700; font-stretch: 92%; font-size: clamp(1.7rem, 2.6vw, 2.5rem); }
 .breed-card h3::before {
   content: attr(data-card-label); display: block; margin-bottom: 0.5rem;
   font: 500 0.86rem/1.2 var(--text); letter-spacing: 0;
@@ -344,7 +353,7 @@ h1, h2, h3, h4 {
   .rows .breed-card:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); }
   .rows .breed-card:nth-child(even) .frame { grid-column: 2; }
   .rows .breed-card:nth-child(even) > :not(.frame) { grid-column: 1; }
-  .rows .breed-card h3 { font-size: clamp(2.4rem, 5vw, 4.6rem); font-weight: 800; }
+  .rows .breed-card h3 { font-size: clamp(2.4rem, 5vw, 4.6rem); font-weight: 700; }
 }
 
 .lanes { display: grid; border-top: var(--line); }
@@ -361,7 +370,7 @@ h1, h2, h3, h4 {
 .ledger > * { display: grid; gap: 0.8rem; padding: clamp(1.4rem, 3vw, 2.4rem) 0; border-top: var(--line); }
 .ledger > :last-child { border-bottom: var(--line); }
 .ledger h3 {
-  font-weight: 780; font-size: clamp(1.8rem, 4.4vw, 4rem);
+  font-weight: 700; font-size: clamp(1.8rem, 4.4vw, 4rem);
   font-stretch: 90%;
 }
 .ledger p { max-width: 52ch; }
@@ -371,15 +380,15 @@ h1, h2, h3, h4 {
 
 .cta { display: grid; gap: 2.2rem; padding: clamp(3.4rem, 10vw, 9rem) var(--gut); }
 .cta h2 {
-  font-weight: 800; font-size: clamp(2.5rem, 8vw, 8.4rem); line-height: 0.86;
+  font-weight: 700; font-size: clamp(2.5rem, 8vw, 8.4rem); line-height: 0.86;
   font-stretch: 84%;
 }
 .cta p { max-width: 52ch; margin-top: 1.4rem; }
 .cta .btn { justify-self: start; }
 
-.site-footer { background: var(--chalk); border-top: 1.5px solid var(--ink); padding: clamp(2.6rem, 6vw, 5rem) var(--gut) 2rem; }
+.site-footer { background: var(--bg); color: var(--light); border-top: 1px solid rgba(214, 209, 196, 0.35); padding: clamp(2.6rem, 6vw, 5rem) var(--gut) 2rem; }
 .footer-grid { display: grid; gap: 2rem; margin-bottom: 2.6rem; }
-.footer-title { font: 800 clamp(2rem, 6.4vw, 5.6rem)/0.9 var(--display); font-stretch: 125%; letter-spacing: -0.02em; margin-bottom: 1rem; }
+.footer-title { font: 700 clamp(2rem, 6.4vw, 5.6rem)/0.9 var(--display); font-stretch: 125%; letter-spacing: -0.02em; margin-bottom: 1rem; }
 .footer-links { display: grid; gap: 0.5rem; align-content: start; }
 .footer-links a { text-decoration: none; font-weight: 500; }
 .footer-links a:hover { color: var(--red); }
@@ -389,7 +398,7 @@ h1, h2, h3, h4 {
 /* ---------- inner page heads ---------- */
 .page-hero { padding: clamp(2.6rem, 7vw, 5.4rem) var(--gut) clamp(2rem, 5vw, 3.6rem); overflow: hidden; display: grid; gap: 1.6rem; }
 .page-hero h1 {
-  font-weight: 800; font-size: clamp(4rem, 16vw, 16rem); line-height: 0.8;
+  font-weight: 700; font-size: clamp(4rem, 16vw, 16rem); line-height: 0.8;
   font-stretch: 80%;
 }
 .page-hero--long h1 { font-size: clamp(2.9rem, 10vw, 10rem); white-space: normal; line-height: 0.86; font-stretch: 84%; }
@@ -410,7 +419,7 @@ input:not([type="checkbox"]) {
   border-radius: 0; background: transparent; font-size: 1.05rem;
 }
 input:not([type="checkbox"]):focus-visible { outline: none; border-bottom-color: var(--red); box-shadow: 0 2px 0 var(--red); }
-input::placeholder { color: rgba(33, 18, 12, 0.5); }
+input::placeholder { color: rgba(16, 23, 17, 0.5); }
 .options-group { border: 1.5px solid var(--ink); padding: 0.9rem 1rem 1rem; gap: 0.7rem; }
 .checkbox { display: flex; align-items: center; gap: 0.7rem; font-weight: 500; font-size: 1rem; }
 .checkbox input { width: 1.15rem; height: 1.15rem; accent-color: var(--red); }
@@ -420,7 +429,7 @@ form .btn { justify-self: start; }
 [data-waitlist-fields] { display: grid; gap: 1.3rem; }
 [hidden], [data-waitlist-fields][hidden] { display: none; }
 
-.modal { position: fixed; inset: 0; z-index: 40; display: none; justify-content: flex-end; background: rgba(33, 18, 12, 0.55); }
+.modal { position: fixed; inset: 0; z-index: 40; display: none; justify-content: flex-end; background: rgba(10, 16, 12, 0.55); }
 .modal.is-open { display: flex; }
 .modal-dialog {
   position: relative; width: min(540px, 100%); height: 100%; overflow-y: auto;
@@ -438,14 +447,14 @@ form .btn { justify-self: start; }
 .dna-hero { display: grid; gap: var(--gut); padding: clamp(2.6rem, 7vw, 5.4rem) var(--gut); overflow: hidden; }
 .dna-hero-copy { display: grid; gap: 1.2rem; align-content: start; }
 .dna-hero h1 {
-  font-weight: 800; font-size: clamp(3.2rem, 10.5vw, 10.5rem); line-height: 0.82;
+  font-weight: 700; font-size: clamp(3.2rem, 10.5vw, 10.5rem); line-height: 0.82;
   font-stretch: 84%;
 }
 .dna-hero-lead { font: 700 clamp(1.3rem, 2.4vw, 2rem)/1.1 var(--display); font-stretch: 105%; }
 .dna-hero-copy p { max-width: 50ch; }
 .dna-hero-copy .btn { justify-self: start; }
 .dna-price-panel { display: grid; gap: 0.9rem; align-content: start; padding: 1.6rem; background: var(--blue); border: 1.5px solid var(--ink); }
-.dna-price { font: 800 clamp(5rem, 13vw, 11rem)/0.8 var(--display); font-stretch: 70%; letter-spacing: -0.03em; }
+.dna-price { font: 700 clamp(5rem, 13vw, 11rem)/0.8 var(--display); font-stretch: 70%; letter-spacing: -0.03em; }
 .dna-price span { font: 700 1rem/1 var(--text); letter-spacing: 0; }
 .dna-price-note { font-weight: 700; padding-top: 0.9rem; border-top: 1.5px solid var(--ink); }
 @media (min-width: 900px) { .dna-hero { grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.7fr); align-items: end; } }
@@ -464,7 +473,7 @@ form .btn { justify-self: start; }
 
 .dna-service-grid { display: grid; gap: 0; border: 1.5px solid var(--ink); }
 .dna-service-card { display: grid; gap: 1.6rem; align-content: space-between; padding: clamp(1.5rem, 3.4vw, 3rem); }
-.dna-service-card h3 { font-weight: 760; font-stretch: 88%; font-size: clamp(1.9rem, 3.4vw, 3.2rem); margin-top: 0.9rem; }
+.dna-service-card h3 { font-weight: 700; font-stretch: 88%; font-size: clamp(1.9rem, 3.4vw, 3.2rem); margin-top: 0.9rem; }
 .dna-service-card--sex { background: var(--choc); color: var(--chalk); }
 .dna-service-card--genetics { background: var(--cream); }
 .dna-service-card--genetics > div > p { margin-top: 0.9rem; font-weight: 600; }
@@ -474,13 +483,13 @@ form .btn { justify-self: start; }
 .dna-check-list li::before { content: ""; width: 0.6em; height: 0.6em; background: var(--blue); flex: none; }
 .dna-trait-list { display: grid; }
 .dna-trait-list > div { padding: 1rem 0; border-top: 1.5px solid var(--ink); }
-.dna-trait-list h4 { font-weight: 740; font-stretch: 100%; font-size: clamp(1.4rem, 2.2vw, 2rem); }
+.dna-trait-list h4 { font-weight: 700; font-stretch: 100%; font-size: clamp(1.4rem, 2.2vw, 2rem); }
 @media (min-width: 900px) { .dna-service-grid { grid-template-columns: 7fr 5fr; } }
 
 .dna-sample-grid { display: grid; gap: 0; border: 1.5px solid var(--ink); }
 .dna-sample-card { display: grid; gap: 0.7rem; align-content: end; padding: clamp(1.4rem, 3vw, 2.6rem); min-height: 200px; border-top: 1.5px solid var(--ink); }
 .dna-sample-card:first-child { background: var(--blue); border-top: 0; }
-.dna-sample-card h3 { font-weight: 780; font-stretch: 90%; font-size: clamp(1.8rem, 3vw, 2.8rem); }
+.dna-sample-card h3 { font-weight: 700; font-stretch: 90%; font-size: clamp(1.8rem, 3vw, 2.8rem); }
 .dna-sample-card:first-child h3 { font-size: clamp(2.6rem, 6.4vw, 6rem); }
 .dna-recommendation { display: flex; align-items: center; gap: 0.55em; font-weight: 700; }
 .dna-recommendation::before { content: ""; width: 0.75em; height: 0.75em; background: var(--red); }
@@ -497,8 +506,8 @@ form .btn { justify-self: start; }
   left: calc(clamp(0, calc(var(--p, 0.5) * 2.2 - 0.6), 1) * (100% - 17px));
 }
 .dna-steps li { display: grid; gap: 0.6rem; align-content: start; }
-.dna-steps li > span { font: 800 clamp(2.6rem, 5vw, 4.6rem)/0.8 var(--display); font-stretch: 60%; }
-.dna-steps h3 { font-weight: 740; font-stretch: 92%; font-size: clamp(1.5rem, 2.2vw, 2rem); margin-bottom: 0.5rem; }
+.dna-steps li > span { font: 700 clamp(2.6rem, 5vw, 4.6rem)/0.8 var(--display); font-stretch: 60%; }
+.dna-steps h3 { font-weight: 700; font-stretch: 92%; font-size: clamp(1.5rem, 2.2vw, 2rem); margin-bottom: 0.5rem; }
 @media (min-width: 900px) { .dna-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
 .dna-sameday-intro { display: grid; gap: var(--gut); padding: clamp(3rem, 8vw, 7rem) var(--gut) clamp(1.5rem, 4vw, 3rem); }
@@ -515,7 +524,7 @@ form .btn { justify-self: start; }
 }
 .dna-timing-grid { display: grid; gap: 1.2rem var(--gut); }
 .dna-timing-grid > div { display: grid; gap: 0.4rem; padding-top: 0.9rem; border-top: var(--line); }
-.dna-timing-grid strong { font: 800 clamp(1.8rem, 3.6vw, 3.4rem)/0.92 var(--display); font-stretch: 84%; }
+.dna-timing-grid strong { font: 700 clamp(1.8rem, 3.6vw, 3.4rem)/0.92 var(--display); font-stretch: 84%; }
 @media (min-width: 800px) { .dna-timing-grid { grid-template-columns: repeat(3, 1fr); } }
 .motion .wells-scene { height: 230vh; }
 .motion .wells-pin { position: sticky; top: 0; min-height: 100vh; min-height: 100svh; padding-top: calc(var(--head) + 2rem); }
@@ -525,7 +534,7 @@ form .btn { justify-self: start; }
 .dna-final-action p { margin: 0; max-width: 46ch; }
 @media (min-width: 900px) { .dna-final-cta { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); } }
 .dna-referral { display: grid; gap: 1.2rem; }
-.dna-referral h2 { font-weight: 800; font-stretch: 84%; font-size: clamp(2.2rem, 6vw, 5.6rem); line-height: 0.9; margin-bottom: 1.2rem; }
+.dna-referral h2 { font-weight: 700; font-stretch: 84%; font-size: clamp(2.2rem, 6vw, 5.6rem); line-height: 0.9; margin-bottom: 1.2rem; }
 .dna-referral p { max-width: 56ch; }
 
 @media (prefers-reduced-motion: reduce) {
