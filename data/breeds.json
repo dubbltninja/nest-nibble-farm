@@ -15,10 +15,6 @@
         "publicId": "home-hero",
         "transform": "hero"
       },
-      "cashmere-goats": {
-        "publicId": "cashmere-goats",
-        "transform": "feature"
-      },
       "about-image": {
         "publicId": "about-image",
         "transform": "feature"
@@ -148,12 +144,6 @@
       "modalPhrase": "our Dewlap Toulouse geese",
       "type": "geese",
       "status": "coming-soon"
-    },
-    "cashmere-goats": {
-      "name": "Cashmere Goats",
-      "modalPhrase": "our Cashmere goats",
-      "type": "goats",
-      "status": "limited"
     }
   }
 }
