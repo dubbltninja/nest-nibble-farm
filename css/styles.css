@@ -460,15 +460,18 @@ form .btn { justify-self: start; }
 @media (min-width: 900px) { .dna-hero { grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.7fr); align-items: end; } }
 
 .gel {
-  display: grid; grid-template-columns: repeat(16, 1fr); height: clamp(220px, 46vh, 460px);
-  padding: 0 var(--gut); background: var(--choc); overflow: hidden;
+  display: grid; grid-template-columns: repeat(16, 1fr); height: clamp(120px, 23vh, 230px);
+  padding: 0 var(--gut); background: var(--bg-2); overflow: hidden;
 }
 .gel span { position: relative; border-left: 1px solid rgba(240, 245, 243, 0.16); }
 .gel span:last-child { border-right: 1px solid rgba(240, 245, 243, 0.16); }
 .gel i {
-  position: absolute; left: 16%; right: 16%; top: var(--o); height: clamp(5px, 1vh, 10px); background: var(--c);
-  transform: translateY(calc(var(--p, 0.5) * var(--k) * 34vh));
+  position: absolute; left: 16%; right: 16%; top: var(--o); height: clamp(4px, 0.8vh, 8px); background: var(--red);
+  transform: translateY(calc(var(--p, 0.5) * var(--k) * 17vh));
 }
+.gel span:nth-child(3n) i:first-child { opacity: 0.5; }
+.gel span:nth-child(4n + 1) i:last-child { opacity: 0.72; }
+.gel span:nth-child(5n + 2) i:last-child { background: var(--chalk); }
 @media (max-width: 700px) { .gel { grid-template-columns: repeat(8, 1fr); } .gel span:nth-child(n + 9) { display: none; } }
 
 .dna-service-grid { display: grid; gap: 0; border: 1.5px solid var(--ink); }
