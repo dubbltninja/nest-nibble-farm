@@ -296,7 +296,7 @@
     const url = buildCloudinaryUrl(cloudinary, imageConfig);
     if (!image || !url) return;
 
-    const wrapper = image.closest(".specimen-card, .hero-card, .farm-stage, .about-image-card");
+    const wrapper = image.closest(".frame, .aperture");
     const fallbackSrc = image.dataset.fallbackSrc || image.getAttribute("src") || "";
     image.dataset.fallbackSrc = fallbackSrc;
     image.decoding = "async";
@@ -394,264 +394,70 @@
 
   applyFarmConfig();
 
-  // Progressive reveal animations using IntersectionObserver.
-  const revealTargets = new Set();
+  // Scroll controller. CSS draws every scene; this only publishes scroll positions as
+  // custom properties (--p per scene or element, --page-p for the shell scale), because
+  // scroll-driven CSS timelines are not available in every browser yet. With reduced
+  // motion requested it never runs and the page stays in its still layout.
+  const root = document.documentElement;
+  if (!prefersReducedMotion.matches) {
+    root.classList.add("motion");
+    const scenes = Array.from(document.querySelectorAll("[data-scene]"));
+    const scrubbed = Array.from(document.querySelectorAll("[data-scrub]"));
+    const clamp = (value) => Math.min(Math.max(value, 0), 1);
 
-  const registerReveal = (element, type) => {
-    if (!element || revealTargets.has(element)) return;
-    element.classList.add("reveal");
-    if (type) {
-      element.dataset.reveal = type;
-    }
-    revealTargets.add(element);
-  };
-
-  const staggerChildren = (container, step = 80, type = "fade") => {
-    if (!container) return;
-    const children = Array.from(container.children);
-    children.forEach((child, index) => {
-      registerReveal(child, type);
-      child.style.setProperty("--delay", `${index * step}ms`);
-    });
-  };
-
-  const hero = document.querySelector(".hero");
-  if (hero) {
-    const heroElements = [hero.querySelector("h1"), hero.querySelector("p")].filter(Boolean);
-    heroElements.forEach((element, index) => {
-      registerReveal(element, "fade");
-      element.style.setProperty("--delay", `${index * 80}ms`);
-    });
-    const heroActions = hero.querySelector(".hero-actions");
-    if (heroActions) {
-      Array.from(heroActions.children).forEach((action, index) => {
-        registerReveal(action, "up");
-        action.style.setProperty("--delay", `${index * 80}ms`);
+    const measure = () => {
+      scenes.forEach((scene) => {
+        const track = scene.querySelector("[data-track]");
+        if (!track) return;
+        const travel = Math.max(track.scrollWidth - track.parentElement.clientWidth, 0);
+        scene.style.setProperty("--travel", `${travel}px`);
       });
-    }
-    const heroCard = hero.querySelector(".hero-card");
-    registerReveal(heroCard, "up");
-    if (heroCard) {
-      heroCard.style.setProperty("--delay", "90ms");
-    }
-    const heroImage = hero.querySelector(".hero-card img");
-    registerReveal(heroImage, "zoom");
-    if (heroImage) {
-      heroImage.style.setProperty("--delay", "140ms");
-    }
-  }
-
-  document.querySelectorAll(".section-header").forEach((header) => {
-    staggerChildren(header, 60, "fade");
-  });
-
-  document.querySelectorAll(".page-hero").forEach((heroSection) => {
-    const inner = heroSection.querySelector(".container");
-    staggerChildren(inner, 70, "fade");
-  });
-
-  document.querySelectorAll(".value-grid").forEach((grid) => {
-    const cards = Array.from(grid.querySelectorAll(".value-card"));
-    cards.forEach((card, index) => {
-      registerReveal(card, "up");
-      card.style.setProperty("--delay", `${index * 70}ms`);
-    });
-  });
-
-  document.querySelectorAll(".breed-grid").forEach((grid) => {
-    const cards = Array.from(grid.querySelectorAll(".breed-card"));
-    cards.forEach((card, index) => {
-      registerReveal(card, "up");
-      card.style.setProperty("--delay", `${index * 70}ms`);
-      const image = card.querySelector("img");
-      registerReveal(image, "zoom");
-      if (image) {
-        image.style.setProperty("--delay", `${index * 70 + 70}ms`);
-      }
-    });
-  });
-
-  document.querySelectorAll(".cta, .waitlist-section").forEach((block, index) => {
-    registerReveal(block, "up");
-    block.style.setProperty("--delay", `${index * 60}ms`);
-  });
-
-  document.querySelectorAll(".story-scene").forEach((scene) => {
-    registerReveal(scene.querySelector(".sticky-visual"), "zoom");
-    scene.querySelectorAll("[data-story-step]").forEach((chapter, index) => {
-      registerReveal(chapter, "up");
-      chapter.style.setProperty("--delay", `${index * 90}ms`);
-    });
-  });
-
-  document.querySelectorAll(".palette-card:not(.story-palette-card)").forEach((card, index) => {
-    registerReveal(card, "up");
-    card.style.setProperty("--delay", `${index * 80}ms`);
-  });
-
-  document.querySelectorAll(".footer-grid").forEach((grid) => {
-    staggerChildren(grid, 80, "fade");
-  });
-
-  const revealList = Array.from(revealTargets);
-  if (prefersReducedMotion.matches || !("IntersectionObserver" in window)) {
-    revealList.forEach((element) => element.classList.add("is-visible"));
-  } else if (revealList.length) {
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -5% 0px" }
-    );
-    revealList.forEach((element) => revealObserver.observe(element));
-  }
-
-  // Lightweight parallax for hero and category transitions.
-  const parallaxElements = Array.from(document.querySelectorAll("[data-parallax]"));
-  if (parallaxElements.length && !prefersReducedMotion.matches) {
-    const items = parallaxElements.map((element) => ({
-      element,
-      speed: Number.parseFloat(element.dataset.speed || "0.2"),
-      parent: element.closest(".parallax-section") || element.parentElement,
-      active: false,
-    }));
-
-    const itemMap = new Map(items.map((item) => [item.element, item]));
-    const activeItems = new Set();
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const item = itemMap.get(entry.target);
-          if (!item) return;
-          item.active = entry.isIntersecting;
-          if (item.active) {
-            activeItems.add(item);
-          } else {
-            activeItems.delete(item);
-          }
-        });
-      },
-      { rootMargin: "200px 0px" }
-    );
-
-    items.forEach((item) => observer.observe(item.element));
+    };
 
     let ticking = false;
-    const updateParallax = () => {
+    const update = () => {
       ticking = false;
-      const baseDistance =
-        Number.parseFloat(
-          getComputedStyle(document.documentElement).getPropertyValue("--parallax-distance")
-        ) || 40;
-
-      activeItems.forEach((item) => {
-        if (!item.parent) return;
-        const rect = item.parent.getBoundingClientRect();
-        const offset = Math.max(
-          Math.min(rect.top * item.speed, baseDistance),
-          -baseDistance
-        );
-        item.element.style.setProperty("--parallax-offset", `${offset}px`);
+      const vh = window.innerHeight || 1;
+      const header = document.querySelector(".site-header");
+      const headerHeight = header ? header.offsetHeight : 0;
+      root.style.setProperty(
+        "--page-p",
+        clamp(window.scrollY / Math.max(root.scrollHeight - vh, 1)).toFixed(4)
+      );
+      scenes.forEach((scene) => {
+        const rect = scene.getBoundingClientRect();
+        if (rect.bottom < -vh || rect.top > vh * 2) return;
+        scene.style.setProperty("--p", clamp(-rect.top / Math.max(rect.height - vh, 1)).toFixed(4));
+      });
+      scrubbed.forEach((element) => {
+        const rect = element.getBoundingClientRect();
+        if (rect.bottom < -vh || rect.top > vh * 2) return;
+        const progress =
+          element.dataset.scrub === "exit"
+            ? (headerHeight - rect.top) / Math.max(rect.height, 1)
+            : (vh - rect.top) / (vh + rect.height);
+        element.style.setProperty("--p", clamp(progress).toFixed(4));
       });
     };
 
-    const requestParallaxUpdate = () => {
+    const requestUpdate = () => {
       if (!ticking) {
         ticking = true;
-        window.requestAnimationFrame(updateParallax);
+        window.requestAnimationFrame(update);
       }
     };
 
-    window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
-    window.addEventListener("resize", requestParallaxUpdate);
-    requestParallaxUpdate();
-  }
-
-  // Apple-inspired sticky story progress. Uses CSS custom properties so the
-  // scene remains static and readable if JavaScript is unavailable.
-  const storyScenes = Array.from(document.querySelectorAll("[data-story-scene]"));
-  if (storyScenes.length && !prefersReducedMotion.matches) {
-    const activeScenes = new Set();
-    const storyObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            activeScenes.add(entry.target);
-          } else {
-            activeScenes.delete(entry.target);
-          }
-        });
-      },
-      { rootMargin: "160px 0px" }
-    );
-
-    storyScenes.forEach((scene) => storyObserver.observe(scene));
-
-    let storyTicking = false;
-    const updateStories = () => {
-      storyTicking = false;
-      const viewportHeight = window.innerHeight || 1;
-      activeScenes.forEach((scene) => {
-        const rect = scene.getBoundingClientRect();
-        const travel = Math.max(rect.height + viewportHeight, viewportHeight);
-        const rawProgress = (viewportHeight - rect.top) / travel;
-        const progress = Math.min(Math.max(rawProgress, 0), 1);
-        const easedProgress = 1 - Math.pow(1 - progress, 1.45);
-        const step = Math.min(Math.floor(progress * 4) + 1, 4);
-        scene.style.setProperty("--story-progress", progress.toFixed(3));
-        scene.style.setProperty("--story-step", String(step));
-        scene.querySelectorAll("[data-story-step]").forEach((chapter) => {
-          chapter.classList.toggle("is-current", chapter.dataset.storyStep === String(step));
-        });
-        scene.style.setProperty("--story-spin", `${(progress * 220).toFixed(2)}deg`);
-        scene.style.setProperty("--story-spin-reverse", `${(progress * -270).toFixed(2)}deg`);
-        const orbitRadius = 34 + easedProgress * 132;
-        const spiralTurn = progress * Math.PI * 1.35;
-        const placeStoryEgg = (name, phase, radiusOffset, rotateOffset) => {
-          const angle = spiralTurn + phase;
-          const radius = orbitRadius + radiusOffset;
-          const x = Math.cos(angle) * radius;
-          const y = Math.sin(angle) * radius;
-          const rotation = angle * (180 / Math.PI) + rotateOffset + progress * 52;
-          scene.style.setProperty(`--story-${name}-x`, `${x.toFixed(2)}px`);
-          scene.style.setProperty(`--story-${name}-y`, `${y.toFixed(2)}px`);
-          scene.style.setProperty(`--story-${name}-rotate`, `${rotation.toFixed(2)}deg`);
-        };
-        placeStoryEgg("one", -Math.PI * 0.58, 0, -16);
-        placeStoryEgg("two", -Math.PI * 0.08, 10, 10);
-        placeStoryEgg("three", Math.PI * 0.46, -6, -8);
-        placeStoryEgg("four", Math.PI * 0.95, 6, 18);
-      });
+    const remeasure = () => {
+      measure();
+      requestUpdate();
     };
 
-    const requestStoryUpdate = () => {
-      if (!storyTicking) {
-        storyTicking = true;
-        window.requestAnimationFrame(updateStories);
-      }
-    };
-
-    window.addEventListener("scroll", requestStoryUpdate, { passive: true });
-    window.addEventListener("resize", requestStoryUpdate);
-    requestStoryUpdate();
-  }
-
-  // Subtle spotlight for premium specimen cards.
-  if (!prefersReducedMotion.matches && window.matchMedia("(hover: hover)").matches) {
-    document.querySelectorAll(".specimen-card").forEach((card) => {
-      card.addEventListener("pointermove", (event) => {
-        const rect = card.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * 100;
-        const y = ((event.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty("--card-x", `${x.toFixed(1)}%`);
-        card.style.setProperty("--card-y", `${y.toFixed(1)}%`);
-      });
-    });
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", remeasure);
+    window.addEventListener("load", remeasure);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(remeasure);
+    }
+    remeasure();
   }
 })();

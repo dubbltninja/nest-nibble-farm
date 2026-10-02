@@ -3,30 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Geese | Nest & Nibble Farm</title>
-    <meta
-      name="description"
-      content="Explore Nest & Nibble Farm geese and limited availability."
-    />
+    <title>Geese | Nest &amp; Nibble Farm</title>
+    <meta name="description" content="Explore Nest &amp; Nibble Farm geese and limited availability." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Sora:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Golos+Text:wght@400..900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <div class="rail" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
     <header class="site-header">
-      <div class="container">
-        <div class="header-inner">
-          <a class="logo" href="index.html">Nest & Nibble Farm</a>
-          <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false">
-            Menu
-          </button>
-          <nav>
-            <div class="nav-links" data-nav-menu>
+      <div class="header-inner">
+        <a class="logo" href="index.html">Nest &amp; Nibble Farm</a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false">Menu</button>
+        <nav>
+          <div class="nav-links" data-nav-menu>
               <a href="index.html">Home</a>
               <a href="chickens.html">Chickens</a>
               <a href="ducks.html">Ducks</a>
@@ -34,64 +29,51 @@
               <a href="dna-poultry-testing.html">DNA Poultry Testing</a>
               <a href="about.html">About</a>
               <a href="contact.html">Contact</a>
-            </div>
-          </nav>
-        </div>
+          </div>
+        </nav>
       </div>
     </header>
 
     <main id="main">
-      <section class="page-hero page-hero--geese">
-        <div class="container">
-          <h1>Geese</h1>
-          <p>
-            Geese may have limited availability. Contact us for the most current information.
-          </p>
-        </div>
+      <section class="page-hero g-blue" data-scrub="exit">
+        <h1>Geese</h1>
+        <p>
+          Geese may have limited availability. Contact us for the most current information.
+        </p>
       </section>
 
-      <section class="section">
-        <div class="container">
-          <div class="breed-grid">
-            <article class="breed-card specimen-card" data-breed-id="white-embden">
-              <img src="assets/images/placeholder-goose.svg" alt="White Embden geese" />
+      <section class="wrap g-chalk">
+        <div class="rows">
+            <article class="breed-card specimen-card" data-breed-id="white-embden" data-scrub>
+              <div class="frame"><img src="assets/images/placeholder-goose.svg" alt="White Embden geese" /></div>
               <p class="breed-status status-limited" data-breed-status>Limited availability</p>
               <h3>White Embden</h3>
               <p>Bright white plumage with excellent pasture work ethic and family-friendly energy.</p>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="White Embden" data-modal-phrase="our White Embdens" data-type="geese" data-status="limited">
-                Contact for info
-              </button>
+              <button class="btn btn-outline" type="button" data-waitlist data-breed="White Embden" data-modal-phrase="our White Embdens" data-type="geese" data-status="limited">Contact for info</button>
             </article>
-            <article class="breed-card specimen-card" data-breed-id="dewlap-toulouse">
-              <img src="assets/images/placeholder-goose.svg" alt="Dewlap Toulouse geese" />
+            <article class="breed-card specimen-card" data-breed-id="dewlap-toulouse" data-scrub>
+              <div class="frame"><img src="assets/images/placeholder-goose.svg" alt="Dewlap Toulouse geese" /></div>
               <p class="breed-status status-coming-soon" data-breed-status>Coming soon</p>
               <h3>Dewlap Toulouse</h3>
               <p>Large, calm heritage geese known for substantial size, soft gray plumage, and steady pasture presence.</p>
-              <button class="btn btn-outline" type="button" data-waitlist data-breed="Dewlap Toulouse" data-modal-phrase="our Dewlap Toulouse geese" data-type="geese" data-status="coming-soon">
-                Get updates
-              </button>
+              <button class="btn btn-outline" type="button" data-waitlist data-breed="Dewlap Toulouse" data-modal-phrase="our Dewlap Toulouse geese" data-type="geese" data-status="coming-soon">Get updates</button>
             </article>
-          </div>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
-          <div class="cta">
-            <div>
-              <h2>Ask about current goose availability.</h2>
-              <p>White Embden availability is limited, and Dewlap Toulouse geese are coming soon.</p>
-            </div>
-            <a class="btn btn-outline" href="contact.html">Talk to the farm team</a>
-          </div>
+      <section class="cta g-choc" data-scrub>
+        <div>
+          <h2>Ask about current goose availability.</h2>
+          <p>White Embden availability is limited, and Dewlap Toulouse geese are coming soon.</p>
         </div>
+        <a class="btn btn-outline" href="contact.html">Talk to the farm team</a>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
+      <div class="footer-grid">
         <div>
-          <p class="footer-title">Nest & Nibble Farm</p>
+          <p class="footer-title">Nest &amp; Nibble Farm</p>
           <p class="section-subtitle">
             Poultry and waterfowl raised with care. NPIP tested. Certification pending.
           </p>
@@ -109,16 +91,12 @@
           <span class="footer-meta">Email: maximumwags@gmail.com</span>
         </div>
       </div>
-      <div class="container">
-        <p class="footer-meta">&copy; <span data-year></span> Nest & Nibble Farm. All rights reserved.</p>
-      </div>
+      <p class="footer-meta">&copy; <span data-year></span> Nest &amp; Nibble Farm. All rights reserved.</p>
     </footer>
 
-        <div class="modal" data-modal aria-hidden="true">
+    <div class="modal" data-modal aria-hidden="true">
       <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button class="modal-close" type="button" aria-label="Close" data-modal-close>
-          &times;
-        </button>
+        <button class="modal-close" type="button" aria-label="Close" data-modal-close>&times;</button>
         <p class="section-label">Interest request</p>
         <h2 class="section-title" id="modal-title" data-modal-title>Get more info</h2>
         <p class="section-subtitle">Breed: <span data-modal-breed>Selected breed</span></p>
@@ -153,9 +131,7 @@
             </fieldset>
             <p class="facebook-option">
               Prefer Facebook?
-              <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">
-                Message Lindsey directly
-              </a>
+              <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">Message Lindsey directly</a>
             </p>
             <button class="btn btn-primary" type="submit">Send interest request</button>
           </div>

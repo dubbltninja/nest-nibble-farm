@@ -3,30 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | Nest & Nibble Farm</title>
-    <meta
-      name="description"
-      content="Contact Nest & Nibble Farm about current availability, breed interest, and farm updates."
-    />
+    <title>Contact | Nest &amp; Nibble Farm</title>
+    <meta name="description" content="Contact Nest &amp; Nibble Farm about current availability, breed interest, and farm updates." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Sora:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Golos+Text:wght@400..900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <div class="rail" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
     <header class="site-header">
-      <div class="container">
-        <div class="header-inner">
-          <a class="logo" href="index.html">Nest & Nibble Farm</a>
-          <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false">
-            Menu
-          </button>
-          <nav>
-            <div class="nav-links" data-nav-menu>
+      <div class="header-inner">
+        <a class="logo" href="index.html">Nest &amp; Nibble Farm</a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false">Menu</button>
+        <nav>
+          <div class="nav-links" data-nav-menu>
               <a href="index.html">Home</a>
               <a href="chickens.html">Chickens</a>
               <a href="ducks.html">Ducks</a>
@@ -34,70 +29,57 @@
               <a href="dna-poultry-testing.html">DNA Poultry Testing</a>
               <a href="about.html">About</a>
               <a href="contact.html" aria-current="page">Contact</a>
-            </div>
-          </nav>
-        </div>
+          </div>
+        </nav>
       </div>
     </header>
 
     <main id="main">
-      <section class="page-hero">
-        <div class="container">
-          <h1>Contact the farm team</h1>
-          <p>
-            Tell us what you are interested in. We would love to answer your questions and help you find the right fit for your homestead!
+      <section class="page-hero page-hero--long g-blue" data-scrub="exit">
+        <h1>Contact the farm team</h1>
+        <p>
+          Tell us what you are interested in. We would love to answer your questions and help you find the right fit for your homestead!
+        </p>
+      </section>
+
+      <section class="wrap g-chalk">
+        <div class="waitlist-section">
+          <h2 class="section-title">Send an interest request</h2>
+          <p class="section-subtitle">
+            Use this form for general questions or breed interest.
           </p>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="waitlist-section">
-            <h2 class="section-title">Send an interest request</h2>
-            <p class="section-subtitle">
-              Use this form for general questions or breed interest.
+          <form action="" method="post">
+            <!-- TODO: Connect to Google Forms or backend endpoint. -->
+            <div class="form-group">
+              <label for="contact-name">Full name</label>
+              <input id="contact-name" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email address</label>
+              <input id="contact-email" name="email" type="email" placeholder="you@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-phone">Phone number</label>
+              <input id="contact-phone" name="phone" type="tel" placeholder="(555) 123-4567" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-notes">Notes</label>
+              <input id="contact-notes" name="notes" type="text" placeholder="Breed interest, questions, or timing" />
+            </div>
+            <p class="facebook-option">
+              Prefer Facebook?
+              <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">Message Lindsey directly</a>
             </p>
-            <form action="" method="post">
-              <!-- TODO: Connect to Google Forms or backend endpoint. -->
-              <div class="form-group">
-                <label for="contact-name">Full name</label>
-                <input id="contact-name" name="name" type="text" placeholder="Your name" required />
-              </div>
-              <div class="form-group">
-                <label for="contact-email">Email address</label>
-                <input id="contact-email" name="email" type="email" placeholder="you@email.com" required />
-              </div>
-              <div class="form-group">
-                <label for="contact-phone">Phone number</label>
-                <input id="contact-phone" name="phone" type="tel" placeholder="(555) 123-4567" required />
-              </div>
-              <div class="form-group">
-                <label for="contact-notes">Notes</label>
-                <input
-                  id="contact-notes"
-                  name="notes"
-                  type="text"
-                  placeholder="Breed interest, questions, or timing"
-                />
-              </div>
-              <p class="facebook-option">
-                Prefer Facebook?
-                <a href="https://www.facebook.com/share/17Z3yvoeWp/?mibextid=wwXIfr" data-facebook-link target="_blank" rel="noopener">
-                  Message Lindsey directly
-                </a>
-              </p>
-              <button class="btn btn-primary" type="submit">Send request</button>
-            </form>
-          </div>
+            <button class="btn btn-primary" type="submit">Send request</button>
+          </form>
         </div>
       </section>
-
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
+      <div class="footer-grid">
         <div>
-          <p class="footer-title">Nest & Nibble Farm</p>
+          <p class="footer-title">Nest &amp; Nibble Farm</p>
           <p class="section-subtitle">
             Poultry and waterfowl raised with care. NPIP tested. Certification pending.
           </p>
@@ -115,9 +97,7 @@
           <span class="footer-meta">Email: maximumwags@gmail.com</span>
         </div>
       </div>
-      <div class="container">
-        <p class="footer-meta">&copy; <span data-year></span> Nest & Nibble Farm. All rights reserved.</p>
-      </div>
+      <p class="footer-meta">&copy; <span data-year></span> Nest &amp; Nibble Farm. All rights reserved.</p>
     </footer>
 
     <script src="js/main.js"></script>
