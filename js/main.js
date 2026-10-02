@@ -26,6 +26,7 @@
   const birdOptions = modal ? modal.querySelector("[data-bird-options]") : null;
   const eggCheckbox = modal ? modal.querySelector("[data-egg-checkbox]") : null;
   const liveCheckbox = modal ? modal.querySelector("[data-live-checkbox]") : null;
+  const adultCheckbox = modal ? modal.querySelector("[data-adult-checkbox]") : null;
   const liveLabel = modal ? modal.querySelector("[data-live-label]") : null;
   // Bird-only checkbox options require one selection for birds and are hidden for any other type.
   const birdTypes = new Set(["chicken", "ducks", "geese"]);
@@ -78,7 +79,7 @@
       }
       return;
     }
-    const isChecked = [eggCheckbox, liveCheckbox].some((checkbox) => checkbox && checkbox.checked);
+    const isChecked = [eggCheckbox, liveCheckbox, adultCheckbox].some((checkbox) => checkbox && checkbox.checked);
     const message = isChecked ? "" : "Select at least one interest option.";
     if (eggCheckbox) {
       eggCheckbox.setCustomValidity(message);
@@ -97,6 +98,9 @@
       if (liveCheckbox) {
         liveCheckbox.disabled = true;
       }
+      if (adultCheckbox) {
+        adultCheckbox.disabled = true;
+      }
       updateBirdValidity();
       return;
     }
@@ -106,6 +110,9 @@
     }
     if (liveCheckbox) {
       liveCheckbox.disabled = false;
+    }
+    if (adultCheckbox) {
+      adultCheckbox.disabled = false;
     }
     if (liveLabel) {
       liveLabel.textContent = liveLabelMap[typeName] || "Live birds";
@@ -171,7 +178,7 @@
     });
   }
 
-  [eggCheckbox, liveCheckbox].forEach((checkbox) => {
+  [eggCheckbox, liveCheckbox, adultCheckbox].forEach((checkbox) => {
     if (checkbox) {
       checkbox.addEventListener("change", updateBirdValidity);
     }
