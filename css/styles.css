@@ -515,3 +515,103 @@ form .btn { justify-self: start; }
   html { scroll-behavior: auto; }
   .btn { transition: none; }
 }
+
+/* ================= spacing and type pass (2 Oct 2026) =================
+   Overrides for the rules above: content width cap, larger scale on big screens,
+   tighter section spacing. Later rules win, so edit sizes here. */
+
+/* 1. Content stops widening, and the whole scale grows a little on big screens. */
+:root {
+  --max: 92rem;
+  --pad: max(var(--gut), calc((100vw - var(--rail) - var(--max)) / 2));
+}
+html { font-size: clamp(100%, 0.5vw + 8.8px, 118.75%); }
+.header-inner, .wrap, .hero-pin, .palette-head, .track-head, .cta, .site-footer,
+.page-hero, .dna-hero, .gel, .dna-sameday-intro, .wells-pin { padding-inline: var(--pad); }
+
+/* 2. Headings: room for descenders, smaller top end. Supporting text: larger. */
+h1, h2, h3, h4 { line-height: 1.02; }
+.section-title { font-size: clamp(2.1rem, 4.2vw, 4rem); }
+.section-subtitle { font-size: 1.14rem; max-width: 56ch; }
+.section-label { font-size: 0.9rem; }
+.section-header { gap: 0.9rem; }
+
+/* 3. Less air between sections. */
+.wrap { padding-block: clamp(3rem, 6vw, 5.5rem); }
+.rows { gap: clamp(2.5rem, 5vw, 4rem); }
+
+/* 4. Home hero: headline in three lines, photo sized from the screen height. */
+.hero-copy { gap: 1.6rem; }
+.hero-copy h1 { max-width: 14ch; font-size: clamp(3rem, 6.6vw, 7.4rem); line-height: 1.1; }
+.hero-copy p { max-width: 42ch; font-size: 1.22rem; }
+@media (min-width: 900px) {
+  .hero-pin { grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--gut); }
+  .aperture { width: auto; height: min(72svh, 46rem); justify-self: end; }
+}
+
+/* 5. Home chicken strip: heading and strip travel as one group, cards sized from the screen height. */
+@media (min-width: 900px) and (min-height: 700px) {
+  .motion .track-scene { height: calc(100vh + var(--travel, 0px) * 0.5); }
+  .motion .track-pin { justify-content: center; gap: clamp(1.4rem, 3.4vh, 2.6rem); }
+  .motion .track-head { padding-top: var(--head); }
+  .motion .track-head .section-header { margin-bottom: 0; }
+  .motion .track { padding-inline: var(--pad); border-top: 0; }
+  .motion .track .breed-card { width: clamp(300px, 56vh, 42rem); border-top: var(--line); border-bottom: var(--line); padding-bottom: 1.6rem; }
+  .motion .track .breed-card:first-child { border-left: var(--line); }
+  .motion .track .breed-card h3 { font-size: clamp(1.5rem, 2.1vw, 2.2rem); }
+  .motion .track .breed-card > p:not(.breed-status) { font-size: 1rem; }
+}
+
+/* 6. Breed rows (ducks, geese): calmer name size, larger description. */
+@media (min-width: 800px) {
+  .rows .breed-card h3 { font-size: clamp(2.2rem, 3.6vw, 3.6rem); }
+}
+.breed-card > p:not(.breed-status) { font-size: 1.08rem; }
+
+/* 7. Ledger rows: heading and its sentence closer together and closer in size. */
+.ledger h3 { font-size: clamp(1.8rem, 3.2vw, 3rem); }
+.ledger p { font-size: 1.12rem; }
+@media (min-width: 800px) {
+  .ledger > * { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); align-items: baseline; }
+}
+
+/* 8. Call-to-action slabs. */
+.cta { padding-block: clamp(3.4rem, 7vw, 6rem); gap: 1.8rem; }
+.cta h2 { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 0.98; }
+.cta p { font-size: 1.14rem; margin-top: 1.2rem; }
+
+/* 9. Inner page titles. */
+.page-hero h1 { font-size: clamp(4rem, 12vw, 11rem); line-height: 0.92; }
+.page-hero--mid h1 { font-size: clamp(3.4rem, 10vw, 9.5rem); }
+.page-hero--long h1 { font-size: clamp(2.9rem, 8vw, 8rem); line-height: 0.94; }
+.page-hero p { font-size: 1.22rem; }
+.dna-hero h1 { font-size: clamp(3.2rem, 8.6vw, 8.6rem); line-height: 0.94; }
+
+/* 10. Chickens page: more cards across on wide screens. */
+@media (min-width: 1100px) {
+  .lanes { grid-template-columns: repeat(3, 1fr); }
+  .lanes .breed-card, .lanes .breed-card:nth-child(odd) { border-right: var(--line); }
+  .lanes .breed-card > :not(.frame) { margin-inline: 1.6rem; }
+  .lanes .breed-card h3 { font-size: clamp(1.8rem, 2.4vw, 2.6rem); }
+}
+@media (min-width: 1700px) { .lanes { grid-template-columns: repeat(4, 1fr); } }
+
+/* 11. DNA page. */
+@media (min-width: 900px) {
+  .dna-method-rest.is-wide { grid-column: 2; }
+  .dna-method-copy, .dna-method-rest.is-wide { max-width: 68ch; }
+  .dna-method-copy { align-self: start; }
+  .rack { grid-template-columns: repeat(16, 1fr); width: 100%; gap: clamp(6px, 1vw, 18px); }
+}
+/* wells: no longer pinned; they fill while the row scrolls past (wells-scene uses data-scrub in the HTML) */
+.motion .wells-scene { height: auto; }
+.motion .wells-pin { position: static; min-height: 0; padding-top: 1rem; }
+.rack i { --f: clamp(0, calc(var(--p, 1) * 46 - 11.5 - var(--i)), 1); }
+.dna-method-copy p, .dna-method-rest p, .dna-sameday-copy p { font-size: 1.08rem; }
+
+/* 12. Contact page: title on the left, form on the right. */
+@media (min-width: 900px) {
+  .waitlist-section { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); column-gap: var(--gut); row-gap: 0.9rem; }
+  .waitlist-section > .section-title, .waitlist-section > .section-subtitle { grid-column: 1; }
+  .waitlist-section > form { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; max-width: none; }
+}
