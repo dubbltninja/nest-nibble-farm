@@ -434,7 +434,7 @@ form .btn { justify-self: start; }
 
 .dna-service-grid { display: grid; gap: 0; border: 1.5px solid var(--ink); }
 .dna-service-card { display: grid; gap: 1.6rem; align-content: space-between; padding: clamp(1.5rem, 3.4vw, 3rem); }
-.dna-service-card h3 { font-weight: 700; font-stretch: 88%; font-size: clamp(1.9rem, 3.4vw, 3.2rem); margin-top: 0.9rem; }
+.dna-service-card h3 { font-weight: 700; font-stretch: 88%; font-size: clamp(1.9rem, 3.4vw, 3.2rem); }
 .dna-service-card--sex { background: var(--choc); color: var(--chalk); }
 .dna-service-card--genetics { background: var(--cream); }
 .dna-service-card--genetics > div > p { margin-top: 0.9rem; font-weight: 600; }
