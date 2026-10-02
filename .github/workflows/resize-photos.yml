@@ -17,20 +17,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install ImageMagick
         run: sudo apt-get update && sudo apt-get install -y imagemagick
 
-      - name: Shrink large photos
+      # Only the photos added or replaced by this push are touched, so photos
+      # already on the site are not recompressed every time a new one arrives.
+      - name: Shrink the photos in this push
+        env:
+          BEFORE: ${{ github.event.before }}
         run: |
-          shopt -s nullglob nocaseglob globstar
-          for f in assets/photos/**/*.{jpg,jpeg,png,webp}; do
-            mogrify -auto-orient -strip -resize '2000x2000>' -quality 82 "$f"
-          done
+          if git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            range="$BEFORE HEAD"
+          else
+            range="HEAD~1 HEAD"
+          fi
+          git diff --name-only --diff-filter=AM -z $range -- assets/photos |
+            while IFS= read -r -d '' f; do
+              case "${f,,}" in
+                *.jpg|*.jpeg|*.png|*.webp)
+                  [ -f "$f" ] && mogrify -auto-orient -strip -resize '2000x2000>' -quality 82 "$f"
+                  ;;
+              esac
+            done
 
+      # Several uploads in a row start several runs. Each one rebases onto the
+      # latest branch and retries, so they do not knock each other out.
       - name: Commit resized photos
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/photos
-          git diff --cached --quiet || (git commit -m "Resize uploaded photos" && git push)
+          git diff --cached --quiet && exit 0
+          git commit -m "Resize uploaded photos"
+          for attempt in 1 2 3 4 5 6; do
+            git pull --rebase && git push && exit 0
+            sleep $((attempt * 5))
+          done
+          exit 1
