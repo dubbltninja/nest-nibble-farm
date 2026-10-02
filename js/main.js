@@ -380,6 +380,27 @@
     const breeds = Object.fromEntries(breedList.filter((breed) => breed && breed.id).map((breed) => [breed.id, breed]));
     const slotPhotos = { "home-hero": farm && farm.heroPhoto, "about-image": farm && farm.aboutPhoto };
 
+    // Show the breed cards in the order they are listed in data/farm.json, so
+    // dragging a breed up or down in the admin screen reorders the site. Cards
+    // only swap places within their own group (chickens, ducks, geese).
+    const order = new Map(breedList.filter((breed) => breed && breed.id).map((breed, index) => [breed.id, index]));
+    const groups = new Map();
+    document.querySelectorAll(".breed-card[data-breed-id]").forEach((card) => {
+      if (!groups.has(card.parentElement)) groups.set(card.parentElement, []);
+      groups.get(card.parentElement).push(card);
+    });
+    groups.forEach((cards) => {
+      const rank = (card) => (order.has(card.dataset.breedId) ? order.get(card.dataset.breedId) : Infinity);
+      const sorted = cards.map((card, index) => ({ card, index })).sort((a, b) => rank(a.card) - rank(b.card) || a.index - b.index).map((entry) => entry.card);
+      if (sorted.every((card, index) => card === cards[index])) return;
+      const markers = cards.map((card) => {
+        const marker = document.createComment("");
+        card.replaceWith(marker);
+        return marker;
+      });
+      markers.forEach((marker, index) => marker.replaceWith(sorted[index]));
+    });
+
     document.querySelectorAll(".breed-card[data-breed-id]").forEach((card) => {
       const breedId = card.dataset.breedId;
       const breed = breeds[breedId];
