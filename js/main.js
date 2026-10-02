@@ -404,6 +404,18 @@
     });
   };
 
+  // The home opening grows into a frame the shape of its photo, so tell the
+  // stylesheet that shape (width / height) whenever a photo loads.
+  document.querySelectorAll(".aperture img").forEach((image) => {
+    const setShape = () => {
+      if (!image.naturalWidth || !image.naturalHeight) return;
+      const ratio = Math.min(2.4, Math.max(0.6, image.naturalWidth / image.naturalHeight));
+      image.closest(".aperture").style.setProperty("--photo-ar", ratio.toFixed(4));
+    };
+    image.addEventListener("load", setShape);
+    if (image.complete) setShape();
+  });
+
   applyFarmConfig();
 
   // Scroll controller. CSS draws every scene; this only publishes scroll positions as
