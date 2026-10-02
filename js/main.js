@@ -330,66 +330,78 @@
     image.src = url;
   };
 
-  const applyCloudinaryImages = (cloudinary) => {
-    if (!cloudinary || !cloudinary.baseUrl) return;
-    const breedImages = cloudinary.breedImages || {};
-    const slots = cloudinary.slots || {};
+  // Photos uploaded through the admin screen are stored in the repo and listed in
+  // data/farm.json. A breed or slot with no uploaded photo yet falls back to Cloudinary.
+  const localPhotoUrl = (path) => (typeof path === "string" && path.trim() ? path.trim().replace(/^\/+/, "") : "");
+
+  const applyPhoto = (image, localPath, cloudinary, imageConfig, options = {}) => {
+    if (!image) return;
+    const url = localPhotoUrl(localPath);
+    if (!url) {
+      loadCloudinaryImage(image, cloudinary, imageConfig, options);
+      return;
+    }
+    image.dataset.fallbackSrc = image.dataset.fallbackSrc || image.getAttribute("src") || "";
+    image.decoding = "async";
+    image.loading = options.eager ? "eager" : "lazy";
+    const wrapper = image.closest(".frame, .aperture");
+    const handleLoad = () => {
+      image.classList.add("is-cloudinary-photo");
+      if (wrapper) {
+        wrapper.classList.add("has-cloudinary-photo");
+      }
+    };
+    const handleError = () => {
+      image.removeEventListener("load", handleLoad);
+      loadCloudinaryImage(image, cloudinary, imageConfig, options);
+    };
+    image.addEventListener("load", handleLoad, { once: true });
+    image.addEventListener("error", handleError, { once: true });
+    image.src = url;
+  };
+
+  const fetchJson = async (path) => {
+    try {
+      const response = await fetch(path, { cache: "no-cache" });
+      return response.ok ? await response.json() : null;
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const applyFarmConfig = async () => {
+    // Static HTML remains accurate if either file cannot be fetched.
+    const [config, farm] = await Promise.all([fetchJson("data/breeds.json"), fetchJson("data/farm.json")]);
+    if (!config && !farm) return;
+    const settings = config || {};
+    const statuses = { ...statusFallbacks, ...(settings.statuses || {}) };
+    const cloudinary = settings.cloudinary || {};
+    const breedList = farm && Array.isArray(farm.breeds) ? farm.breeds : [];
+    const breeds = Object.fromEntries(breedList.filter((breed) => breed && breed.id).map((breed) => [breed.id, breed]));
+    const slotPhotos = { "home-hero": farm && farm.heroPhoto, "about-image": farm && farm.aboutPhoto };
 
     document.querySelectorAll(".breed-card[data-breed-id]").forEach((card) => {
       const breedId = card.dataset.breedId;
-      const image = card.querySelector("img");
-      const imageConfig = normalizeImageConfig(breedImages[breedId], breedId, "breed");
-      loadCloudinaryImage(image, cloudinary, imageConfig);
+      const breed = breeds[breedId];
+      const imageConfig = normalizeImageConfig((cloudinary.breedImages || {})[breedId], breedId, "breed");
+      applyPhoto(card.querySelector("img"), breed && breed.photo, cloudinary, imageConfig);
+      if (breed && breed.name && breed.type) {
+        applyBreedStatus(card, breed, statuses);
+      }
     });
 
     document.querySelectorAll("[data-cloudinary-slot]").forEach((image) => {
       const slotName = image.dataset.cloudinarySlot;
       const fallbackTransform = slotName === "home-hero" ? "hero" : "feature";
-      const imageConfig = normalizeImageConfig(slots[slotName], slotName, fallbackTransform);
-      loadCloudinaryImage(image, cloudinary, imageConfig, {
-        eager: slotName === "home-hero",
-      });
+      const imageConfig = normalizeImageConfig((cloudinary.slots || {})[slotName], slotName, fallbackTransform);
+      applyPhoto(image, slotPhotos[slotName], cloudinary, imageConfig, { eager: slotName === "home-hero" });
     });
-  };
 
-  const applyFarmConfig = async () => {
-    try {
-      const response = await fetch("data/breeds.json", { cache: "no-cache" });
-      if (!response.ok) return;
-      const config = await response.json();
-      const statuses = { ...statusFallbacks, ...(config.statuses || {}) };
-      const breeds = config.breeds || {};
-
-      applyCloudinaryImages(config.cloudinary);
-
-      document.querySelectorAll(".breed-card[data-breed-id]").forEach((card) => {
-        const breed = breeds[card.dataset.breedId];
-        if (breed) {
-          applyBreedStatus(card, breed, statuses);
-        }
-      });
-
-      document.querySelectorAll("[data-waitlist][data-breed-id]").forEach((button) => {
-        if (button.closest(".breed-card")) return;
-        const breed = breeds[button.dataset.breedId];
-        if (!breed) return;
-        const statusName = breed.status || "available";
-        const status = statuses[statusName] || statusFallbacks[statusName] || statusFallbacks.available;
-        button.textContent = status.cta;
-        button.setAttribute("data-status", statusName);
-        button.setAttribute("data-breed", breed.name);
-        button.setAttribute("data-type", breed.type);
-        button.setAttribute("data-modal-phrase", breed.modalPhrase || breed.name);
-      });
-
-      document.querySelectorAll("[data-facebook-link]").forEach((link) => {
-        if (config.facebookUrl) {
-          link.href = config.facebookUrl;
-        }
-      });
-    } catch (error) {
-      // Static HTML remains accurate if local JSON cannot be fetched.
-    }
+    document.querySelectorAll("[data-facebook-link]").forEach((link) => {
+      if (settings.facebookUrl) {
+        link.href = settings.facebookUrl;
+      }
+    });
   };
 
   applyFarmConfig();

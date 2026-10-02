@@ -1,0 +1,70 @@
+# Pages CMS configuration (https://pagescms.org).
+# Lets the farm edit photos and availability from a phone at app.pagescms.org.
+
+media:
+  - name: photos
+    label: Photos
+    input: assets/photos
+    output: /assets/photos
+    rename: safe
+    extensions: [jpg, jpeg, png, webp]
+
+content:
+  - name: farm
+    label: Photos and availability
+    type: file
+    path: data/farm.json
+    format: json
+    fields:
+      - name: heroPhoto
+        label: Home page main photo
+        type: image
+        options:
+          media: photos
+      - name: aboutPhoto
+        label: About page photo
+        type: image
+        options:
+          media: photos
+      - name: breeds
+        label: Breeds
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Name
+            type: string
+            readonly: true
+          - name: status
+            label: Availability
+            type: select
+            options:
+              values:
+                - name: available
+                  label: Available
+                - name: laying-hens-available
+                  label: Laying Hens Available
+                - name: limited
+                  label: Limited availability
+                - name: coming-soon
+                  label: Coming soon
+          - name: photo
+            label: Photo
+            type: image
+            options:
+              media: photos
+          - name: id
+            label: Site ID (do not change)
+            type: string
+            readonly: true
+          - name: type
+            label: Type (do not change)
+            type: string
+            readonly: true
+          - name: modalPhrase
+            label: Pop-up wording (do not change)
+            type: string
+            readonly: true

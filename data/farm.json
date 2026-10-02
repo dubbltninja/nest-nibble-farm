@@ -1,0 +1,94 @@
+{
+  "heroPhoto": "",
+  "aboutPhoto": "",
+  "breeds": [
+    {
+      "id": "salmon-favorelles",
+      "name": "Salmon Favorelles",
+      "status": "available",
+      "photo": "",
+      "type": "chicken",
+      "modalPhrase": "our Salmon Favorelles"
+    },
+    {
+      "id": "cochins",
+      "name": "Cochins",
+      "status": "available",
+      "photo": "",
+      "type": "chicken",
+      "modalPhrase": "our Cochins"
+    },
+    {
+      "id": "chocolate-eggers",
+      "name": "Chocolate Eggers",
+      "status": "available",
+      "photo": "",
+      "type": "chicken",
+      "modalPhrase": "our Chocolate Eggers"
+    },
+    {
+      "id": "rainbow-eggers",
+      "name": "Rainbow Eggers",
+      "status": "available",
+      "photo": "",
+      "type": "chicken",
+      "modalPhrase": "our Rainbow Eggers"
+    },
+    {
+      "id": "isabel-brahmas",
+      "name": "Isabel Brahmas",
+      "status": "available",
+      "photo": "",
+      "type": "chicken",
+      "modalPhrase": "our Isabel Brahmas"
+    },
+    {
+      "id": "bantam-salmon-favorelles",
+      "name": "Bantam Salmon Favorelles",
+      "status": "available",
+      "photo": "",
+      "type": "chicken",
+      "modalPhrase": "our Bantam Salmon Favorelles"
+    },
+    {
+      "id": "speckled-sussex",
+      "name": "Speckled Sussex",
+      "status": "laying-hens-available",
+      "photo": "",
+      "type": "chicken",
+      "modalPhrase": "our Speckled Sussex"
+    },
+    {
+      "id": "ermine-americanas",
+      "name": "Ermine Ameraucanas",
+      "status": "limited",
+      "photo": "",
+      "type": "chicken",
+      "modalPhrase": "our Ermine Ameraucanas"
+    },
+    {
+      "id": "indian-runner",
+      "name": "Indian Runner",
+      "status": "available",
+      "photo": "",
+      "type": "ducks",
+      "modalPhrase": "our Indian Runners"
+    },
+    {
+      "id": "white-embden",
+      "name": "White Embden",
+      "status": "limited",
+      "photo": "",
+      "type": "geese",
+      "modalPhrase": "our White Embdens"
+    },
+    {
+      "id": "dewlap-toulouse",
+      "name": "Dewlap Toulouse",
+      "status": "coming-soon",
+      "photo": "",
+      "type": "geese",
+      "modalPhrase": "our Dewlap Toulouse geese"
+    }
+  ]
+}

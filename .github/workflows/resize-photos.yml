@@ -1,0 +1,36 @@
+name: Resize uploaded photos
+
+# Phone photos are several megabytes. When one is added under assets/photos,
+# shrink it to at most 2000px on its long side and strip its metadata
+# (including GPS location), then commit the smaller file back.
+
+on:
+  push:
+    paths:
+      - "assets/photos/**"
+
+permissions:
+  contents: write
+
+jobs:
+  resize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+
+      - name: Shrink large photos
+        run: |
+          shopt -s nullglob nocaseglob globstar
+          for f in assets/photos/**/*.{jpg,jpeg,png,webp}; do
+            mogrify -auto-orient -strip -resize '2000x2000>' -quality 82 "$f"
+          done
+
+      - name: Commit resized photos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/photos
+          git diff --cached --quiet || (git commit -m "Resize uploaded photos" && git push)
