@@ -274,13 +274,13 @@ h1, h2, h3, h4 {
 .motion .chapter:nth-of-type(2) { --c: 1.5; }
 .motion .chapter:nth-of-type(3) { --c: 2.5; }
 .motion .chapter:nth-of-type(4) { --c: 3.5; }
-.motion .chapter h3 { font-stretch: calc(92% + (var(--x) - var(--c)) * 70%); white-space: nowrap; }
+.motion .chapter h3 { font-stretch: 92%; white-space: nowrap; }
 @media (max-width: 899px) {
   .motion .cross--v, .motion .shell { left: 50%; }
   .motion .cross--h, .motion .shell { top: 38%; }
   .motion .shell { width: min(46vw, 30vh); }
   .motion .chapter { width: calc(100% - var(--gut) * 2); bottom: 5vh; }
-  .motion .chapter h3 { font-size: clamp(2.6rem, 14vw, 5rem); white-space: normal; font-stretch: calc(92% + (var(--x) - var(--c)) * 40%); }
+  .motion .chapter h3 { font-size: clamp(2.6rem, 14vw, 5rem); white-space: normal; font-stretch: 92%; }
 }
 
 /* ---------- breeds ---------- */
@@ -362,7 +362,7 @@ h1, h2, h3, h4 {
 .ledger > :last-child { border-bottom: var(--line); }
 .ledger h3 {
   font-weight: 780; font-size: clamp(1.8rem, 4.4vw, 4rem);
-  font-stretch: calc(66% + var(--p, 0.5) * 70%);
+  font-stretch: 90%;
 }
 .ledger p { max-width: 52ch; }
 @media (min-width: 800px) {
@@ -372,7 +372,7 @@ h1, h2, h3, h4 {
 .cta { display: grid; gap: 2.2rem; padding: clamp(3.4rem, 10vw, 9rem) var(--gut); }
 .cta h2 {
   font-weight: 800; font-size: clamp(2.5rem, 8vw, 8.4rem); line-height: 0.86;
-  font-stretch: calc(62% + var(--p, 0.5) * 50%);
+  font-stretch: 84%;
 }
 .cta p { max-width: 52ch; margin-top: 1.4rem; }
 .cta .btn { justify-self: start; }
@@ -389,10 +389,10 @@ h1, h2, h3, h4 {
 /* ---------- inner page heads ---------- */
 .page-hero { padding: clamp(2.6rem, 7vw, 5.4rem) var(--gut) clamp(2rem, 5vw, 3.6rem); overflow: hidden; display: grid; gap: 1.6rem; }
 .page-hero h1 {
-  font-weight: 800; font-size: clamp(4rem, 19vw, 19rem); line-height: 0.8; white-space: nowrap;
-  font-stretch: calc(58% + var(--p, 0) * 92%);
+  font-weight: 800; font-size: clamp(4rem, 16vw, 16rem); line-height: 0.8;
+  font-stretch: 80%;
 }
-.page-hero--long h1 { font-size: clamp(2.9rem, 10vw, 10rem); white-space: normal; line-height: 0.86; font-stretch: calc(62% + var(--p, 0) * 60%); }
+.page-hero--long h1 { font-size: clamp(2.9rem, 10vw, 10rem); white-space: normal; line-height: 0.86; font-stretch: 84%; }
 .page-hero p { max-width: 50ch; font-size: 1.14rem; }
 
 .about-feature { display: grid; gap: var(--gut); margin-bottom: clamp(2.6rem, 7vw, 6rem); }
@@ -439,7 +439,7 @@ form .btn { justify-self: start; }
 .dna-hero-copy { display: grid; gap: 1.2rem; align-content: start; }
 .dna-hero h1 {
   font-weight: 800; font-size: clamp(3.2rem, 10.5vw, 10.5rem); line-height: 0.82;
-  font-stretch: calc(60% + var(--p, 0) * 70%);
+  font-stretch: 84%;
 }
 .dna-hero-lead { font: 700 clamp(1.3rem, 2.4vw, 2rem)/1.1 var(--display); font-stretch: 105%; }
 .dna-hero-copy p { max-width: 50ch; }

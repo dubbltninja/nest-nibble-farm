@@ -16,7 +16,7 @@
 
 The only curve is the egg (the home aperture, the palette shell, the sample wells). Everything else is square.
 
-**Type.** Anybody for display, Golos Text for reading, both from Google Fonts. Anybody has a width axis, so headings set `font-stretch` from a scroll position and physically widen as you move.
+**Type.** Anybody for display, Golos Text for reading, both from Google Fonts. Headings use fixed widths of Anybody's width axis. Text does not change width or size with scroll; that effect was tried and removed.
 
 **Motion.** Scroll position is the only clock. `js/main.js` publishes `--p` (0 to 1) on every `[data-scene]` (pinned scenes) and `[data-scrub]` (elements passing through the viewport), plus `--page-p` for the shell scale on the left edge. CSS does all the drawing from those numbers. There are no timed or looping animations.
 
