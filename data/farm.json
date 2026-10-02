@@ -1,92 +1,79 @@
 {
-  "heroPhoto": "",
-  "aboutPhoto": "",
   "breeds": [
     {
-      "id": "salmon-favorelles",
       "name": "Salmon Favorelles",
       "status": "available",
-      "photo": "",
+      "id": "salmon-favorelles",
       "type": "chicken",
       "modalPhrase": "our Salmon Favorelles"
     },
     {
-      "id": "cochins",
       "name": "Cochins",
       "status": "available",
-      "photo": "",
+      "id": "cochins",
       "type": "chicken",
       "modalPhrase": "our Cochins"
     },
     {
-      "id": "chocolate-eggers",
       "name": "Chocolate Eggers",
       "status": "available",
-      "photo": "",
+      "id": "chocolate-eggers",
       "type": "chicken",
       "modalPhrase": "our Chocolate Eggers"
     },
     {
-      "id": "rainbow-eggers",
       "name": "Rainbow Eggers",
       "status": "available",
-      "photo": "",
+      "id": "rainbow-eggers",
       "type": "chicken",
       "modalPhrase": "our Rainbow Eggers"
     },
     {
-      "id": "isabel-brahmas",
       "name": "Isabel Brahmas",
       "status": "available",
-      "photo": "",
+      "id": "isabel-brahmas",
       "type": "chicken",
       "modalPhrase": "our Isabel Brahmas"
     },
     {
-      "id": "bantam-salmon-favorelles",
       "name": "Bantam Salmon Favorelles",
       "status": "available",
-      "photo": "",
+      "id": "bantam-salmon-favorelles",
       "type": "chicken",
       "modalPhrase": "our Bantam Salmon Favorelles"
     },
     {
-      "id": "speckled-sussex",
       "name": "Speckled Sussex",
-      "status": "laying-hens-available",
-      "photo": "",
+      "status": "limited",
+      "id": "speckled-sussex",
       "type": "chicken",
       "modalPhrase": "our Speckled Sussex"
     },
     {
-      "id": "ermine-americanas",
       "name": "Ermine Ameraucanas",
       "status": "limited",
-      "photo": "",
+      "id": "ermine-americanas",
       "type": "chicken",
       "modalPhrase": "our Ermine Ameraucanas"
     },
     {
-      "id": "indian-runner",
       "name": "Indian Runner",
       "status": "available",
-      "photo": "",
+      "id": "indian-runner",
       "type": "ducks",
       "modalPhrase": "our Indian Runners"
     },
     {
-      "id": "white-embden",
       "name": "White Embden",
       "status": "limited",
-      "photo": "",
+      "id": "white-embden",
       "type": "geese",
       "modalPhrase": "our White Embdens"
     },
     {
-      "id": "dewlap-toulouse",
       "name": "Dewlap Toulouse",
       "status": "coming-soon",
-      "photo": "",
+      "id": "dewlap-toulouse",
       "type": "geese",
       "modalPhrase": "our Dewlap Toulouse geese"
     }
