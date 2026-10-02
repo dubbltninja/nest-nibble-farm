@@ -1,8 +1,11 @@
 {
+  "heroPhoto": "/assets/photos/home-hero.jpg",
+  "aboutPhoto": "/assets/photos/about-image.jpg",
   "breeds": [
     {
       "name": "Salmon Favorelles",
       "status": "available",
+      "photo": "/assets/photos/salmon-favorelles.jpg",
       "id": "salmon-favorelles",
       "type": "chicken",
       "modalPhrase": "our Salmon Favorelles"
@@ -10,6 +13,7 @@
     {
       "name": "Cochins",
       "status": "available",
+      "photo": "/assets/photos/cochins.jpg",
       "id": "cochins",
       "type": "chicken",
       "modalPhrase": "our Cochins"
@@ -17,6 +21,7 @@
     {
       "name": "Chocolate Eggers",
       "status": "available",
+      "photo": "/assets/photos/chocolate-eggers.jpg",
       "id": "chocolate-eggers",
       "type": "chicken",
       "modalPhrase": "our Chocolate Eggers"
@@ -31,6 +36,7 @@
     {
       "name": "Isabel Brahmas",
       "status": "available",
+      "photo": "/assets/photos/isabel-brahmas.jpg",
       "id": "isabel-brahmas",
       "type": "chicken",
       "modalPhrase": "our Isabel Brahmas"
@@ -45,6 +51,7 @@
     {
       "name": "Speckled Sussex",
       "status": "laying-hens-available",
+      "photo": "/assets/photos/speckled-sussex.jpg",
       "id": "speckled-sussex",
       "type": "chicken",
       "modalPhrase": "our Speckled Sussex"
@@ -52,6 +59,7 @@
     {
       "name": "Ermine Ameraucanas",
       "status": "limited",
+      "photo": "/assets/photos/ermine-ameraucanas.jpg",
       "id": "ermine-americanas",
       "type": "chicken",
       "modalPhrase": "our Ermine Ameraucanas"
@@ -59,6 +67,7 @@
     {
       "name": "Indian Runner",
       "status": "available",
+      "photo": "/assets/photos/indian-runner.jpg",
       "id": "indian-runner",
       "type": "ducks",
       "modalPhrase": "our Indian Runners"
@@ -66,6 +75,7 @@
     {
       "name": "White Embden",
       "status": "limited",
+      "photo": "/assets/photos/white-embden.jpg",
       "id": "white-embden",
       "type": "geese",
       "modalPhrase": "our White Embdens"
@@ -73,6 +83,7 @@
     {
       "name": "Dewlap Toulouse",
       "status": "coming-soon",
+      "photo": "/assets/photos/dewlap-toulouse.jpg",
       "id": "dewlap-toulouse",
       "type": "geese",
       "modalPhrase": "our Dewlap Toulouse geese"
