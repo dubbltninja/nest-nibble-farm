@@ -19,12 +19,12 @@
       "modalPhrase": "our Cochins"
     },
     {
-      "name": "Chocolate Eggers",
+      "name": "Black Copper Marans",
       "status": "available",
-      "photo": "/assets/photos/chocolate-eggers.jpg",
-      "id": "chocolate-eggers",
+      "photo": "/assets/photos/black-copper-marans.jpg",
+      "id": "black-copper-marans",
       "type": "chicken",
-      "modalPhrase": "our Chocolate Eggers"
+      "modalPhrase": "our Black Copper Marans"
     },
     {
       "name": "Rainbow Eggers",
