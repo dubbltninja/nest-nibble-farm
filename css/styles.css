@@ -178,57 +178,13 @@ h1, h2, h3, h4 {
 }
 .aperture img { height: 100%; object-fit: cover; }
 @media (min-width: 900px) {
-  .hero-pin { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; }
+  .hero-pin {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center;
+    min-height: calc(100vh - var(--head)); min-height: calc(100svh - var(--head));
+  }
+  .aperture { width: clamp(260px, 27vw, 460px); }
 }
 
-.motion .hero-scene { height: 240vh; }
-.motion .hero-pin {
-  position: sticky; top: 0; display: block; height: 100vh; height: 100svh;
-  padding: 0; overflow: hidden;
-}
-.motion .hero-copy {
-  position: absolute; z-index: 1; left: var(--gut); top: calc(var(--head) + 7vh);
-  width: min(52vw, 780px);
-  opacity: clamp(0, calc(1 - var(--p, 0) / 0.3), 1);
-}
-/* The opening starts as an egg and grows into a frame the shape of the photo
-   itself, so the whole photo is shown at the end, never a crop of it.
-   --photo-ar (width / height) is set by the script when the photo loads. */
-.motion .aperture {
-  --a: clamp(0, calc(var(--p, 0) / 0.72), 1);
-  --vh: 100vh;
-  --pw: calc(100vw - var(--rail));
-  --sw: 27vw;
-  --sh: calc(var(--sw) * 1.3);
-  --sx: calc(var(--pw) - var(--sw) - 9vw);
-  --sy: calc(50% - var(--sh) / 2 + var(--head) / 2);
-  --room: calc(var(--vh) - var(--head) - 6vh);
-  --fw: min(var(--pw) - var(--gut), calc(var(--room) * var(--photo-ar, 1)));
-  --fh: calc(var(--fw) / var(--photo-ar, 1));
-  --fx: calc((var(--pw) - var(--fw)) / 2);
-  --fy: calc(var(--head) + (var(--vh) - var(--head) - var(--fh)) / 2);
-  position: absolute; z-index: 2; max-width: none; aspect-ratio: auto;
-  left: calc(var(--sx) * (1 - var(--a)) + var(--fx) * var(--a));
-  top: calc(var(--sy) * (1 - var(--a)) + var(--fy) * var(--a));
-  width: calc(var(--sw) * (1 - var(--a)) + var(--fw) * var(--a));
-  height: calc(var(--sh) * (1 - var(--a)) + var(--fh) * var(--a));
-  --r: calc(1 - var(--a) * var(--a) * var(--a));
-  border-radius:
-    max(1.2rem, calc(50% * var(--r))) max(1.2rem, calc(50% * var(--r))) max(1.2rem, calc(50% * var(--r))) max(1.2rem, calc(50% * var(--r))) /
-    max(1.2rem, calc(60% * var(--r))) max(1.2rem, calc(60% * var(--r))) max(1.2rem, calc(40% * var(--r))) max(1.2rem, calc(40% * var(--r)));
-}
-@supports (height: 100svh) { .motion .aperture { --vh: 100svh; } }
-.motion .aperture img { width: 100%; height: 100%; max-width: none; object-fit: cover; }
-@media (max-width: 899px) {
-  .motion .hero-copy { width: calc(100% - var(--gut) * 2); top: calc(var(--head) + 3vh); gap: 1rem; }
-  .motion .hero-copy h1 { font-size: clamp(2.5rem, 11.5vw, 4rem); }
-  .motion .hero-copy p { font-size: 1rem; }
-  .motion .aperture {
-    --sw: 40vw;
-    --sx: calc(var(--pw) - var(--sw) - var(--gut));
-    --sy: calc(100% - var(--sh) - 3vh);
-  }
-}
 
 /* ---------- home: shell palette ---------- */
 .palette-head { padding: clamp(3rem, 8vw, 7rem) var(--gut) clamp(1.5rem, 4vw, 3rem); }
