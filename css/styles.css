@@ -168,7 +168,7 @@ h1, h2, h3, h4 {
 .hero-copy { display: grid; gap: 1.4rem; align-content: start; }
 .hero-copy h1 {
   max-width: 11ch; font-weight: 700; font-stretch: 76%;
-  font-size: clamp(3rem, 7.6vw, 7.8rem); line-height: 0.88;
+  font-size: clamp(3rem, 6.4vw, 6.6rem); line-height: 1.08;
 }
 .hero-copy p { max-width: 44ch; font-size: 1.1rem; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.6rem; }
