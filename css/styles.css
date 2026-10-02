@@ -476,7 +476,13 @@ form .btn { justify-self: start; }
 
 .dna-method { display: grid; gap: var(--gut); }
 .dna-method .section-header { margin: 0; align-content: start; }
-.dna-method-copy { display: grid; gap: 1rem; max-width: 62ch; }
+.dna-method-copy { max-width: 62ch; }
+.dna-method-rest { display: grid; gap: 1rem; }
+@media (min-width: 900px) {
+  .dna-method-rest { grid-column: 1 / -1; display: block; columns: 2; column-gap: var(--gut); }
+  .dna-method-rest p { break-inside: avoid; margin: 0 0 1rem; }
+  .dna-method-rest.is-wide { columns: auto; }
+}
 @media (min-width: 900px) { .dna-method { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); } }
 .dna-sameday-intro { display: grid; gap: var(--gut); padding: clamp(3rem, 8vw, 7rem) var(--gut) clamp(1.5rem, 4vw, 3rem); }
 .dna-sameday-intro .section-header { margin: 0; align-content: start; }
