@@ -474,9 +474,9 @@ form .btn { justify-self: start; }
 .dna-steps h3 { font-weight: 700; font-stretch: 92%; font-size: clamp(1.5rem, 2.2vw, 2rem); margin-bottom: 0.5rem; }
 @media (min-width: 900px) { .dna-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
-.dna-method { display: grid; gap: var(--gut); }
+.dna-method { display: grid; column-gap: var(--gut); row-gap: 1rem; }
 .dna-method .section-header { margin: 0; align-content: start; }
-.dna-method-copy { max-width: 62ch; }
+.dna-method-copy { max-width: 62ch; align-self: end; }
 .dna-method-rest { display: grid; gap: 1rem; }
 @media (min-width: 900px) {
   .dna-method-rest { grid-column: 1 / -1; display: block; columns: 2; column-gap: var(--gut); }
