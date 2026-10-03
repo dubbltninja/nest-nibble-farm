@@ -73,14 +73,6 @@
       "modalPhrase": "our Indian Runners"
     },
     {
-      "name": "White Embden",
-      "status": "limited",
-      "photo": "/assets/photos/white-embden.jpg",
-      "id": "white-embden",
-      "type": "geese",
-      "modalPhrase": "our White Embdens"
-    },
-    {
       "name": "Dewlap Toulouse",
       "status": "coming-soon",
       "photo": "/assets/photos/dewlap-toulouse.jpg",
