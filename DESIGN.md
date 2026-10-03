@@ -24,4 +24,4 @@ Headings are Cormorant Garamond and body text is Sora, both from Google Fonts. T
 
 **Still version.** The base CSS is a complete page with nothing pinned or hidden. The pinned layouts live under `.motion`, which the script adds only when reduced motion is not requested.
 
-**Content rules.** Copy, breed list, statuses and photos are real. Photos load from Cloudinary using `data/breeds.json`; the SVGs in `assets/images` are fallbacks. Do not add breeds, prices, testimonials or certifications. NPIP certification is pending.
+**Content rules.** Copy, breed list, statuses and photos are real. Photos load from Cloudinary using `data/breeds.json`; the SVGs in `assets/images` are fallbacks. Do not add breeds, prices, testimonials or certifications. The farm is NPIP certified / AI clean, #51-845.
