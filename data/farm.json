@@ -44,6 +44,7 @@
     {
       "name": "Bantam Salmon Favorelles",
       "status": "available",
+      "photo": "/assets/photos/bantam-salmon-favorelles.jpg",
       "id": "bantam-salmon-favorelles",
       "type": "chicken",
       "modalPhrase": "our Bantam Salmon Favorelles"
