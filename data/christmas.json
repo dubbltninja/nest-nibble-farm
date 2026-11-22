@@ -1,0 +1,279 @@
+{
+  "gifts": [
+    {
+      "id": "command-strips",
+      "name": "Command picture hanging strips",
+      "price": "$8–13",
+      "priceValue": 8,
+      "band": "under-40",
+      "description": "Damage-free hanging for frames and art around the house.",
+      "image": "assets/christmas/command-strips.jpg",
+      "url": "https://a.co/d/cdgQS5M"
+    },
+    {
+      "id": "outlet-cover",
+      "name": "Outdoor outlet cover",
+      "price": "$10",
+      "priceValue": 10,
+      "band": "under-40",
+      "description": "Weatherproof cover for an exterior receptacle.",
+      "image": "assets/christmas/outlet-cover.jpg",
+      "url": "https://www.amazon.com/dp/B08GKXJX7Z/"
+    },
+    {
+      "id": "screwdriver",
+      "name": "iFixit Minnow screwdriver kit",
+      "price": "$15",
+      "priceValue": 15,
+      "band": "under-40",
+      "description": "Pocket-sized driver and bit set for small electronics and farm gadgets.",
+      "image": "assets/christmas/screwdriver.jpg",
+      "url": "https://a.co/d/08bqzeGU"
+    },
+    {
+      "id": "blade-runner",
+      "name": "Blade Runner 2049 4K Blu-ray",
+      "price": "$15",
+      "priceValue": 15,
+      "band": "under-40",
+      "description": "The 4K Ultra HD + Blu-ray to add to the shelf.",
+      "image": "assets/christmas/blade-runner.jpg",
+      "url": "https://www.amazon.com/dp/B075DQGW92/"
+    },
+    {
+      "id": "phone-case",
+      "name": "Phone case",
+      "price": "$16",
+      "priceValue": 16,
+      "band": "under-40",
+      "description": "The MagSafe case in this listing.",
+      "image": "assets/christmas/phone-case.jpg",
+      "url": "https://a.co/d/01wnY9WN"
+    },
+    {
+      "id": "space-odyssey",
+      "name": "2001: A Space Odyssey remaster 4K Blu-ray",
+      "price": "$17",
+      "priceValue": 17,
+      "band": "under-40",
+      "description": "The 4K remaster, Ultra HD + Blu-ray.",
+      "image": "assets/christmas/space-odyssey.jpg",
+      "url": "https://www.amazon.com/dp/B07KH8W76F/"
+    },
+    {
+      "id": "top-gun",
+      "name": "Top Gun: Maverick 4K Blu-ray",
+      "price": "$17",
+      "priceValue": 17,
+      "band": "under-40",
+      "description": "4K Ultra HD of Maverick.",
+      "image": "assets/christmas/top-gun.jpg",
+      "url": "https://www.amazon.com/dp/B09Y896LW1/"
+    },
+    {
+      "id": "build-plate",
+      "name": "Super tack build plate for 3D printing",
+      "price": "$27",
+      "priceValue": 27,
+      "band": "under-40",
+      "description": "CryoGrip frostbite plate for more reliable prints at room temperature.",
+      "image": "assets/christmas/build-plate.jpg",
+      "url": "https://www.amazon.com/dp/B0DPL5Z6TS/"
+    },
+    {
+      "id": "dosing-funnel",
+      "name": "Steel coffee dosing funnel",
+      "price": "$30",
+      "priceValue": 30,
+      "band": "under-40",
+      "description": "54mm stainless funnel that keeps grounds in the basket.",
+      "image": "assets/christmas/dosing-funnel.jpg",
+      "url": "https://www.amazon.com/dp/B08WLN3JXY/"
+    },
+    {
+      "id": "power-bank",
+      "name": "Wireless power bank",
+      "price": "$32",
+      "priceValue": 32,
+      "band": "under-40",
+      "description": "Magnetic 10,000 mAh charger for phone and watch.",
+      "image": "assets/christmas/power-bank.jpg",
+      "url": "https://a.co/d/0cyE2lfe"
+    },
+    {
+      "id": "laser-level",
+      "name": "Laser level",
+      "price": "$33",
+      "priceValue": 33,
+      "band": "under-40",
+      "description": "Pocket green laser for hanging pictures and home DIY.",
+      "image": "assets/christmas/laser-level.jpg",
+      "url": "https://a.co/d/042W5ovt"
+    },
+    {
+      "id": "jack-stands",
+      "name": "3-ton jack stands",
+      "price": "$34",
+      "priceValue": 34,
+      "band": "under-40",
+      "description": "A pair of 3-ton stands for garage work.",
+      "image": "assets/christmas/jack-stands.jpg",
+      "url": "https://a.co/d/9dq2bI3"
+    },
+    {
+      "id": "smart-outlets",
+      "name": "Smart outlets with power monitoring",
+      "price": "$36",
+      "priceValue": 36,
+      "band": "under-40",
+      "description": "Wi-Fi plugs that track wattage. Four-pack.",
+      "image": "assets/christmas/smart-outlets.jpg",
+      "url": "https://www.amazon.com/dp/B0CKM8CF7N/"
+    },
+    {
+      "id": "key-rings",
+      "name": "Magnetic key rings",
+      "price": "$36",
+      "priceValue": 36,
+      "band": "under-40",
+      "description": "Quick-release magnetic keychain for house and car keys.",
+      "image": "assets/christmas/key-rings.jpg",
+      "url": "https://a.co/d/2H11axZ"
+    },
+    {
+      "id": "coffee-canister",
+      "name": "Coffee storage container",
+      "price": "$37",
+      "priceValue": 37,
+      "band": "under-40",
+      "description": "AirScape glass canister that keeps beans fresh.",
+      "image": "assets/christmas/coffee-canister.jpg",
+      "url": "https://a.co/d/09rlJBXU"
+    },
+    {
+      "id": "red-dot",
+      "name": "Mini red dot sight",
+      "price": "$53",
+      "priceValue": 53,
+      "band": "mid",
+      "description": "Compact motion-awake red dot, 2 MOA, RMR footprint.",
+      "image": "assets/christmas/red-dot.jpg",
+      "url": "https://a.co/d/0a5807ts"
+    },
+    {
+      "id": "floor-lamp",
+      "name": "Floor lamp (natural wood)",
+      "price": "$61",
+      "priceValue": 61,
+      "band": "mid",
+      "description": "Modern wood shelf lamp with a warm LED bulb.",
+      "image": "assets/christmas/floor-lamp.jpg",
+      "url": "https://a.co/d/fFRGPAW"
+    },
+    {
+      "id": "glove-box",
+      "name": "Golf cart glove box doors",
+      "price": "$62",
+      "priceValue": 62,
+      "band": "mid",
+      "description": "Locking replacement doors for an E-Z-Go TXT.",
+      "image": "assets/christmas/glove-box.jpg",
+      "url": "https://www.amazon.com/dp/B079TXKC11/"
+    },
+    {
+      "id": "knife-case",
+      "name": "Knife display case (walnut, 17-slot)",
+      "price": "$69",
+      "priceValue": 69,
+      "band": "mid",
+      "description": "Walnut storage box for a pocket-knife collection.",
+      "image": "assets/christmas/knife-case.jpg",
+      "url": "https://a.co/d/0itBJRjD"
+    },
+    {
+      "id": "oscillating-tool",
+      "name": "Craftsman oscillating multi-tool kit",
+      "price": "$79",
+      "priceValue": 79,
+      "band": "mid",
+      "description": "V20 cordless kit with battery and charger.",
+      "image": "assets/christmas/oscillating-tool.jpg",
+      "url": "https://www.amazon.com/dp/B092RM6HJF/"
+    },
+    {
+      "id": "router",
+      "name": "Craftsman router",
+      "price": "$90",
+      "priceValue": 90,
+      "band": "mid",
+      "description": "V20 cordless variable-speed fixed-base router.",
+      "image": "assets/christmas/router.jpg",
+      "url": "https://www.amazon.com/dp/B0BZQZ2NS9/"
+    },
+    {
+      "id": "flashlight",
+      "name": "Wuben X1 Pro flashlight",
+      "price": "$112",
+      "priceValue": 112,
+      "band": "over-100",
+      "description": "Flat high-output EDC light, about 12,300 lumens, USB-C rechargeable.",
+      "image": "assets/christmas/flashlight.jpg",
+      "url": "https://a.co/d/03XNw0J5"
+    },
+    {
+      "id": "circular-saw",
+      "name": "Craftsman brushless circular saw (7¼ inch)",
+      "price": "$150",
+      "priceValue": 150,
+      "band": "over-100",
+      "description": "V20 RP 7-1/4 inch cordless saw, tool only.",
+      "image": "assets/christmas/circular-saw.jpg",
+      "url": "https://a.co/d/07ftPWhS"
+    },
+    {
+      "id": "headphones",
+      "name": "FiiO FT1 headphones",
+      "price": "$165",
+      "priceValue": 165,
+      "band": "over-100",
+      "description": "Closed-back over-ears with solid wood cups and 60mm drivers.",
+      "image": "assets/christmas/headphones.jpg",
+      "url": "https://a.co/d/0LkUe9Q"
+    },
+    {
+      "id": "inverter",
+      "name": "36V 3500W golf cart inverter",
+      "price": "$175",
+      "priceValue": 175,
+      "band": "over-100",
+      "description": "Pure sine wave, 36V DC to 110/120V AC.",
+      "image": "assets/christmas/inverter.jpg",
+      "url": "https://www.amazon.com/dp/B0F3TG6C4K/"
+    },
+    {
+      "id": "tires",
+      "name": "Set of golf cart tires",
+      "price": "$190",
+      "priceValue": 190,
+      "band": "over-100",
+      "description": "Set of four 18×8.50-8 multi-terrain tires.",
+      "image": "assets/christmas/tires.jpg",
+      "url": "https://www.amazon.com/dp/B0D45JDBJH/"
+    },
+    {
+      "id": "power-station",
+      "name": "LiFePO4 portable power station",
+      "price": "$300–500",
+      "priceValue": 300,
+      "band": "over-100",
+      "description": "Ideally 600+ Wh. These occasionally go on big discounts for Black Friday.",
+      "image": "assets/christmas/power-station.jpg",
+      "url": "https://a.co/d/0ew6Rlpk",
+      "links": [
+        { "label": "Bluetti", "url": "https://a.co/d/0ew6Rlpk" },
+        { "label": "Anker", "url": "https://a.co/d/0hF8WG8m" },
+        { "label": "EcoFlow", "url": "https://a.co/d/0ejxiAPX" }
+      ]
+    }
+  ]
+}
