@@ -22,32 +22,56 @@
 }
 
 .gift-swag {
-  height: clamp(4.6rem, 13vw, 8rem);
+  height: clamp(7rem, 18vw, 11rem);
+  margin-bottom: -3.4rem;
   background: var(--chalk) url("../assets/christmas/linen-garland.jpg") top center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 36%, rgba(0, 0, 0, 0.55) 62%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 36%, rgba(0, 0, 0, 0.55) 62%, transparent 100%);
+  pointer-events: none;
+}
+
+.page-christmas .wrap.g-chalk {
+  padding-top: clamp(2.4rem, 5vw, 3.2rem);
 }
 
 .gift-notes-wrap {
   position: relative;
   overflow: hidden;
-  padding-bottom: clamp(5.5rem, 16vw, 9rem);
+  padding-bottom: clamp(7rem, 18vw, 10rem);
 }
 
 .gift-corner {
   position: absolute;
   z-index: 0;
-  width: min(18rem, 46vw);
+  width: min(28rem, 48vw);
+  height: min(28rem, 48vw);
+  object-fit: cover;
   pointer-events: none;
   user-select: none;
 }
 
-.gift-corner--left { left: 0; bottom: 0; }
-.gift-corner--right { right: 0; bottom: 0; }
+.gift-corner--left {
+  left: 0;
+  bottom: 0;
+  object-position: left bottom;
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 8% 92%, #000 28%, transparent 70%);
+  mask-image: radial-gradient(ellipse 85% 85% at 8% 92%, #000 28%, transparent 70%);
+}
+
+.gift-corner--right {
+  right: 0;
+  bottom: 0;
+  object-position: right bottom;
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 92% 92%, #000 28%, transparent 70%);
+  mask-image: radial-gradient(ellipse 85% 85% at 92% 92%, #000 28%, transparent 70%);
+}
 
 .gift-notes {
   position: relative;
   z-index: 1;
   display: grid;
   gap: clamp(2rem, 5vw, 3.4rem);
+  padding-inline: clamp(0.2rem, 4vw, 2rem);
 }
 
 .page-christmas .page-hero h1 {
@@ -183,8 +207,16 @@
     width: 100%;
     justify-self: stretch;
   }
-  .gift-corner {
-    width: min(11rem, 44vw);
+  .gift-swag {
+    height: 6.2rem;
+    margin-bottom: -2.2rem;
+  }
+  .gift-corner--right {
+    display: none;
+  }
+  .gift-corner--left {
+    width: min(16rem, 70vw);
+    height: min(16rem, 70vw);
   }
 }
 
