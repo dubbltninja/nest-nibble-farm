@@ -1,14 +1,16 @@
 {
   "gifts": [
     {
-      "id": "command-strips",
-      "name": "Command picture hanging strips",
-      "price": "$12.60",
-      "priceValue": 12.60,
+      "id": "cart-keys",
+      "name": "Golf cart keys",
+      "price": "$3.75",
+      "priceValue": 3.75,
       "band": "under-40",
-      "description": "Damage-free hanging for frames and art around the house.",
-      "image": "assets/christmas/command-strips.jpg",
-      "url": "https://a.co/d/cdgQS5M"
+      "listPrice": 4.69,
+      "discountPercent": 20,
+      "description": "Two replacement ignition keys for an E-Z-Go TXT.",
+      "image": "assets/christmas/cart-keys.jpg",
+      "url": "https://a.co/d/05O0SYCg"
     },
     {
       "id": "outlet-cover",
@@ -21,14 +23,14 @@
       "url": "https://www.amazon.com/dp/B08GKXJX7Z/"
     },
     {
-      "id": "screwdriver",
-      "name": "iFixit Minnow screwdriver kit",
-      "price": "$14.95",
-      "priceValue": 14.95,
+      "id": "command-strips",
+      "name": "Command picture hanging strips",
+      "price": "$12.60",
+      "priceValue": 12.6,
       "band": "under-40",
-      "description": "Pocket-sized driver and bit set for small electronics and farm gadgets.",
-      "image": "assets/christmas/screwdriver.jpg",
-      "url": "https://a.co/d/08bqzeGU"
+      "description": "Damage-free hanging for frames and art around the house.",
+      "image": "assets/christmas/command-strips.jpg",
+      "url": "https://a.co/d/cdgQS5M"
     },
     {
       "id": "blade-runner",
@@ -43,6 +45,26 @@
       "url": "https://www.amazon.com/dp/B075DQGW92/"
     },
     {
+      "id": "micro-sd",
+      "name": "Patriot 64GB microSD card",
+      "price": "$13.49",
+      "priceValue": 13.49,
+      "band": "under-40",
+      "description": "64GB Class 10 card for cameras and gadgets.",
+      "image": "assets/christmas/micro-sd.jpg",
+      "url": "https://a.co/d/0bWTIQ6b"
+    },
+    {
+      "id": "screwdriver",
+      "name": "iFixit Minnow screwdriver kit",
+      "price": "$14.95",
+      "priceValue": 14.95,
+      "band": "under-40",
+      "description": "Pocket-sized driver and bit set for small electronics and farm gadgets.",
+      "image": "assets/christmas/screwdriver.jpg",
+      "url": "https://a.co/d/08bqzeGU"
+    },
+    {
       "id": "phone-case",
       "name": "Phone case",
       "price": "$16.58",
@@ -53,16 +75,6 @@
       "description": "The MagSafe case in this listing.",
       "image": "assets/christmas/phone-case.jpg",
       "url": "https://a.co/d/01wnY9WN"
-    },
-    {
-      "id": "space-odyssey",
-      "name": "2001: A Space Odyssey remaster 4K Blu-ray",
-      "price": "$19.99",
-      "priceValue": 19.99,
-      "band": "under-40",
-      "description": "The 4K remaster, Ultra HD + Blu-ray.",
-      "image": "assets/christmas/space-odyssey.jpg",
-      "url": "https://www.amazon.com/dp/B07KH8W76F/"
     },
     {
       "id": "top-gun",
@@ -77,6 +89,46 @@
       "url": "https://www.amazon.com/dp/B09Y896LW1/"
     },
     {
+      "id": "hose-valves",
+      "name": "Brass hose shut-off valves (2-pack)",
+      "price": "$17.99",
+      "priceValue": 17.99,
+      "band": "under-40",
+      "description": "Heavy-duty 3/4-inch brass valves with long handles.",
+      "image": "assets/christmas/hose-valves.jpg",
+      "url": "https://a.co/d/02pjedoA"
+    },
+    {
+      "id": "garage-hooks",
+      "name": "Garage hooks (18-pack)",
+      "price": "$18.99",
+      "priceValue": 18.99,
+      "band": "under-40",
+      "description": "Rubber-coated heavy-duty hooks in five sizes, with three straps.",
+      "image": "assets/christmas/garage-hooks.jpg",
+      "url": "https://a.co/d/00RrbzHz"
+    },
+    {
+      "id": "space-odyssey",
+      "name": "2001: A Space Odyssey remaster 4K Blu-ray",
+      "price": "$19.99",
+      "priceValue": 19.99,
+      "band": "under-40",
+      "description": "The 4K remaster, Ultra HD + Blu-ray.",
+      "image": "assets/christmas/space-odyssey.jpg",
+      "url": "https://www.amazon.com/dp/B07KH8W76F/"
+    },
+    {
+      "id": "hose-connect",
+      "name": "Brass hose quick connects",
+      "price": "$19.99",
+      "priceValue": 19.99,
+      "band": "under-40",
+      "description": "Full-flow 3/4-inch quick connect fittings, male and female.",
+      "image": "assets/christmas/hose-connect.jpg",
+      "url": "https://a.co/d/04FE87y2"
+    },
+    {
       "id": "build-plate",
       "name": "Super tack build plate for 3D printing",
       "price": "$21.59",
@@ -88,6 +140,54 @@
       "description": "CryoGrip frostbite plate for more reliable prints at room temperature.",
       "image": "assets/christmas/build-plate.jpg",
       "url": "https://www.amazon.com/dp/B0DPL5Z6TS/"
+    },
+    {
+      "id": "tweezers",
+      "name": "CIVIVI Tac-N-Tweeze tweezers",
+      "price": "$23.40",
+      "priceValue": 23.4,
+      "band": "under-40",
+      "listPrice": 31.2,
+      "discountPercent": 25,
+      "description": "Retractable keychain precision tweezers with a leather sheath.",
+      "image": "assets/christmas/tweezers.jpg",
+      "url": "https://a.co/d/07oHE90l"
+    },
+    {
+      "id": "bath-mat",
+      "name": "Stone bath mat",
+      "price": "$28.48",
+      "priceValue": 28.48,
+      "band": "under-40",
+      "listPrice": 49.99,
+      "discountPercent": 43,
+      "description": "Quick-drying diatomaceous earth mat, non-slip, grey.",
+      "image": "assets/christmas/bath-mat.jpg",
+      "url": "https://a.co/d/0fiyYlx6"
+    },
+    {
+      "id": "smart-outlets",
+      "name": "Smart outlets with power monitoring",
+      "price": "$29.59",
+      "priceValue": 29.59,
+      "listPrice": 36.99,
+      "discountPercent": 20,
+      "band": "under-40",
+      "description": "Wi-Fi plugs that track wattage. Four-pack.",
+      "image": "assets/christmas/smart-outlets.jpg",
+      "url": "https://www.amazon.com/dp/B0CKM8CF7N/"
+    },
+    {
+      "id": "utility-knife",
+      "name": "WORKPRO titanium utility knife",
+      "price": "$29.74",
+      "priceValue": 29.74,
+      "band": "under-40",
+      "listPrice": 34.99,
+      "discountPercent": 15,
+      "description": "Folding titanium box cutter with quick-change blades and 10 spares.",
+      "image": "assets/christmas/utility-knife.jpg",
+      "url": "https://a.co/d/06A5NLav"
     },
     {
       "id": "dosing-funnel",
@@ -115,35 +215,13 @@
       "id": "laser-level",
       "name": "Laser level",
       "price": "$33.20",
-      "priceValue": 33.20,
+      "priceValue": 33.2,
       "listPrice": 49.97,
       "discountPercent": 34,
       "band": "under-40",
       "description": "Pocket green laser for hanging pictures and home DIY.",
       "image": "assets/christmas/laser-level.jpg",
       "url": "https://a.co/d/042W5ovt"
-    },
-    {
-      "id": "jack-stands",
-      "name": "3-ton jack stands",
-      "price": "$41.78",
-      "priceValue": 41.78,
-      "band": "mid",
-      "description": "A pair of 3-ton stands for garage work.",
-      "image": "assets/christmas/jack-stands.jpg",
-      "url": "https://a.co/d/9dq2bI3"
-    },
-    {
-      "id": "smart-outlets",
-      "name": "Smart outlets with power monitoring",
-      "price": "$29.59",
-      "priceValue": 29.59,
-      "listPrice": 36.99,
-      "discountPercent": 20,
-      "band": "under-40",
-      "description": "Wi-Fi plugs that track wattage. Four-pack.",
-      "image": "assets/christmas/smart-outlets.jpg",
-      "url": "https://www.amazon.com/dp/B0CKM8CF7N/"
     },
     {
       "id": "key-rings",
@@ -161,13 +239,23 @@
       "id": "coffee-canister",
       "name": "Coffee storage container",
       "price": "$37.40",
-      "priceValue": 37.40,
-      "listPrice": 44.00,
+      "priceValue": 37.4,
+      "listPrice": 44.0,
       "discountPercent": 15,
       "band": "under-40",
       "description": "AirScape glass canister that keeps beans fresh.",
       "image": "assets/christmas/coffee-canister.jpg",
       "url": "https://a.co/d/09rlJBXU"
+    },
+    {
+      "id": "jack-stands",
+      "name": "3-ton jack stands",
+      "price": "$41.78",
+      "priceValue": 41.78,
+      "band": "mid",
+      "description": "A pair of 3-ton stands for garage work.",
+      "image": "assets/christmas/jack-stands.jpg",
+      "url": "https://a.co/d/9dq2bI3"
     },
     {
       "id": "red-dot",
@@ -204,6 +292,19 @@
       "url": "https://www.amazon.com/dp/B079TXKC11/"
     },
     {
+      "id": "kizer-knife",
+      "name": "Kizer Outposter folding knife",
+      "price": "$63.00",
+      "priceValue": 63.0,
+      "band": "mid",
+      "listPrice": 69.96,
+      "discountPercent": 10,
+      "description": "3.29-inch Nitro-V drop point with a brown Micarta handle.",
+      "image": "assets/christmas/kizer-knife.jpg",
+      "url": "https://a.co/d/0a0nZCce",
+      "options": "Color: Brown"
+    },
+    {
       "id": "knife-case",
       "name": "Knife display case (walnut, 17-slot)",
       "price": "$69.93",
@@ -219,7 +320,7 @@
       "id": "oscillating-tool",
       "name": "Craftsman oscillating multi-tool kit",
       "price": "$79.00",
-      "priceValue": 79.00,
+      "priceValue": 79.0,
       "listPrice": 139.08,
       "discountPercent": 43,
       "band": "mid",
@@ -228,10 +329,32 @@
       "url": "https://www.amazon.com/dp/B092RM6HJF/"
     },
     {
+      "id": "leaf-blower",
+      "name": "Craftsman cordless leaf blower (renewed)",
+      "price": "$82.95",
+      "priceValue": 82.95,
+      "band": "mid",
+      "listPrice": 113.04,
+      "discountPercent": 27,
+      "description": "V20 brushless blower kit with 5Ah battery and charger. Renewed price; list is the new price.",
+      "image": "assets/christmas/leaf-blower.jpg",
+      "url": "https://a.co/d/0fe3dCtV",
+      "links": [
+        {
+          "label": "Renewed",
+          "url": "https://a.co/d/0fe3dCtV"
+        },
+        {
+          "label": "New",
+          "url": "https://a.co/d/0iKBwc4P"
+        }
+      ]
+    },
+    {
       "id": "router",
       "name": "Craftsman router",
       "price": "$92.00",
-      "priceValue": 92.00,
+      "priceValue": 92.0,
       "band": "mid",
       "description": "V20 cordless variable-speed fixed-base router.",
       "image": "assets/christmas/router.jpg",
@@ -254,7 +377,7 @@
       "name": "Craftsman brushless circular saw (7¼ inch)",
       "price": "$149.37",
       "priceValue": 149.37,
-      "listPrice": 169.00,
+      "listPrice": 169.0,
       "discountPercent": 12,
       "coupon": true,
       "band": "over-100",
@@ -304,9 +427,18 @@
       "image": "assets/christmas/power-station.jpg",
       "url": "https://a.co/d/0ew6Rlpk",
       "links": [
-        { "label": "Bluetti", "url": "https://a.co/d/0ew6Rlpk" },
-        { "label": "Anker", "url": "https://a.co/d/0hF8WG8m" },
-        { "label": "EcoFlow", "url": "https://a.co/d/0ejxiAPX" }
+        {
+          "label": "Bluetti",
+          "url": "https://a.co/d/0ew6Rlpk"
+        },
+        {
+          "label": "Anker",
+          "url": "https://a.co/d/0hF8WG8m"
+        },
+        {
+          "label": "EcoFlow",
+          "url": "https://a.co/d/0ejxiAPX"
+        }
       ]
     }
   ]
