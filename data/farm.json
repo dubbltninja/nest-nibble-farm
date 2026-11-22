@@ -3,14 +3,6 @@
   "aboutPhoto": "/assets/photos/about-image.jpg",
   "breeds": [
     {
-      "name": "Salmon Favorelles",
-      "status": "coming-soon",
-      "photo": "/assets/photos/salmon-favorelles.jpg",
-      "id": "salmon-favorelles",
-      "type": "chicken",
-      "modalPhrase": "our Salmon Favorelles"
-    },
-    {
       "name": "Cochins",
       "status": "available",
       "photo": "/assets/photos/cochins.jpg",
@@ -48,14 +40,6 @@
       "id": "bantam-salmon-favorelles",
       "type": "chicken",
       "modalPhrase": "our Bantam Salmon Favorelles"
-    },
-    {
-      "name": "Speckled Sussex",
-      "status": "coming-soon",
-      "photo": "/assets/photos/speckled-sussex.jpg",
-      "id": "speckled-sussex",
-      "type": "chicken",
-      "modalPhrase": "our Speckled Sussex"
     },
     {
       "name": "Ermine Ameraucanas",
