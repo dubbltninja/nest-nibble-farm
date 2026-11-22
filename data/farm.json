@@ -4,7 +4,7 @@
   "breeds": [
     {
       "name": "Salmon Favorelles",
-      "status": "laying-hens-available",
+      "status": "coming-soon",
       "photo": "/assets/photos/salmon-favorelles.jpg",
       "id": "salmon-favorelles",
       "type": "chicken",
@@ -51,7 +51,7 @@
     },
     {
       "name": "Speckled Sussex",
-      "status": "laying-hens-available",
+      "status": "coming-soon",
       "photo": "/assets/photos/speckled-sussex.jpg",
       "id": "speckled-sussex",
       "type": "chicken",
