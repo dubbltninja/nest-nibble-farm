@@ -1,6 +1,10 @@
 (() => {
   const grid = document.querySelector("[data-gift-grid]");
+  const sortBar = document.querySelector("[data-gift-sort]");
   if (!grid) return;
+
+  let gifts = [];
+  let sortDir = "asc";
 
   const escapeHtml = (value) =>
     String(value)
@@ -31,11 +35,32 @@
     </article>`;
   };
 
+  const render = () => {
+    const sorted = gifts.slice().sort((a, b) => {
+      const left = Number(a.priceValue) || 0;
+      const right = Number(b.priceValue) || 0;
+      return sortDir === "desc" ? right - left : left - right;
+    });
+    grid.innerHTML = sorted.map(renderGift).join("");
+  };
+
+  sortBar?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-sort]");
+    if (!button) return;
+    sortDir = button.dataset.sort === "desc" ? "desc" : "asc";
+    sortBar.querySelectorAll("[data-sort]").forEach((item) => {
+      const active = item === button;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-pressed", String(active));
+    });
+    render();
+  });
+
   fetch("data/christmas.json", { cache: "no-cache" })
     .then((response) => (response.ok ? response.json() : Promise.reject()))
     .then((data) => {
-      const gifts = Array.isArray(data.gifts) ? data.gifts : [];
-      grid.innerHTML = gifts.map(renderGift).join("");
+      gifts = Array.isArray(data.gifts) ? data.gifts : [];
+      render();
     })
     .catch(() => {
       grid.innerHTML = "<p>The list could not be loaded. Refresh and try again.</p>";
