@@ -230,15 +230,74 @@
   .gift-year {
     display: block;
   }
+  .gift-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Phone landscape stays short, including widths that overlap the tablet breakpoint. */
+@media (orientation: landscape) and (max-height: 600px) {
+  .gift-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 699px),
+       (orientation: landscape) and (max-height: 600px) {
+  .gift-grid {
+    gap: 1rem 0.75rem;
+  }
+  .gift {
+    gap: 0.55rem;
+  }
+  .gift-photo img {
+    padding: 0.5rem;
+  }
+  .gift h2,
+  .gift p,
+  .gift-price,
+  .gift-deal,
+  .gift-coupon,
+  .gift .btn {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .gift h2 {
+    font-size: 1.1rem;
+    line-height: 1.15;
+  }
+  .gift > p {
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+  .gift > p.gift-options {
+    font-size: 0.75rem;
+  }
+  .gift > p.gift-price:not(.gift-price--sale) {
+    font-size: 0.88rem;
+    line-height: 1.2;
+  }
+  .gift-discount {
+    font-size: 0.85rem;
+  }
+  .gift-current {
+    font-size: 1.1rem;
+  }
+  .gift-list {
+    font-size: 0.72rem;
+  }
+  .gift-coupon {
+    padding: 0.04rem 0.28rem;
+    font-size: 0.65rem;
+    white-space: normal;
+  }
   .gift .btn {
     width: 100%;
     justify-self: stretch;
-  }
-  .gift-current {
-    font-size: 1.5rem;
-  }
-  .gift-discount {
-    font-size: 1.08rem;
+    min-height: 38px;
+    padding: 0.25rem 0.45rem;
+    font-size: 0.78rem;
   }
 }
 
