@@ -21,18 +21,7 @@
   background-size: cover;
 }
 
-.gift-swag {
-  height: clamp(7rem, 18vw, 11rem);
-  margin-bottom: -3.4rem;
-  background: var(--chalk) url("../assets/christmas/linen-garland.jpg") top center / cover no-repeat;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 36%, rgba(0, 0, 0, 0.55) 62%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 36%, rgba(0, 0, 0, 0.55) 62%, transparent 100%);
-  pointer-events: none;
-}
 
-.page-christmas .wrap.g-chalk {
-  padding-top: clamp(2.4rem, 5vw, 3.2rem);
-}
 
 .gift-notes-wrap {
   position: relative;
@@ -206,10 +195,6 @@
   .gift .btn {
     width: 100%;
     justify-self: stretch;
-  }
-  .gift-swag {
-    height: 6.2rem;
-    margin-bottom: -2.2rem;
   }
   .gift-corner--right {
     display: none;
