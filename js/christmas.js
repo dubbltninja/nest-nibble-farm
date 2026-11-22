@@ -13,6 +13,26 @@
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
 
+  const formatMoney = (value) => `$${Number(value).toFixed(2)}`;
+
+  const renderPrice = (gift) => {
+    const listPrice = Number(gift.listPrice);
+    const discount = Number(gift.discountPercent);
+    const onSale = Number.isFinite(listPrice) && listPrice > 0 && Number.isFinite(discount) && discount > 0;
+    if (!onSale) {
+      return `<p class="gift-price">${escapeHtml(gift.price)}</p>`;
+    }
+    const coupon = gift.coupon ? `<span class="gift-coupon">with coupon</span>` : "";
+    return `<p class="gift-price gift-price--sale">
+      <span class="gift-deal">
+        <span class="gift-discount">-${Math.round(discount)}%</span>
+        <span class="gift-current">${escapeHtml(formatMoney(gift.priceValue))}</span>
+        ${coupon}
+      </span>
+      <span class="gift-list">List: <s>${escapeHtml(formatMoney(listPrice))}</s></span>
+    </p>`;
+  };
+
   const renderGift = (gift) => {
     const name = escapeHtml(gift.name);
     const extraLinks = Array.isArray(gift.links)
@@ -27,7 +47,7 @@
       <a class="gift-photo" href="${escapeHtml(gift.url)}" target="_blank" rel="noopener">
         <img src="${escapeHtml(gift.image)}" alt="${name}" loading="lazy" />
       </a>
-      <p class="gift-price">${escapeHtml(gift.price)}</p>
+      ${renderPrice(gift)}
       <h2>${name}</h2>
       <p>${escapeHtml(gift.description)}</p>
       ${extraLinks}

@@ -158,6 +158,60 @@
   text-transform: uppercase;
 }
 
+.gift-price--sale {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.18rem;
+  max-width: 100%;
+  color: var(--ink);
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.gift-deal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.28rem 0.45rem;
+  max-width: 100%;
+}
+
+.gift-discount {
+  color: #cc0c39;
+  font: 600 1.02rem/1.1 var(--text);
+  letter-spacing: 0;
+}
+
+.gift-current {
+  color: var(--ink);
+  font: 600 1.38rem/1.05 var(--text);
+  letter-spacing: -0.02em;
+}
+
+.gift-list {
+  color: #565959;
+  font: 400 0.82rem/1.3 var(--text);
+  letter-spacing: 0;
+}
+
+.gift-list s {
+  text-decoration-line: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.gift-coupon {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.08rem 0.38rem;
+  border: 1px solid #067d62;
+  color: #067d62;
+  font: 600 0.72rem/1.2 var(--text);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
 .gift h2 {
   min-width: 0;
   font-size: clamp(1.45rem, 2.4vw, 2.05rem);
@@ -195,6 +249,12 @@
   .gift .btn {
     width: 100%;
     justify-self: stretch;
+  }
+  .gift-current {
+    font-size: 1.5rem;
+  }
+  .gift-discount {
+    font-size: 1.08rem;
   }
   .gift-corner--right {
     display: none;
