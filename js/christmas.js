@@ -43,6 +43,10 @@
           )
           .join("")}</p>`
       : "";
+    const optionText = typeof gift.options === "string" ? gift.options.trim() : "";
+    const options = optionText
+      ? `<p class="gift-options">${escapeHtml(optionText)}</p>`
+      : "";
     return `<article class="gift">
       <a class="gift-photo" href="${escapeHtml(gift.url)}" target="_blank" rel="noopener">
         <img src="${escapeHtml(gift.image)}" alt="${name}" loading="lazy" />
@@ -50,6 +54,7 @@
       ${renderPrice(gift)}
       <h2>${name}</h2>
       <p>${escapeHtml(gift.description)}</p>
+      ${options}
       ${extraLinks}
       <a class="btn btn-outline" href="${escapeHtml(gift.url)}" target="_blank" rel="noopener">View listing</a>
     </article>`;
@@ -76,7 +81,9 @@
     render();
   });
 
-  fetch("data/christmas.json", { cache: "no-cache" })
+  const dataUrl = grid.getAttribute("data-gifts") || "data/christmas.json";
+
+  fetch(dataUrl, { cache: "no-cache" })
     .then((response) => (response.ok ? response.json() : Promise.reject()))
     .then((data) => {
       gifts = Array.isArray(data.gifts) ? data.gifts : [];

@@ -1,2 +1,3 @@
 User-agent: *
 Disallow: /tim-christmas-list.html
+Disallow: /lindsey-christmas-list.html

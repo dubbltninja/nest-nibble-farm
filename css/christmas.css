@@ -225,6 +225,13 @@
   font-size: 0.98rem;
 }
 
+.gift > p.gift-options {
+  margin-top: -0.45rem;
+  color: #565959;
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
 .gift .btn {
   justify-self: start;
   min-height: 44px;
@@ -291,6 +298,8 @@
 }
 
 .gift-notes p { max-width: 42ch; }
+
+.gift-notes p + p { margin-top: 0.75rem; }
 
 .gift-chips {
   display: flex;

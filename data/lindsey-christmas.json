@@ -1,0 +1,152 @@
+{
+  "gifts": [
+    {
+      "id": "fluffy-cow",
+      "name": "Fluffy Cows supplement",
+      "price": "$68.50",
+      "priceValue": 68.50,
+      "band": "mid",
+      "description": "Melatonin supplement for a thick show coat, 32 oz bottle.",
+      "image": "assets/lindsey/fluffy-cow.jpg",
+      "url": "https://www.sullivansupply.com/product/fluffy-cows-melatonin-supplement-32oz-bottle/"
+    },
+    {
+      "id": "solar-lights",
+      "name": "Solar barn lights (2-pack)",
+      "price": "$59.99",
+      "priceValue": 59.99,
+      "band": "mid",
+      "description": "Motion-sensing solar lights for the goat barn.",
+      "image": "assets/lindsey/solar-lights.jpg",
+      "url": "https://a.co/d/01psEX55"
+    },
+    {
+      "id": "bathroom-cabinet",
+      "name": "Bathroom storage cabinet",
+      "price": "$89.29",
+      "priceValue": 89.29,
+      "listPrice": 109.99,
+      "discountPercent": 19,
+      "band": "mid",
+      "description": "Tall storage cabinet with barn doors and a drawer.",
+      "image": "assets/lindsey/bathroom-cabinet.jpg",
+      "url": "https://a.co/d/0iAtMemW"
+    },
+    {
+      "id": "scratching-brush",
+      "name": "Livestock scratching brushes (4-pack)",
+      "price": "$36.79",
+      "priceValue": 36.79,
+      "listPrice": 45.99,
+      "discountPercent": 20,
+      "band": "under-40",
+      "description": "Wall-mount scratchers for goats and cows.",
+      "image": "assets/lindsey/scratching-brush.jpg",
+      "url": "https://a.co/d/0itDApiB"
+    },
+    {
+      "id": "show-brush",
+      "name": "Goat show brush",
+      "price": "$33.30",
+      "priceValue": 33.30,
+      "listPrice": 39.19,
+      "discountPercent": 15,
+      "band": "under-40",
+      "description": "Weaver Leather wide-range livestock brush.",
+      "image": "assets/lindsey/show-brush.jpg",
+      "url": "https://a.co/d/0f4b6HzJ"
+    },
+    {
+      "id": "rope-halters",
+      "name": "Cattle rope halters",
+      "price": "$9.49",
+      "priceValue": 9.49,
+      "band": "under-40",
+      "description": "Weaver Livestock rope halter.",
+      "options": "Colors: Maroon/Gray/White or Hot Pink/Magenta/Pink",
+      "image": "assets/lindsey/rope-halters.jpg",
+      "url": "https://www.weaverlivestock.com/products/cattle-rope-halter"
+    },
+    {
+      "id": "carhartt-jacket",
+      "name": "Carhartt jacket",
+      "price": "$139.99",
+      "priceValue": 139.99,
+      "band": "over-100",
+      "description": "Women's Washed Duck Sierra jacket.",
+      "options": "Green, size Medium",
+      "image": "assets/lindsey/carhartt-jacket.jpg",
+      "url": "https://www.amazon.com/dp/B093N1LH8W?th=1&psc=1"
+    },
+    {
+      "id": "water-cups",
+      "name": "Pink poultry water cups",
+      "price": "$20.99",
+      "priceValue": 20.99,
+      "band": "under-40",
+      "description": "20 automatic waterer cups for the chickens, in pink.",
+      "image": "assets/lindsey/water-cups.jpg",
+      "url": "https://a.co/d/046j5O90"
+    },
+    {
+      "id": "show-comb",
+      "name": "Weaver show comb (black)",
+      "price": "$23.79",
+      "priceValue": 23.79,
+      "listPrice": 27.99,
+      "discountPercent": 15,
+      "band": "under-40",
+      "description": "Weaver Leather livestock show comb.",
+      "image": "assets/lindsey/show-comb.jpg",
+      "url": "https://www.amazon.com/dp/B00DL40SG8?th=1"
+    },
+    {
+      "id": "hoof-nipper",
+      "name": "Hoof nipper",
+      "price": "$21.45",
+      "priceValue": 21.45,
+      "band": "under-40",
+      "description": "14-inch heavy-duty farrier nippers.",
+      "image": "assets/lindsey/hoof-nipper.jpg",
+      "url": "https://a.co/d/0fEjG8WW"
+    },
+    {
+      "id": "grooming-kit",
+      "name": "12-piece grooming kit",
+      "price": "$30.39",
+      "priceValue": 30.39,
+      "listPrice": 37.99,
+      "discountPercent": 20,
+      "band": "under-40",
+      "description": "Grooming set with an organizer tote bag, pink and grey.",
+      "image": "assets/lindsey/grooming-kit.jpg",
+      "url": "https://a.co/d/00FiqAc3"
+    },
+    {
+      "id": "mini-feeder",
+      "name": "Little Giant mini feeder, 6 qt",
+      "price": "$13.49",
+      "priceValue": 13.49,
+      "listPrice": 15.04,
+      "discountPercent": 10,
+      "band": "under-40",
+      "description": "Small hanging feeder.",
+      "options": "Colors: Hot Pink or Berry Blue",
+      "image": "assets/lindsey/mini-feeder.jpg",
+      "url": "https://www.chewy.com/little-giant-mini-feeder-6-qt/dp/318734"
+    },
+    {
+      "id": "feed-scoop",
+      "name": "Little Giant feed scoop",
+      "price": "$4.99",
+      "priceValue": 4.99,
+      "listPrice": 6.79,
+      "discountPercent": 27,
+      "band": "under-40",
+      "description": "Enclosed plastic livestock feed scoop.",
+      "options": "Colors: Hot Pink or Berry Blue",
+      "image": "assets/lindsey/feed-scoop.jpg",
+      "url": "https://www.chewy.com/little-giant-plastic-enclosed/dp/4558726"
+    }
+  ]
+}
