@@ -49,8 +49,8 @@
 }
 
 .gift-photo {
-  display: grid;
-  place-items: center;
+  position: relative;
+  display: block;
   aspect-ratio: 1;
   background: #fff;
   border: 1.5px solid var(--ink);
@@ -58,10 +58,13 @@
 }
 
 .gift-photo img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
   padding: 1rem;
+  object-fit: contain;
+  object-position: center;
 }
 
 .gift-price {
