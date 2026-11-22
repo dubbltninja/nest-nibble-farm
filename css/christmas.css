@@ -24,43 +24,20 @@
 
 
 .gift-notes-wrap {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: clamp(7rem, 18vw, 10rem);
-}
-
-.gift-corner {
-  position: absolute;
-  z-index: 0;
-  width: min(28rem, 48vw);
-  height: min(28rem, 48vw);
-  object-fit: cover;
-  pointer-events: none;
-  user-select: none;
-}
-
-.gift-corner--left {
-  left: 0;
-  bottom: 0;
-  object-position: left bottom;
-  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 8% 92%, #000 28%, transparent 70%);
-  mask-image: radial-gradient(ellipse 85% 85% at 8% 92%, #000 28%, transparent 70%);
-}
-
-.gift-corner--right {
-  right: 0;
-  bottom: 0;
-  object-position: right bottom;
-  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 92% 92%, #000 28%, transparent 70%);
-  mask-image: radial-gradient(ellipse 85% 85% at 92% 92%, #000 28%, transparent 70%);
+  border-top: 1px solid rgba(16, 23, 17, 0.18);
+  padding-top: clamp(2.4rem, 5.5vw, 4rem);
 }
 
 .gift-notes {
-  position: relative;
-  z-index: 1;
   display: grid;
   gap: clamp(2rem, 5vw, 3.4rem);
-  padding-inline: clamp(0.2rem, 4vw, 2rem);
+  color: var(--ink);
+}
+
+.gift-notes .section-label,
+.gift-notes h2,
+.gift-notes p {
+  color: var(--ink);
 }
 
 .page-christmas .page-hero h1 {
@@ -263,13 +240,6 @@
   .gift-discount {
     font-size: 1.08rem;
   }
-  .gift-corner--right {
-    display: none;
-  }
-  .gift-corner--left {
-    width: min(16rem, 70vw);
-    height: min(16rem, 70vw);
-  }
 }
 
 .gift-brands {
@@ -313,7 +283,9 @@
   align-items: center;
   min-height: 40px;
   padding: 0 0.95rem;
-  border: 1.5px solid currentColor;
+  border: 1.5px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
   font-weight: 600;
   font-size: 0.92rem;
 }
