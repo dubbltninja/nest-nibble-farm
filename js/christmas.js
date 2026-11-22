@@ -1,6 +1,5 @@
 (() => {
   const grid = document.querySelector("[data-gift-grid]");
-  const toolbar = document.querySelector("[data-gift-filters]");
   if (!grid) return;
 
   const escapeHtml = (value) =>
@@ -20,7 +19,7 @@
           )
           .join("")}</p>`
       : "";
-    return `<article class="gift" data-band="${escapeHtml(gift.band)}">
+    return `<article class="gift">
       <a class="gift-photo" href="${escapeHtml(gift.url)}" target="_blank" rel="noopener">
         <img src="${escapeHtml(gift.image)}" alt="${name}" loading="lazy" />
       </a>
@@ -32,29 +31,13 @@
     </article>`;
   };
 
-  const applyFilter = (band) => {
-    grid.querySelectorAll(".gift").forEach((card) => {
-      card.hidden = band !== "all" && card.dataset.band !== band;
-    });
-    toolbar.querySelectorAll("[data-band]").forEach((button) => {
-      button.classList.toggle("is-active", button.dataset.band === band);
-    });
-  };
-
   fetch("data/christmas.json", { cache: "no-cache" })
     .then((response) => (response.ok ? response.json() : Promise.reject()))
     .then((data) => {
       const gifts = Array.isArray(data.gifts) ? data.gifts : [];
       grid.innerHTML = gifts.map(renderGift).join("");
-      applyFilter("all");
     })
     .catch(() => {
       grid.innerHTML = "<p>The list could not be loaded. Refresh and try again.</p>";
     });
-
-  toolbar?.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-band]");
-    if (!button) return;
-    applyFilter(button.dataset.band);
-  });
 })();
