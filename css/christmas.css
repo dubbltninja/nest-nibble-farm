@@ -8,7 +8,46 @@
 }
 
 .page-christmas .page-hero {
-  overflow: visible;
+  overflow: hidden;
+  min-height: clamp(13rem, 34vw, 22rem);
+  padding-top: clamp(5.8rem, 18vw, 10rem);
+  padding-bottom: clamp(2.2rem, 6vw, 3.6rem);
+  background-color: #1a1612;
+  background-image:
+    linear-gradient(180deg, rgba(15, 18, 14, 0.12) 0%, rgba(15, 18, 14, 0.42) 55%, rgba(15, 18, 14, 0.72) 100%),
+    url("../assets/christmas/hero-garland.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+
+.gift-swag {
+  height: clamp(4.6rem, 13vw, 8rem);
+  background: var(--chalk) url("../assets/christmas/linen-garland.jpg") top center / cover no-repeat;
+}
+
+.gift-notes-wrap {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: clamp(5.5rem, 16vw, 9rem);
+}
+
+.gift-corner {
+  position: absolute;
+  z-index: 0;
+  width: min(18rem, 46vw);
+  pointer-events: none;
+  user-select: none;
+}
+
+.gift-corner--left { left: 0; bottom: 0; }
+.gift-corner--right { right: 0; bottom: 0; }
+
+.gift-notes {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.4rem);
 }
 
 .page-christmas .page-hero h1 {
@@ -19,6 +58,7 @@
   line-height: 1.05;
   white-space: normal;
   text-wrap: balance;
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.45);
 }
 
 .gift-grid {
@@ -28,6 +68,10 @@
 }
 
 @media (min-width: 700px) {
+  .page-christmas .page-hero {
+    min-height: clamp(18rem, 28vw, 24rem);
+    padding-top: clamp(8.8rem, 16vw, 12.5rem);
+  }
   .gift-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -93,7 +137,9 @@
 
 @media (max-width: 699px) {
   .page-christmas .page-hero {
-    padding-block: 1.8rem 1.2rem;
+    min-height: 13.5rem;
+    padding-top: 5.4rem;
+    padding-bottom: 1.6rem;
   }
   .page-christmas .page-hero h1 {
     font-size: 2.35rem;
@@ -105,6 +151,9 @@
   .gift .btn {
     width: 100%;
     justify-self: stretch;
+  }
+  .gift-corner {
+    width: min(11rem, 44vw);
   }
 }
 
@@ -123,11 +172,6 @@
 }
 
 .gift-brands a:hover { color: var(--red); }
-
-.gift-notes {
-  display: grid;
-  gap: clamp(2rem, 5vw, 3.4rem);
-}
 
 @media (min-width: 800px) {
   .gift-notes { grid-template-columns: 1fr 1fr; }
