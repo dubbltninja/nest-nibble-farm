@@ -5,6 +5,7 @@
 
   let gifts = [];
   let sortDir = "asc";
+  const pickLabel = (grid.getAttribute("data-pick-label") || "Tim's pick").trim() || "Tim's pick";
 
   const escapeHtml = (value) =>
     String(value)
@@ -47,8 +48,13 @@
     const options = optionText
       ? `<p class="gift-options">${escapeHtml(optionText)}</p>`
       : "";
-    return `<article class="gift">
+    const picked = gift.pick === true;
+    const pickBadge = picked
+      ? `<span class="gift-pick">★ ${escapeHtml(pickLabel)}</span>`
+      : "";
+    return `<article class="gift${picked ? " is-pick" : ""}">
       <a class="gift-photo" href="${escapeHtml(gift.url)}" target="_blank" rel="noopener">
+        ${pickBadge}
         <img src="${escapeHtml(gift.image)}" alt="${name}" loading="lazy" />
       </a>
       ${renderPrice(gift)}

@@ -127,6 +127,25 @@
   object-position: center;
 }
 
+.gift.is-pick .gift-photo {
+  border: 2px solid #c9962b;
+}
+
+.gift-pick {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  padding: 0.25rem 0.5rem;
+  background: #0f1c14;
+  color: var(--cream);
+  font: 600 0.7rem/1.15 var(--text);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .gift-price {
   margin: 0.35rem 0 0;
   color: var(--red);
@@ -252,6 +271,11 @@
   }
   .gift-photo img {
     padding: 0.5rem;
+  }
+  .gift-pick {
+    padding: 0.15rem 0.35rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.02em;
   }
   .gift h2,
   .gift p,

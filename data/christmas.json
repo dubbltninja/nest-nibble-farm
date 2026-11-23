@@ -18,7 +18,7 @@
       "price": "$12.42",
       "priceValue": 12.42,
       "band": "under-40",
-      "description": "Weatherproof cover for an exterior receptacle.",
+      "description": "Weatherproof cover for our hot tub outlet.",
       "image": "assets/christmas/outlet-cover.jpg",
       "url": "https://www.amazon.com/dp/B08GKXJX7Z/"
     },
@@ -28,7 +28,7 @@
       "price": "$12.60",
       "priceValue": 12.6,
       "band": "under-40",
-      "description": "Damage-free hanging for frames and art around the house.",
+      "description": "I go through so many of these for random projects!",
       "image": "assets/christmas/command-strips.jpg",
       "url": "https://a.co/d/cdgQS5M"
     },
@@ -40,9 +40,10 @@
       "listPrice": 17.53,
       "discountPercent": 26,
       "band": "under-40",
-      "description": "The 4K Ultra HD + Blu-ray to add to the shelf.",
+      "description": "4K disc of one of my favorite sci-fi movies to add to the shelf.",
       "image": "assets/christmas/blade-runner.jpg",
-      "url": "https://www.amazon.com/dp/B075DQGW92/"
+      "url": "https://www.amazon.com/dp/B075DQGW92/",
+      "pick": true
     },
     {
       "id": "micro-sd",
@@ -50,7 +51,7 @@
       "price": "$13.49",
       "priceValue": 13.49,
       "band": "under-40",
-      "description": "64GB Class 10 card for cameras and gadgets.",
+      "description": "64GB storage card for a farm camera.",
       "image": "assets/christmas/micro-sd.jpg",
       "url": "https://a.co/d/0bWTIQ6b"
     },
@@ -60,7 +61,7 @@
       "price": "$14.95",
       "priceValue": 14.95,
       "band": "under-40",
-      "description": "Pocket-sized driver and bit set for small electronics and farm gadgets.",
+      "description": "A high quality driver and bit set for small electronics.",
       "image": "assets/christmas/screwdriver.jpg",
       "url": "https://a.co/d/08bqzeGU"
     },
@@ -72,9 +73,10 @@
       "listPrice": 19.99,
       "discountPercent": 17,
       "band": "under-40",
-      "description": "The MagSafe case in this listing.",
+      "description": "My old one is disintegrating. This case looks like my style :)",
       "image": "assets/christmas/phone-case.jpg",
-      "url": "https://a.co/d/01wnY9WN"
+      "url": "https://a.co/d/01wnY9WN",
+      "pick": true
     },
     {
       "id": "top-gun",
@@ -84,7 +86,7 @@
       "listPrice": 19.95,
       "discountPercent": 15,
       "band": "under-40",
-      "description": "4K Ultra HD of Maverick.",
+      "description": "4K disc of Maverick, another one of my favorites.",
       "image": "assets/christmas/top-gun.jpg",
       "url": "https://www.amazon.com/dp/B09Y896LW1/"
     },
@@ -94,7 +96,7 @@
       "price": "$17.99",
       "priceValue": 17.99,
       "band": "under-40",
-      "description": "Heavy-duty 3/4-inch brass valves with long handles.",
+      "description": "These full flow valves with long handles are a life saver on the farm.",
       "image": "assets/christmas/hose-valves.jpg",
       "url": "https://a.co/d/02pjedoA"
     },
@@ -104,7 +106,7 @@
       "price": "$18.99",
       "priceValue": 18.99,
       "band": "under-40",
-      "description": "Rubber-coated heavy-duty hooks in five sizes, with three straps.",
+      "description": "Rubber-coated heavy-duty hooks to help keep my tools organized.",
       "image": "assets/christmas/garage-hooks.jpg",
       "url": "https://a.co/d/00RrbzHz"
     },
@@ -114,7 +116,7 @@
       "price": "$19.99",
       "priceValue": 19.99,
       "band": "under-40",
-      "description": "The 4K remaster, Ultra HD + Blu-ray.",
+      "description": "Still never seen it. What better way than with a 4K disc :)",
       "image": "assets/christmas/space-odyssey.jpg",
       "url": "https://www.amazon.com/dp/B07KH8W76F/"
     },
@@ -137,7 +139,7 @@
       "discountPercent": 20,
       "coupon": true,
       "band": "under-40",
-      "description": "CryoGrip frostbite plate for more reliable prints at room temperature.",
+      "description": "CryoGrip frostbite plate for more reliable prints.",
       "image": "assets/christmas/build-plate.jpg",
       "url": "https://www.amazon.com/dp/B0DPL5Z6TS/"
     },
@@ -161,7 +163,7 @@
       "band": "under-40",
       "listPrice": 49.99,
       "discountPercent": 43,
-      "description": "Quick-drying diatomaceous earth mat, non-slip, grey.",
+      "description": "Quick-drying stone bath mat to put under the dog water bowl. I'm happy with whatever color/design is cheapest.",
       "image": "assets/christmas/bath-mat.jpg",
       "url": "https://a.co/d/0fiyYlx6"
     },
@@ -173,7 +175,7 @@
       "listPrice": 36.99,
       "discountPercent": 20,
       "band": "under-40",
-      "description": "Wi-Fi plugs that track wattage. Four-pack.",
+      "description": "Wi-Fi plugs that track wattage to help me keep tabs on energy efficiency.",
       "image": "assets/christmas/smart-outlets.jpg",
       "url": "https://www.amazon.com/dp/B0CKM8CF7N/"
     },
@@ -195,7 +197,7 @@
       "price": "$29.99",
       "priceValue": 29.99,
       "band": "under-40",
-      "description": "54mm stainless funnel that keeps grounds in the basket.",
+      "description": "I've had my eye on this premium funnel for a while, which is much nicer than the plastic one I use.",
       "image": "assets/christmas/dosing-funnel.jpg",
       "url": "https://www.amazon.com/dp/B08WLN3JXY/"
     },
@@ -243,7 +245,7 @@
       "listPrice": 44.0,
       "discountPercent": 15,
       "band": "under-40",
-      "description": "AirScape glass canister that keeps beans fresh.",
+      "description": "Glass canister that evacuates excess oxygen to keep coffee beans fresh.",
       "image": "assets/christmas/coffee-canister.jpg",
       "url": "https://a.co/d/09rlJBXU"
     },
@@ -265,9 +267,10 @@
       "listPrice": 59.99,
       "discountPercent": 12,
       "band": "mid",
-      "description": "Compact motion-awake red dot, 2 MOA, RMR footprint.",
+      "description": "Compact motion-awake red dot for my .22.",
       "image": "assets/christmas/red-dot.jpg",
-      "url": "https://a.co/d/0a5807ts"
+      "url": "https://a.co/d/0a5807ts",
+      "pick": true
     },
     {
       "id": "floor-lamp",
@@ -277,7 +280,7 @@
       "listPrice": 64.99,
       "discountPercent": 15,
       "band": "mid",
-      "description": "Modern wood shelf lamp with a warm LED bulb.",
+      "description": "Modern wood shelf lamp that matches our other one to light up the other side of our living room.",
       "image": "assets/christmas/floor-lamp.jpg",
       "url": "https://a.co/d/fFRGPAW"
     },
@@ -287,7 +290,7 @@
       "price": "$61.99",
       "priceValue": 61.99,
       "band": "mid",
-      "description": "Locking replacement doors for an E-Z-Go TXT.",
+      "description": "Would help keep things from falling out all the time when performing evasive maneuvers.",
       "image": "assets/christmas/glove-box.jpg",
       "url": "https://www.amazon.com/dp/B079TXKC11/"
     },
@@ -299,10 +302,11 @@
       "band": "mid",
       "listPrice": 69.96,
       "discountPercent": 10,
-      "description": "3.29-inch Nitro-V drop point with a brown Micarta handle.",
+      "description": "The design of this high quality EDC pocket knife really speaks to me.",
       "image": "assets/christmas/kizer-knife.jpg",
       "url": "https://a.co/d/0a0nZCce",
-      "options": "Color: Brown"
+      "options": "Color: Brown",
+      "pick": true
     },
     {
       "id": "knife-case",
@@ -324,7 +328,7 @@
       "listPrice": 139.08,
       "discountPercent": 43,
       "band": "mid",
-      "description": "V20 cordless kit with battery and charger.",
+      "description": "Oscillating tool kit with battery and charger for more construction projects.",
       "image": "assets/christmas/oscillating-tool.jpg",
       "url": "https://www.amazon.com/dp/B092RM6HJF/"
     },
@@ -336,7 +340,7 @@
       "band": "mid",
       "listPrice": 113.04,
       "discountPercent": 27,
-      "description": "V20 brushless blower kit with 5Ah battery and charger. Renewed price; list is the new price.",
+      "description": "Brushless blower kit with a large battery. Amazon Renewed makes it much cheaper at ~$83 if available.",
       "image": "assets/christmas/leaf-blower.jpg",
       "url": "https://a.co/d/0fe3dCtV",
       "links": [
@@ -356,7 +360,7 @@
       "price": "$92.00",
       "priceValue": 92.0,
       "band": "mid",
-      "description": "V20 cordless variable-speed fixed-base router.",
+      "description": "Cordless variable-speed fixed-base router for woodworking projects.",
       "image": "assets/christmas/router.jpg",
       "url": "https://www.amazon.com/dp/B0BZQZ2NS9/"
     },
@@ -368,7 +372,7 @@
       "listPrice": 139.99,
       "discountPercent": 20,
       "band": "over-100",
-      "description": "Flat high-output EDC light, about 12,300 lumens, USB-C rechargeable.",
+      "description": "Flat high-output flashlight, about 12,300 lumens, USB-C rechargeable.",
       "image": "assets/christmas/flashlight.jpg",
       "url": "https://a.co/d/03XNw0J5"
     },
@@ -381,7 +385,7 @@
       "discountPercent": 12,
       "coupon": true,
       "band": "over-100",
-      "description": "V20 RP 7-1/4 inch cordless saw, tool only.",
+      "description": "RP 7-1/4 inch cordless saw, would definitely get a lot of use out of this with all our projects.",
       "image": "assets/christmas/circular-saw.jpg",
       "url": "https://a.co/d/07ftPWhS"
     },
@@ -391,9 +395,10 @@
       "price": "$164.99",
       "priceValue": 164.99,
       "band": "over-100",
-      "description": "Closed-back over-ears with solid wood cups and 60mm drivers.",
+      "description": "A premium set of over-ears with solid wood cups and 60mm drivers that excel in sub-bass performance.",
       "image": "assets/christmas/headphones.jpg",
-      "url": "https://a.co/d/0LkUe9Q"
+      "url": "https://a.co/d/0LkUe9Q",
+      "pick": true
     },
     {
       "id": "inverter",
@@ -403,9 +408,10 @@
       "listPrice": 206.55,
       "discountPercent": 15,
       "band": "over-100",
-      "description": "Pure sine wave, 36V DC to 110/120V AC.",
+      "description": "Would turn the golf cart into a mobile power station, or a home power backup in a pinch.",
       "image": "assets/christmas/inverter.jpg",
-      "url": "https://www.amazon.com/dp/B0F3TG6C4K/"
+      "url": "https://www.amazon.com/dp/B0F3TG6C4K/",
+      "pick": true
     },
     {
       "id": "tires",
@@ -423,7 +429,7 @@
       "price": "$300–500",
       "priceValue": 300,
       "band": "over-100",
-      "description": "Ideally 600+ Wh. These occasionally go on big discounts for Black Friday.",
+      "description": "Ideally 600+ Wh. These occasionally go on big discounts for Black Friday. Would be great to have just in case we lose power to keep the incubators running.",
       "image": "assets/christmas/power-station.jpg",
       "url": "https://a.co/d/0ew6Rlpk",
       "links": [
