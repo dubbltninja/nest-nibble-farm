@@ -5,7 +5,9 @@
 
   let gifts = [];
   let sortDir = "asc";
+  let picksOnly = false;
   const pickLabel = (grid.getAttribute("data-pick-label") || "Tim's pick").trim() || "Tim's pick";
+  const picksLabel = /picks$/i.test(pickLabel) ? pickLabel : `${pickLabel}s`;
 
   const escapeHtml = (value) =>
     String(value)
@@ -53,21 +55,21 @@
       ? `<span class="gift-pick">★ ${escapeHtml(pickLabel)}</span>`
       : "";
     return `<article class="gift${picked ? " is-pick" : ""}">
-      <a class="gift-photo" href="${escapeHtml(gift.url)}" target="_blank" rel="noopener">
+      <a class="gift-photo" href="${escapeHtml(gift.url)}" target="_blank" rel="noopener" aria-label="View listing: ${name}">
         ${pickBadge}
-        <img src="${escapeHtml(gift.image)}" alt="${name}" loading="lazy" />
+        <img src="${escapeHtml(gift.image)}" alt="" loading="lazy" />
       </a>
       ${renderPrice(gift)}
       <h2>${name}</h2>
       <p>${escapeHtml(gift.description)}</p>
       ${options}
       ${extraLinks}
-      <a class="btn btn-outline" href="${escapeHtml(gift.url)}" target="_blank" rel="noopener">View listing</a>
     </article>`;
   };
 
   const render = () => {
-    const sorted = gifts.slice().sort((a, b) => {
+    const visible = picksOnly ? gifts.filter((gift) => gift.pick === true) : gifts;
+    const sorted = visible.slice().sort((a, b) => {
       const left = Number(a.priceValue) || 0;
       const right = Number(b.priceValue) || 0;
       return sortDir === "desc" ? right - left : left - right;
@@ -75,7 +77,34 @@
     grid.innerHTML = sorted.map(renderGift).join("");
   };
 
+  const syncPickFilter = () => {
+    if (!sortBar) return;
+    const existing = sortBar.querySelector("[data-pick-filter]");
+    const hasPicks = gifts.some((gift) => gift.pick === true);
+    if (!hasPicks) {
+      existing?.remove();
+      picksOnly = false;
+      return;
+    }
+    if (existing) return;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "gift-sort-btn";
+    button.dataset.pickFilter = "true";
+    button.setAttribute("aria-pressed", "false");
+    button.textContent = picksLabel;
+    sortBar.appendChild(button);
+  };
+
   sortBar?.addEventListener("click", (event) => {
+    const pickButton = event.target.closest("[data-pick-filter]");
+    if (pickButton) {
+      picksOnly = pickButton.getAttribute("aria-pressed") !== "true";
+      pickButton.classList.toggle("is-active", picksOnly);
+      pickButton.setAttribute("aria-pressed", String(picksOnly));
+      render();
+      return;
+    }
     const button = event.target.closest("[data-sort]");
     if (!button) return;
     sortDir = button.dataset.sort === "desc" ? "desc" : "asc";
@@ -93,6 +122,7 @@
     .then((response) => (response.ok ? response.json() : Promise.reject()))
     .then((data) => {
       gifts = Array.isArray(data.gifts) ? data.gifts : [];
+      syncPickFilter();
       render();
     })
     .catch(() => {
