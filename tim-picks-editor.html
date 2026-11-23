@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Tim's Picks editor</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Sora:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root { --ink:#1d2a22; --cream:#f6efe3; --red:#b3261e; --gold:#c9962b; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--cream); color:var(--ink); font:15px/1.45 Sora, sans-serif; }
+  header { background:#0f1c14; color:#f6efe3; padding:1.2rem 1rem; }
+  h1 { font:700 1.9rem/1.1 "Cormorant Garamond", serif; margin:0 0 .3rem; }
+  header p { margin:0; opacity:.85; font-size:.85rem; }
+  .bar { position:sticky; top:0; z-index:5; display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; padding:.7rem 1rem; background:var(--cream); border-bottom:1.5px solid var(--ink); }
+  .bar button { font:600 .85rem Sora, sans-serif; padding:.55rem .9rem; border:1.5px solid var(--ink); background:#fff; color:var(--ink); cursor:pointer; }
+  .bar button.on, .bar button.primary { background:var(--ink); color:var(--cream); }
+  .count { margin-left:auto; font-size:.85rem; }
+  main { max-width:900px; margin:0 auto; padding:1rem; display:grid; gap:.8rem; }
+  .item { display:grid; grid-template-columns:72px 1fr auto; gap:.75rem; align-items:start; background:#fff; border:1.5px solid var(--ink); padding:.7rem; }
+  .item.starred { border-color:var(--gold); box-shadow:0 0 0 2px var(--gold) inset; }
+  .item img { width:72px; height:72px; object-fit:contain; }
+  .name { font:700 1.15rem/1.15 "Cormorant Garamond", serif; }
+  .price { color:var(--red); font-weight:600; font-size:.85rem; margin:.15rem 0 .4rem; }
+  textarea { width:100%; min-height:3.6em; font:inherit; font-size:.85rem; padding:.45rem; border:1px solid #b9b2a5; resize:vertical; background:#fffdf8; }
+  textarea.changed { border-color:var(--gold); background:#fff8e6; }
+  .star { font-size:1.9rem; line-height:1; background:none; border:none; cursor:pointer; color:#c8c0b2; padding:.1rem .2rem; }
+  .starred .star { color:var(--gold); }
+  .hidden { display:none; }
+  #out { max-width:900px; margin:0 auto 3rem; padding:0 1rem; }
+  #out pre { white-space:pre-wrap; background:#fff; border:1.5px solid var(--ink); padding:.8rem; font-size:.8rem; }
+  .toast { color:#067d62; font-weight:600; font-size:.85rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Tim's Picks editor</h1>
+  <p>Tap the star to feature a gift, and edit any comment. Your changes save in this browser. When you're done, tap "Copy message" and paste it to Dolph.</p>
+</header>
+<div class="bar">
+  <button id="vAll" class="on">All</button>
+  <button id="vPicks">Picks only</button>
+  <button id="copy" class="primary">Copy message</button>
+  <span id="toast" class="toast"></span>
+  <span class="count" id="count"></span>
+</div>
+<main id="list"></main>
+<section id="out"><h2 style="font-family:'Cormorant Garamond',serif">Message to send Dolph</h2><pre id="msg"></pre>
+<button id="reset" style="font:600 .8rem Sora;padding:.5rem .8rem;border:1.5px solid var(--ink);background:#fff;cursor:pointer">Clear my changes</button></section>
+<script>
+const KEY = 'timPicksEditor.v1';
+let state = JSON.parse(localStorage.getItem(KEY) || '{"stars":{},"notes":{}}');
+let gifts = [], onlyPicks = false;
+const save = () => { localStorage.setItem(KEY, JSON.stringify(state)); render(); };
+function message() {
+  const picked = gifts.filter(g => state.stars[g.id]);
+  const lines = ['Publish these changes to my Christmas list:', '', "Tim's picks: " + (picked.length ? picked.map(g => g.name).join('; ') : 'none')];
+  const changed = gifts.filter(g => state.notes[g.id] !== undefined && state.notes[g.id].trim() !== (g.description || '').trim());
+  if (changed.length) { lines.push('', 'New comments:'); changed.forEach(g => lines.push('- ' + g.name + ' [' + g.id + ']: ' + (state.notes[g.id].trim() || '(remove comment)'))); }
+  return lines.join('\n');
+}
+function render() {
+  const list = document.getElementById('list');
+  if (!list.children.length) {
+    gifts.forEach(g => {
+      const el = document.createElement('div'); el.className = 'item'; el.dataset.id = g.id;
+      el.innerHTML = `<img alt="" src="${g.image}"><div><div class="name"></div><div class="price"></div><textarea></textarea></div><button class="star" aria-label="Star">★</button>`;
+      el.querySelector('.name').textContent = g.name;
+      el.querySelector('.price').textContent = g.price;
+      const ta = el.querySelector('textarea');
+      ta.value = state.notes[g.id] ?? g.description ?? '';
+      ta.addEventListener('input', () => { state.notes[g.id] = ta.value; localStorage.setItem(KEY, JSON.stringify(state)); update(); });
+      el.querySelector('.star').addEventListener('click', () => { state.stars[g.id] = !state.stars[g.id]; save(); });
+      list.appendChild(el);
+    });
+  }
+  update();
+}
+function update() {
+  document.querySelectorAll('.item').forEach(el => {
+    const g = gifts.find(x => x.id === el.dataset.id), s = !!state.stars[g.id];
+    el.classList.toggle('starred', s); el.classList.toggle('hidden', onlyPicks && !s);
+    const ta = el.querySelector('textarea');
+    ta.classList.toggle('changed', ta.value.trim() !== (g.description || '').trim());
+  });
+  document.getElementById('count').textContent = gifts.filter(g => state.stars[g.id]).length + ' picks';
+  document.getElementById('msg').textContent = message();
+}
+document.getElementById('vAll').onclick = () => { onlyPicks = false; vAll.classList.add('on'); vPicks.classList.remove('on'); update(); };
+document.getElementById('vPicks').onclick = () => { onlyPicks = true; vPicks.classList.add('on'); vAll.classList.remove('on'); update(); };
+document.getElementById('copy').onclick = async () => {
+  const t = message(), toast = document.getElementById('toast');
+  try { await navigator.clipboard.writeText(t); toast.textContent = 'Copied!'; }
+  catch (e) { const r = document.createRange(); r.selectNodeContents(document.getElementById('msg')); getSelection().removeAllRanges(); getSelection().addRange(r); toast.textContent = 'Selected, tap Copy'; }
+  setTimeout(() => toast.textContent = '', 2500);
+};
+document.getElementById('reset').onclick = () => { if (confirm('Clear all stars and comment edits?')) { state = { stars: {}, notes: {} }; localStorage.setItem(KEY, JSON.stringify(state)); document.getElementById('list').innerHTML = ''; render(); } };
+fetch('data/christmas.json?v=' + Date.now()).then(r => r.json()).then(d => { gifts = d.gifts; render(); });
+</script>
+</body>
+</html>
