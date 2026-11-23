@@ -402,15 +402,13 @@
     },
     {
       "id": "inverter",
-      "name": "36V 3500W golf cart inverter",
-      "price": "$175.57",
-      "priceValue": 175.57,
-      "listPrice": 206.55,
-      "discountPercent": 15,
+      "name": "36V 1800W golf cart inverter",
+      "price": "$174.78",
+      "priceValue": 174.78,
       "band": "over-100",
       "description": "Would turn the golf cart into a mobile power station, or a home power backup in a pinch.",
-      "image": "assets/christmas/inverter.jpg",
-      "url": "https://www.amazon.com/dp/B0F3TG6C4K/",
+      "image": "assets/christmas/inverter.jpg?v=2",
+      "url": "https://a.co/d/00diPMW9",
       "pick": true
     },
     {
