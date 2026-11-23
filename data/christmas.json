@@ -91,6 +91,16 @@
       "url": "https://www.amazon.com/dp/B09Y896LW1/"
     },
     {
+      "id": "dungeon-crawler-carl",
+      "name": "Dungeon Crawler Carl (hardcover)",
+      "price": "$17.35",
+      "priceValue": 17.35,
+      "band": "under-40",
+      "description": "Book 1 by Matt Dinniman. Carl and his ex-girlfriend's cat have to survive an 18-level dungeon of monsters and traps, all broadcast as a galactic game show.",
+      "image": "assets/christmas/dungeon-crawler-carl.jpg",
+      "url": "https://www.amazon.com/dp/0593820258"
+    },
+    {
       "id": "hose-valves",
       "name": "Brass hose shut-off valves (2-pack)",
       "price": "$17.99",
