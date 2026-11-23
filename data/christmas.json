@@ -168,6 +168,16 @@
       "url": "https://a.co/d/0fiyYlx6"
     },
     {
+      "id": "fiskars-axe",
+      "name": "Fiskars X14 hatchet",
+      "price": "$29.14",
+      "priceValue": 29.14,
+      "band": "under-40",
+      "description": "14\" camping hatchet for splitting kindling, with a forged steel blade and a shock-absorbing handle. Comes with a sheath.",
+      "image": "assets/christmas/fiskars-axe.jpg",
+      "url": "https://www.amazon.com/dp/B0FSJWZ8TC"
+    },
+    {
       "id": "smart-outlets",
       "name": "Smart outlets with power monitoring",
       "price": "$29.59",
