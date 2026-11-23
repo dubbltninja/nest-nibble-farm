@@ -49,7 +49,7 @@
 <section id="out"><h2 style="font-family:'Cormorant Garamond',serif">Message to send Dolph</h2><pre id="msg"></pre>
 <button id="reset" style="font:600 .8rem Sora;padding:.5rem .8rem;border:1.5px solid var(--ink);background:#fff;cursor:pointer">Clear my changes</button></section>
 <script>
-const KEY = 'timPicksEditor.v1';
+const KEY = 'timPicksEditor.v2';
 let state = JSON.parse(localStorage.getItem(KEY) || '{"stars":{},"notes":{}}');
 let gifts = [], onlyPicks = false;
 const save = () => { localStorage.setItem(KEY, JSON.stringify(state)); render(); };
@@ -95,8 +95,8 @@ document.getElementById('copy').onclick = async () => {
   catch (e) { const r = document.createRange(); r.selectNodeContents(document.getElementById('msg')); getSelection().removeAllRanges(); getSelection().addRange(r); toast.textContent = 'Selected, tap Copy'; }
   setTimeout(() => toast.textContent = '', 2500);
 };
-document.getElementById('reset').onclick = () => { if (confirm('Clear all stars and comment edits?')) { state = { stars: {}, notes: {} }; localStorage.setItem(KEY, JSON.stringify(state)); document.getElementById('list').innerHTML = ''; render(); } };
-fetch('data/christmas.json?v=' + Date.now()).then(r => r.json()).then(d => { gifts = d.gifts; render(); });
+document.getElementById('reset').onclick = () => { if (confirm('Reset stars and comments to what is published?')) { state = { stars: {}, notes: {} }; gifts.forEach(g => state.stars[g.id] = !!g.pick); localStorage.setItem(KEY, JSON.stringify(state)); document.getElementById('list').innerHTML = ''; render(); } };
+fetch('data/christmas.json?v=' + Date.now()).then(r => r.json()).then(d => { gifts = d.gifts; gifts.forEach(g => { if (state.stars[g.id] === undefined) state.stars[g.id] = !!g.pick; }); render(); });
 </script>
 </body>
 </html>
