@@ -384,22 +384,59 @@
 
 .gift-notes p + p { margin-top: 0.75rem; }
 
-.gift-chips {
+.gift-logos {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 1.1rem;
+  align-items: stretch;
+  gap: 0.65rem;
+  margin-top: 1.15rem;
+  max-width: 100%;
 }
 
-.gift-chips span {
+.gift-logo {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
-  padding: 0 0.95rem;
-  border: 1.5px solid var(--ink);
+  justify-content: center;
+  box-sizing: border-box;
+  height: 72px;
+  padding: 0.65rem 0.95rem;
   background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(16, 23, 17, 0.12);
+}
+
+.gift-logo img {
+  display: block;
+  height: 40px;
+  width: auto;
+  max-width: 9.75rem;
+  object-fit: contain;
+}
+
+.gift-logo--named {
+  gap: 0.55rem;
+  padding-inline: 0.85rem 1.05rem;
+}
+
+.gift-logo--named img {
+  height: 28px;
+  max-width: 28px;
+}
+
+.gift-logo-word {
+  font: 600 0.95rem/1 var(--text);
   color: var(--ink);
-  font-weight: 600;
-  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 480px) {
+  .gift-logo {
+    height: 68px;
+    padding: 0.55rem 0.8rem;
+  }
+  .gift-logo img {
+    height: 36px;
+    max-width: 8.6rem;
+  }
 }
 

@@ -1,0 +1,50 @@
+Gift-card brand logos used on the Christmas list pages.
+Trademarks belong to their respective owners; used here only to identify gift-card brands.
+
+harbor-freight.png
+  Wikimedia Commons, public domain
+  https://commons.wikimedia.org/wiki/File:Harbor_Freight_Logo.png
+  Source credit: Harbor Freight Tools / https://www.harborfreight.com/
+
+steam.svg
+  Wikimedia Commons, public domain
+  https://commons.wikimedia.org/wiki/File:Steam_2016_logo_black.svg
+  (Steam 2016 wordmark + icon)
+
+chipotle.svg
+  Official header medallion from Chipotle's website
+  https://www.chipotle.com/content/dam/chipotle/global-ui/header/cmg-medallion-logo.svg
+
+tractor-supply.svg
+  Wikimedia Commons, public domain
+  https://commons.wikimedia.org/wiki/File:TractorSupplyCompanylogo.svg
+  Source credit: Tractor Supply Company / https://www.tractorsupply.com/
+
+amazon.svg
+  Wikimedia Commons, public domain
+  https://commons.wikimedia.org/wiki/File:Amazon_logo.svg
+  Source credit: Amazon.com, Inc.
+  (viewBox added so the existing artwork scales reliably)
+
+fabletics.png
+  Official apple-touch-icon from Fabletics' own site
+  https://www.fabletics.com/static/favicon/fabletics/apple-touch-icon.png
+  This is the official "F" mark. The wordmark could not be fetched (the
+  homepage is bot-protected), so the page tiles show this mark plus the
+  name "Fabletics".
+
+lowes.svg
+  Official logo from Lowe's corporate site
+  https://corporate.lowes.com/sites/lowes-corp/files/lowes-corp/lowes-blue-logo.svg
+
+homegoods.png
+  Wikimedia Commons, public domain
+  https://commons.wikimedia.org/wiki/File:Homegoods_Logo.png
+
+tj-maxx.svg
+  Wikimedia Commons, public domain
+  https://commons.wikimedia.org/wiki/File:TJ_Maxx_Logo.svg
+
+boot-barn.png
+  Official header logo from Boot Barn's website
+  https://www.bootbarn.com/on/demandware.static/Sites-bootbarn_us-Site/-/default/dw19503812/images/logo2x.png
