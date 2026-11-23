@@ -377,16 +377,6 @@
       ]
     },
     {
-      "id": "router",
-      "name": "Craftsman router",
-      "price": "$99.00",
-      "priceValue": 99.0,
-      "band": "mid",
-      "description": "Cordless variable-speed fixed-base router for woodworking projects.",
-      "image": "assets/christmas/router.jpg",
-      "url": "https://www.amazon.com/dp/B0BZQZ2NS9/"
-    },
-    {
       "id": "flashlight",
       "name": "Wuben X1 Pro flashlight",
       "price": "$111.99",
