@@ -182,24 +182,12 @@
     {
       "id": "fiskars-axe",
       "name": "Fiskars X14 hatchet",
-      "price": "$29.14",
-      "priceValue": 29.14,
+      "price": "$29.18",
+      "priceValue": 29.18,
       "band": "under-40",
       "description": "14\" camping hatchet I've been wanting for a while.",
       "image": "assets/christmas/fiskars-axe.jpg",
       "url": "https://www.amazon.com/dp/B0FSJWZ8TC"
-    },
-    {
-      "id": "smart-outlets",
-      "name": "Smart outlets with power monitoring",
-      "price": "$29.59",
-      "priceValue": 29.59,
-      "listPrice": 36.99,
-      "discountPercent": 20,
-      "band": "under-40",
-      "description": "Wi-Fi plugs that track wattage to help me keep tabs on energy efficiency.",
-      "image": "assets/christmas/smart-outlets.jpg",
-      "url": "https://www.amazon.com/dp/B0CKM8CF7N/"
     },
     {
       "id": "utility-knife",
@@ -248,6 +236,18 @@
       "url": "https://a.co/d/042W5ovt"
     },
     {
+      "id": "smart-outlets",
+      "name": "Smart outlets with power monitoring",
+      "price": "$33.29",
+      "priceValue": 33.29,
+      "listPrice": 36.99,
+      "discountPercent": 10,
+      "band": "under-40",
+      "description": "Wi-Fi plugs that track wattage to help me keep tabs on energy efficiency.",
+      "image": "assets/christmas/smart-outlets.jpg",
+      "url": "https://www.amazon.com/dp/B0CKM8CF7N/"
+    },
+    {
       "id": "key-rings",
       "name": "Magnetic key rings",
       "price": "$35.99",
@@ -274,8 +274,8 @@
     {
       "id": "jack-stands",
       "name": "3-ton jack stands",
-      "price": "$41.78",
-      "priceValue": 41.78,
+      "price": "$41.79",
+      "priceValue": 41.79,
       "band": "mid",
       "description": "A pair of 3-ton stands for garage work.",
       "image": "assets/christmas/jack-stands.jpg",
@@ -379,8 +379,8 @@
     {
       "id": "router",
       "name": "Craftsman router",
-      "price": "$92.00",
-      "priceValue": 92.0,
+      "price": "$99.00",
+      "priceValue": 99.0,
       "band": "mid",
       "description": "Cordless variable-speed fixed-base router for woodworking projects.",
       "image": "assets/christmas/router.jpg",
@@ -414,8 +414,8 @@
     {
       "id": "headphones",
       "name": "FiiO FT1 headphones",
-      "price": "$164.99",
-      "priceValue": 164.99,
+      "price": "$159.99",
+      "priceValue": 159.99,
       "band": "over-100",
       "description": "A premium set of over-ears with solid wood cups and 60mm drivers that excel in sub-bass performance.",
       "image": "assets/christmas/headphones.jpg",
