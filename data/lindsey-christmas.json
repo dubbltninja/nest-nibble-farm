@@ -1,60 +1,17 @@
 {
   "gifts": [
     {
-      "id": "fluffy-cow",
-      "name": "Fluffy Cows supplement",
-      "price": "$68.50",
-      "priceValue": 68.50,
-      "band": "mid",
-      "description": "Melatonin supplement for a thick show coat, 32 oz bottle.",
-      "image": "assets/lindsey/fluffy-cow.jpg",
-      "url": "https://www.sullivansupply.com/product/fluffy-cows-melatonin-supplement-32oz-bottle/"
-    },
-    {
-      "id": "solar-lights",
-      "name": "Solar barn lights (2-pack)",
-      "price": "$59.99",
-      "priceValue": 59.99,
-      "band": "mid",
-      "description": "Motion-sensing solar lights for the goat barn.",
-      "image": "assets/lindsey/solar-lights.jpg",
-      "url": "https://a.co/d/01psEX55"
-    },
-    {
-      "id": "bathroom-cabinet",
-      "name": "Bathroom storage cabinet",
-      "price": "$89.29",
-      "priceValue": 89.29,
-      "listPrice": 109.99,
-      "discountPercent": 19,
-      "band": "mid",
-      "description": "Tall storage cabinet with barn doors and a drawer.",
-      "image": "assets/lindsey/bathroom-cabinet.jpg",
-      "url": "https://a.co/d/0iAtMemW"
-    },
-    {
-      "id": "scratching-brush",
-      "name": "Livestock scratching brushes (4-pack)",
-      "price": "$36.79",
-      "priceValue": 36.79,
-      "listPrice": 45.99,
-      "discountPercent": 20,
+      "id": "feed-scoop",
+      "name": "Little Giant feed scoop",
+      "price": "$4.99",
+      "priceValue": 4.99,
+      "listPrice": 6.79,
+      "discountPercent": 27,
       "band": "under-40",
-      "description": "Wall-mount scratchers for goats and cows.",
-      "image": "assets/lindsey/scratching-brush.jpg",
-      "url": "https://a.co/d/0itDApiB"
-    },
-    {
-      "id": "show-brush",
-      "name": "Goat show brush",
-      "price": "$33.30",
-      "priceValue": 33.30,
-      "listPrice": 39.19,
-      "discountPercent": 15,
-      "band": "under-40",
-      "description": "Weaver Leather wide-range livestock brush.",
-      "image": "assets/lindsey/show-brush.jpg",
-      "url": "https://a.co/d/0f4b6HzJ"
+      "description": "Enclosed plastic livestock feed scoop.",
+      "options": "Colors: Hot Pink or Berry Blue",
+      "image": "assets/lindsey/feed-scoop.jpg",
+      "url": "https://www.chewy.com/little-giant-plastic-enclosed/dp/4558694"
     },
     {
       "id": "rope-halters",
@@ -63,20 +20,45 @@
       "priceValue": 9.49,
       "band": "under-40",
       "description": "Weaver Livestock rope halter.",
-      "options": "Colors: Maroon/Gray/White or Hot Pink/Magenta/Pink",
+      "options": "Maroon/Gray/White (Reba) or Hot Pink/Magenta/Pink (Dee Dee)",
       "image": "assets/lindsey/rope-halters.jpg?v=2",
-      "url": "https://www.weaverlivestock.com/products/cattle-rope-halter?variant=53414940442931"
+      "url": "https://www.weaverlivestock.com/products/cattle-rope-halter"
     },
     {
-      "id": "carhartt-jacket",
-      "name": "Carhartt jacket",
-      "price": "$139.99",
-      "priceValue": 139.99,
-      "band": "over-100",
-      "description": "Women's Washed Duck Sierra jacket.",
-      "options": "Green, size Medium",
-      "image": "assets/lindsey/carhartt-jacket.jpg",
-      "url": "https://www.amazon.com/dp/B093N1LH8W?th=1&psc=1"
+      "id": "pet-hair-gloves",
+      "name": "Pet hair gloves",
+      "price": "$9.74",
+      "priceValue": 9.74,
+      "listPrice": 12.99,
+      "discountPercent": 25,
+      "band": "under-40",
+      "description": "2-pack deshedding gloves for dogs and cats.",
+      "image": "assets/lindsey/pet-hair-gloves.jpg",
+      "url": "https://www.amazon.com/dp/B0FJRD6N1D"
+    },
+    {
+      "id": "mini-feeder",
+      "name": "Little Giant mini feeder, 6 qt",
+      "price": "$13.49",
+      "priceValue": 13.49,
+      "listPrice": 15.04,
+      "discountPercent": 10,
+      "band": "under-40",
+      "description": "Small hanging feeder.",
+      "options": "Hot Pink (Elle Woods) or Berry Blue (Bandit)",
+      "image": "assets/lindsey/mini-feeder.jpg",
+      "url": "https://www.chewy.com/little-giant-mini-feeder-6-qt/dp/318734"
+    },
+    {
+      "id": "cow-halter",
+      "name": "Cow halter",
+      "price": "$19.95",
+      "priceValue": 19.95,
+      "band": "under-40",
+      "description": "Derby nylon cattle halter, in medium.",
+      "options": "Pink (Dee Dee) or Black (Reba), size Medium",
+      "image": "assets/lindsey/cow-halter.jpg",
+      "url": "https://www.amazon.com/dp/B014518T2K?th=1"
     },
     {
       "id": "water-cups",
@@ -89,18 +71,6 @@
       "url": "https://a.co/d/046j5O90"
     },
     {
-      "id": "show-comb",
-      "name": "Weaver show comb (black)",
-      "price": "$23.79",
-      "priceValue": 23.79,
-      "listPrice": 27.99,
-      "discountPercent": 15,
-      "band": "under-40",
-      "description": "Weaver Leather livestock show comb.",
-      "image": "assets/lindsey/show-comb.jpg",
-      "url": "https://www.amazon.com/dp/B00DL40SG8?th=1"
-    },
-    {
       "id": "hoof-nipper",
       "name": "Hoof nipper",
       "price": "$21.45",
@@ -109,6 +79,18 @@
       "description": "14-inch heavy-duty farrier nippers.",
       "image": "assets/lindsey/hoof-nipper.jpg",
       "url": "https://a.co/d/0fEjG8WW"
+    },
+    {
+      "id": "show-comb",
+      "name": "Weaver show comb (black)",
+      "price": "$23.79",
+      "priceValue": 23.79,
+      "listPrice": 27.99,
+      "discountPercent": 15,
+      "band": "under-40",
+      "description": "Weaver Leather livestock show comb. Doesn't need to be this exact one if you can find any that are cheaper.",
+      "image": "assets/lindsey/show-comb.jpg",
+      "url": "https://www.amazon.com/dp/B00DL40SG8?th=1"
     },
     {
       "id": "grooming-kit",
@@ -123,30 +105,95 @@
       "url": "https://a.co/d/00FiqAc3"
     },
     {
-      "id": "mini-feeder",
-      "name": "Little Giant mini feeder, 6 qt",
-      "price": "$13.49",
-      "priceValue": 13.49,
-      "listPrice": 15.04,
-      "discountPercent": 10,
+      "id": "show-brush",
+      "name": "Goat show brush",
+      "price": "$33.30",
+      "priceValue": 33.30,
+      "listPrice": 39.19,
+      "discountPercent": 15,
       "band": "under-40",
-      "description": "Small hanging feeder.",
-      "options": "Colors: Hot Pink or Berry Blue",
-      "image": "assets/lindsey/mini-feeder.jpg",
-      "url": "https://www.chewy.com/little-giant-mini-feeder-6-qt/dp/318734"
+      "description": "Weaver Leather wide-range livestock brush.",
+      "image": "assets/lindsey/show-brush.jpg",
+      "url": "https://a.co/d/0f4b6HzJ"
     },
     {
-      "id": "feed-scoop",
-      "name": "Little Giant feed scoop",
-      "price": "$4.99",
-      "priceValue": 4.99,
-      "listPrice": 6.79,
-      "discountPercent": 27,
+      "id": "scratching-brush",
+      "name": "Livestock scratching brushes (4-pack)",
+      "price": "$36.79",
+      "priceValue": 36.79,
+      "listPrice": 45.99,
+      "discountPercent": 20,
       "band": "under-40",
-      "description": "Enclosed plastic livestock feed scoop.",
-      "options": "Colors: Hot Pink or Berry Blue",
-      "image": "assets/lindsey/feed-scoop.jpg",
-      "url": "https://www.chewy.com/little-giant-plastic-enclosed/dp/4558726"
+      "description": "Wall-mount scratchers for goats and cows.",
+      "image": "assets/lindsey/scratching-brush.jpg",
+      "url": "https://a.co/d/0itDApiB"
+    },
+    {
+      "id": "drawer-unit",
+      "name": "allen + roth Hartford drawer unit",
+      "price": "$54.98",
+      "priceValue": 54.98,
+      "band": "mid",
+      "description": "White wood closet drawer, 21.5 by 10.6 inches, for an allen + roth Hartford tower.",
+      "image": "assets/lindsey/drawer-unit.jpg",
+      "url": "https://www.lowes.com/pd/allen-roth-White-Drawer-Kit-Raised-Panel/1002622728"
+    },
+    {
+      "id": "solar-lights",
+      "name": "Solar barn lights (2-pack)",
+      "price": "$59.99",
+      "priceValue": 59.99,
+      "band": "mid",
+      "description": "Motion-sensing solar lights for the goat barn.",
+      "image": "assets/lindsey/solar-lights.jpg",
+      "url": "https://a.co/d/01psEX55",
+      "pick": true
+    },
+    {
+      "id": "fluffy-cow",
+      "name": "Fluffy Cows supplement",
+      "price": "$68.50",
+      "priceValue": 68.50,
+      "band": "mid",
+      "description": "Melatonin supplement for a thick show coat, 32 oz bottle.",
+      "image": "assets/lindsey/fluffy-cow.jpg",
+      "url": "https://www.sullivansupply.com/product/fluffy-cows-melatonin-supplement-32oz-bottle/"
+    },
+    {
+      "id": "bathroom-cabinet",
+      "name": "Bathroom storage cabinet",
+      "price": "$89.29",
+      "priceValue": 89.29,
+      "listPrice": 109.99,
+      "discountPercent": 19,
+      "band": "mid",
+      "description": "Tall storage cabinet with barn doors and a drawer.",
+      "image": "assets/lindsey/bathroom-cabinet.jpg",
+      "url": "https://a.co/d/0iAtMemW"
+    },
+    {
+      "id": "willa-booties",
+      "name": "Willa insulated waterproof booties",
+      "price": "$99.00",
+      "priceValue": 99.00,
+      "band": "mid",
+      "description": "Women's Hunter booties with a warm lining, in taupe.",
+      "options": "Taupe, size 11",
+      "image": "assets/lindsey/willa-booties.jpg",
+      "url": "https://hunterboots.com/products/womens-willa-insulated-waterproof-booties-in-taupe-w-willa-tau01?variant=51129436930340",
+      "pick": true
+    },
+    {
+      "id": "carhartt-jacket",
+      "name": "Carhartt jacket",
+      "price": "$139.99",
+      "priceValue": 139.99,
+      "band": "over-100",
+      "description": "Women's Washed Duck Sierra jacket.",
+      "options": "Green, size Large",
+      "image": "assets/lindsey/carhartt-jacket.jpg",
+      "url": "https://www.amazon.com/dp/B093N1LH8W?th=1&psc=1",
+      "pick": true
     }
   ]
 }
