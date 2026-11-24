@@ -37,8 +37,8 @@
     {
       "id": "command-strips",
       "name": "Command picture hanging strips",
-      "price": "$12.99",
-      "priceValue": 12.99,
+      "price": "$12.60",
+      "priceValue": 12.6,
       "band": "under-40",
       "description": "I go through so many of these for random projects!",
       "image": "assets/christmas/command-strips.jpg",
@@ -168,19 +168,6 @@
       "url": "https://a.co/d/07oHE90l"
     },
     {
-      "id": "dosing-funnel",
-      "name": "Steel coffee dosing funnel",
-      "price": "$25.49",
-      "priceValue": 25.49,
-      "band": "under-40",
-      "description": "I've had my eye on this premium funnel for a while, which is much nicer than the plastic one I use.",
-      "image": "assets/christmas/dosing-funnel.jpg",
-      "url": "https://www.amazon.com/dp/B08WLN3JXY/",
-      "listPrice": 29.99,
-      "discountPercent": 15,
-      "coupon": true
-    },
-    {
       "id": "bath-mat",
       "name": "Stone bath mat",
       "price": "$28.48",
@@ -213,6 +200,16 @@
       "description": "Folding titanium box cutter with quick-change blades and 10 spares.",
       "image": "assets/christmas/utility-knife.jpg",
       "url": "https://a.co/d/06A5NLav"
+    },
+    {
+      "id": "dosing-funnel",
+      "name": "Steel coffee dosing funnel",
+      "price": "$29.99",
+      "priceValue": 29.99,
+      "band": "under-40",
+      "description": "I've had my eye on this premium funnel for a while, which is much nicer than the plastic one I use.",
+      "image": "assets/christmas/dosing-funnel.jpg",
+      "url": "https://www.amazon.com/dp/B08WLN3JXY/"
     },
     {
       "id": "power-bank",
@@ -392,6 +389,17 @@
       "url": "https://a.co/d/03XNw0J5"
     },
     {
+      "id": "circular-saw",
+      "name": "Craftsman brushless circular saw (7¼ inch)",
+      "price": "$151.12",
+      "priceValue": 151.12,
+      "band": "over-100",
+      "description": "RP 7-1/4 inch cordless saw, would definitely get a lot of use out of this with all our projects.",
+      "image": "assets/christmas/circular-saw.jpg",
+      "url": "https://a.co/d/07ftPWhS",
+      "coupon": true
+    },
+    {
       "id": "headphones",
       "name": "FiiO FT1 headphones",
       "price": "$159.99",
@@ -403,20 +411,10 @@
       "pick": true
     },
     {
-      "id": "circular-saw",
-      "name": "Craftsman brushless circular saw (7¼ inch)",
-      "price": "$169.00",
-      "priceValue": 169.0,
-      "band": "over-100",
-      "description": "RP 7-1/4 inch cordless saw, would definitely get a lot of use out of this with all our projects.",
-      "image": "assets/christmas/circular-saw.jpg",
-      "url": "https://a.co/d/07ftPWhS"
-    },
-    {
       "id": "inverter",
       "name": "36V 1800W golf cart inverter",
-      "price": "$174.94",
-      "priceValue": 174.94,
+      "price": "$174.78",
+      "priceValue": 174.78,
       "band": "over-100",
       "description": "Would turn the golf cart into a mobile power station, or a home power backup in a pinch.",
       "image": "assets/christmas/inverter.jpg?v=2",
