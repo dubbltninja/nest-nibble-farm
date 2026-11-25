@@ -16,13 +16,15 @@
     {
       "id": "rope-halters",
       "name": "Cattle rope halters",
-      "price": "$9.49",
-      "priceValue": 9.49,
+      "price": "$7.59",
+      "priceValue": 7.59,
       "band": "under-40",
       "description": "Weaver Livestock rope halter.",
       "options": "Maroon/Gray/White (Reba) or Hot Pink/Magenta/Pink (Dee Dee)",
       "image": "assets/lindsey/rope-halters.jpg?v=2",
-      "url": "https://www.weaverlivestock.com/products/cattle-rope-halter"
+      "url": "https://www.weaverlivestock.com/products/cattle-rope-halter",
+      "listPrice": 9.49,
+      "discountPercent": 20
     },
     {
       "id": "pet-hair-gloves",

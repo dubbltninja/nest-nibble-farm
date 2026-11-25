@@ -45,6 +45,18 @@
       "url": "https://a.co/d/cdgQS5M"
     },
     {
+      "id": "screwdriver",
+      "name": "iFixit Minnow screwdriver kit",
+      "price": "$12.71",
+      "priceValue": 12.71,
+      "band": "under-40",
+      "description": "A high quality driver and bit set for small electronics.",
+      "image": "assets/christmas/screwdriver.jpg",
+      "url": "https://a.co/d/08bqzeGU",
+      "listPrice": 14.95,
+      "discountPercent": 15
+    },
+    {
       "id": "blade-runner",
       "name": "Blade Runner 2049 4K Blu-ray",
       "price": "$12.99",
@@ -66,16 +78,6 @@
       "description": "64GB storage card for a farm camera.",
       "image": "assets/christmas/micro-sd.jpg",
       "url": "https://a.co/d/0bWTIQ6b"
-    },
-    {
-      "id": "screwdriver",
-      "name": "iFixit Minnow screwdriver kit",
-      "price": "$14.95",
-      "priceValue": 14.95,
-      "band": "under-40",
-      "description": "A high quality driver and bit set for small electronics.",
-      "image": "assets/christmas/screwdriver.jpg",
-      "url": "https://a.co/d/08bqzeGU"
     },
     {
       "id": "phone-case",
@@ -168,6 +170,17 @@
       "url": "https://a.co/d/07oHE90l"
     },
     {
+      "id": "dosing-funnel",
+      "name": "Steel coffee dosing funnel",
+      "price": "$25.49",
+      "priceValue": 25.49,
+      "band": "under-40",
+      "description": "I've had my eye on this premium funnel for a while, which is much nicer than the plastic one I use.",
+      "image": "assets/christmas/dosing-funnel.jpg",
+      "url": "https://www.amazon.com/dp/B08WLN3JXY/",
+      "coupon": true
+    },
+    {
       "id": "bath-mat",
       "name": "Stone bath mat",
       "price": "$28.48",
@@ -200,16 +213,6 @@
       "description": "Folding titanium box cutter with quick-change blades and 10 spares.",
       "image": "assets/christmas/utility-knife.jpg",
       "url": "https://a.co/d/06A5NLav"
-    },
-    {
-      "id": "dosing-funnel",
-      "name": "Steel coffee dosing funnel",
-      "price": "$29.99",
-      "priceValue": 29.99,
-      "band": "under-40",
-      "description": "I've had my eye on this premium funnel for a while, which is much nicer than the plastic one I use.",
-      "image": "assets/christmas/dosing-funnel.jpg",
-      "url": "https://www.amazon.com/dp/B08WLN3JXY/"
     },
     {
       "id": "power-bank",
@@ -274,8 +277,8 @@
     {
       "id": "jack-stands",
       "name": "3-ton jack stands",
-      "price": "$41.79",
-      "priceValue": 41.79,
+      "price": "$41.80",
+      "priceValue": 41.8,
       "band": "mid",
       "description": "A pair of 3-ton stands for garage work.",
       "image": "assets/christmas/jack-stands.jpg",
@@ -347,7 +350,7 @@
       "name": "Craftsman oscillating multi-tool kit",
       "price": "$79.00",
       "priceValue": 79.0,
-      "listPrice": 139.08,
+      "listPrice": 139.11,
       "discountPercent": 43,
       "band": "mid",
       "description": "Oscillating tool kit with battery and charger for more construction projects.",
@@ -413,8 +416,8 @@
     {
       "id": "inverter",
       "name": "36V 1800W golf cart inverter",
-      "price": "$174.78",
-      "priceValue": 174.78,
+      "price": "$174.96",
+      "priceValue": 174.96,
       "band": "over-100",
       "description": "Would turn the golf cart into a mobile power station, or a home power backup in a pinch.",
       "image": "assets/christmas/inverter.jpg?v=2",
