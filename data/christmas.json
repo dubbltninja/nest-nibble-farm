@@ -392,17 +392,6 @@
       "url": "https://a.co/d/03XNw0J5"
     },
     {
-      "id": "circular-saw",
-      "name": "Craftsman brushless circular saw (7¼ inch)",
-      "price": "$151.12",
-      "priceValue": 151.12,
-      "band": "over-100",
-      "description": "RP 7-1/4 inch cordless saw, would definitely get a lot of use out of this with all our projects.",
-      "image": "assets/christmas/circular-saw.jpg",
-      "url": "https://a.co/d/07ftPWhS",
-      "coupon": true
-    },
-    {
       "id": "headphones",
       "name": "FiiO FT1 headphones",
       "price": "$159.99",
@@ -412,6 +401,16 @@
       "image": "assets/christmas/headphones.jpg",
       "url": "https://a.co/d/0LkUe9Q",
       "pick": true
+    },
+    {
+      "id": "circular-saw",
+      "name": "Craftsman brushless circular saw (7¼ inch)",
+      "price": "$169.00",
+      "priceValue": 169.0,
+      "band": "over-100",
+      "description": "RP 7-1/4 inch cordless saw, would definitely get a lot of use out of this with all our projects.",
+      "image": "assets/christmas/circular-saw.jpg",
+      "url": "https://a.co/d/07ftPWhS"
     },
     {
       "id": "inverter",
