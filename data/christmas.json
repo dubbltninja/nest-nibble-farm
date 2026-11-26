@@ -15,12 +15,14 @@
     {
       "id": "outlet-cover",
       "name": "Outdoor outlet cover",
-      "price": "$12.42",
-      "priceValue": 12.42,
+      "price": "$11.18",
+      "priceValue": 11.18,
       "band": "under-40",
       "description": "Weatherproof cover for our hot tub outlet.",
       "image": "assets/christmas/outlet-cover.jpg",
-      "url": "https://www.amazon.com/dp/B08GKXJX7Z/"
+      "url": "https://www.amazon.com/dp/B08GKXJX7Z/",
+      "listPrice": 11.99,
+      "discountPercent": 7
     },
     {
       "id": "dungeon-crawler-carl",

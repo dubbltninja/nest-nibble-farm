@@ -162,6 +162,20 @@
       "url": "https://www.sullivansupply.com/product/fluffy-cows-melatonin-supplement-32oz-bottle/"
     },
     {
+      "id": "carhartt-jacket",
+      "name": "Carhartt jacket",
+      "price": "$83.99",
+      "priceValue": 83.99,
+      "band": "mid",
+      "description": "Women's Washed Duck Sierra jacket.",
+      "options": "Green, size Large",
+      "image": "assets/lindsey/carhartt-jacket.jpg",
+      "url": "https://www.amazon.com/dp/B093N1LH8W?th=1&psc=1",
+      "pick": true,
+      "listPrice": 139.99,
+      "discountPercent": 40
+    },
+    {
       "id": "bathroom-cabinet",
       "name": "Bathroom storage cabinet",
       "price": "$89.29",
@@ -183,18 +197,6 @@
       "options": "Taupe, size 11",
       "image": "assets/lindsey/willa-booties.jpg",
       "url": "https://hunterboots.com/products/womens-willa-insulated-waterproof-booties-in-taupe-w-willa-tau01?variant=51129436930340",
-      "pick": true
-    },
-    {
-      "id": "carhartt-jacket",
-      "name": "Carhartt jacket",
-      "price": "$139.99",
-      "priceValue": 139.99,
-      "band": "over-100",
-      "description": "Women's Washed Duck Sierra jacket.",
-      "options": "Green, size Large",
-      "image": "assets/lindsey/carhartt-jacket.jpg",
-      "url": "https://www.amazon.com/dp/B093N1LH8W?th=1&psc=1",
       "pick": true
     }
   ]
