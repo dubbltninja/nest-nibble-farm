@@ -37,16 +37,6 @@
       "discountPercent": 38
     },
     {
-      "id": "command-strips",
-      "name": "Command picture hanging strips",
-      "price": "$12.60",
-      "priceValue": 12.6,
-      "band": "under-40",
-      "description": "I go through so many of these for random projects!",
-      "image": "assets/christmas/command-strips.jpg",
-      "url": "https://a.co/d/cdgQS5M"
-    },
-    {
       "id": "screwdriver",
       "name": "iFixit Minnow screwdriver kit",
       "price": "$12.71",
@@ -57,6 +47,16 @@
       "url": "https://a.co/d/08bqzeGU",
       "listPrice": 14.95,
       "discountPercent": 15
+    },
+    {
+      "id": "command-strips",
+      "name": "Command picture hanging strips",
+      "price": "$12.99",
+      "priceValue": 12.99,
+      "band": "under-40",
+      "description": "I go through so many of these for random projects!",
+      "image": "assets/christmas/command-strips.jpg",
+      "url": "https://a.co/d/cdgQS5M"
     },
     {
       "id": "blade-runner",
@@ -137,16 +137,6 @@
       "url": "https://www.amazon.com/dp/B07KH8W76F/"
     },
     {
-      "id": "hose-connect",
-      "name": "Brass hose quick connects",
-      "price": "$34.99",
-      "priceValue": 34.99,
-      "band": "under-40",
-      "description": "Full-flow 3/4-inch brass quick connect set: 3 male + 1 female.",
-      "image": "assets/christmas/hose-connect-3m1f.jpg",
-      "url": "https://a.co/d/04FE87y2"
-    },
-    {
       "id": "build-plate",
       "name": "Super tack build plate for 3D printing",
       "price": "$21.59",
@@ -197,8 +187,8 @@
     {
       "id": "fiskars-axe",
       "name": "Fiskars X14 hatchet",
-      "price": "$29.18",
-      "priceValue": 29.18,
+      "price": "$29.14",
+      "priceValue": 29.14,
       "band": "under-40",
       "description": "14\" camping hatchet I've been wanting for a while.",
       "image": "assets/christmas/fiskars-axe.jpg",
@@ -253,6 +243,16 @@
       "url": "https://www.amazon.com/dp/B0CKM8CF7N/"
     },
     {
+      "id": "hose-connect",
+      "name": "Brass hose quick connects",
+      "price": "$34.99",
+      "priceValue": 34.99,
+      "band": "under-40",
+      "description": "Full-flow 3/4-inch brass quick connect set: 3 male + 1 female.",
+      "image": "assets/christmas/hose-connect-3m1f.jpg",
+      "url": "https://a.co/d/04FE87y2"
+    },
+    {
       "id": "key-rings",
       "name": "Magnetic key rings",
       "price": "$35.99",
@@ -300,18 +300,6 @@
       "pick": true
     },
     {
-      "id": "floor-lamp",
-      "name": "Floor lamp (natural wood)",
-      "price": "$55.24",
-      "priceValue": 55.24,
-      "listPrice": 64.99,
-      "discountPercent": 15,
-      "band": "mid",
-      "description": "Modern wood shelf lamp that matches our other one to light up the other side of our living room.",
-      "image": "assets/christmas/floor-lamp.jpg",
-      "url": "https://a.co/d/fFRGPAW"
-    },
-    {
       "id": "glove-box",
       "name": "Golf cart glove box doors",
       "price": "$61.99",
@@ -346,6 +334,16 @@
       "description": "Walnut storage box to display my pocket knife collection.",
       "image": "assets/christmas/knife-case.jpg",
       "url": "https://a.co/d/0itBJRjD"
+    },
+    {
+      "id": "floor-lamp",
+      "name": "Floor lamp (natural wood)",
+      "price": "$69.99",
+      "priceValue": 69.99,
+      "band": "mid",
+      "description": "Modern wood shelf lamp that matches our other one to light up the other side of our living room.",
+      "image": "assets/christmas/floor-lamp.jpg",
+      "url": "https://a.co/d/fFRGPAW"
     },
     {
       "id": "oscillating-tool",
@@ -407,12 +405,14 @@
     {
       "id": "circular-saw",
       "name": "Craftsman brushless circular saw (7¼ inch)",
-      "price": "$169.00",
-      "priceValue": 169.0,
+      "price": "$159.99",
+      "priceValue": 159.99,
       "band": "over-100",
       "description": "RP 7-1/4 inch cordless saw, would definitely get a lot of use out of this with all our projects.",
       "image": "assets/christmas/circular-saw.jpg",
-      "url": "https://a.co/d/07ftPWhS"
+      "url": "https://a.co/d/07ftPWhS",
+      "listPrice": 169.0,
+      "discountPercent": 5
     },
     {
       "id": "inverter",
