@@ -195,6 +195,18 @@
       "url": "https://www.amazon.com/dp/B0FSJWZ8TC"
     },
     {
+      "id": "smart-outlets",
+      "name": "Smart outlets with power monitoring",
+      "price": "$29.59",
+      "priceValue": 29.59,
+      "listPrice": 36.99,
+      "discountPercent": 20,
+      "band": "under-40",
+      "description": "Wi-Fi plugs that track wattage to help me keep tabs on energy efficiency.",
+      "image": "assets/christmas/smart-outlets.jpg",
+      "url": "https://www.amazon.com/dp/B0CKM8CF7N/"
+    },
+    {
       "id": "utility-knife",
       "name": "WORKPRO titanium utility knife",
       "price": "$29.74",
@@ -229,18 +241,6 @@
       "description": "Pocket green laser for hanging pictures and home DIY.",
       "image": "assets/christmas/laser-level.jpg",
       "url": "https://a.co/d/042W5ovt"
-    },
-    {
-      "id": "smart-outlets",
-      "name": "Smart outlets with power monitoring",
-      "price": "$33.29",
-      "priceValue": 33.29,
-      "listPrice": 36.99,
-      "discountPercent": 10,
-      "band": "under-40",
-      "description": "Wi-Fi plugs that track wattage to help me keep tabs on energy efficiency.",
-      "image": "assets/christmas/smart-outlets.jpg",
-      "url": "https://www.amazon.com/dp/B0CKM8CF7N/"
     },
     {
       "id": "hose-connect",
@@ -279,8 +279,8 @@
     {
       "id": "jack-stands",
       "name": "3-ton jack stands",
-      "price": "$41.80",
-      "priceValue": 41.8,
+      "price": "$41.81",
+      "priceValue": 41.81,
       "band": "mid",
       "description": "A pair of 3-ton stands for garage work.",
       "image": "assets/christmas/jack-stands.jpg",
@@ -405,20 +405,18 @@
     {
       "id": "circular-saw",
       "name": "Craftsman brushless circular saw (7¼ inch)",
-      "price": "$159.99",
-      "priceValue": 159.99,
+      "price": "$169.00",
+      "priceValue": 169.0,
       "band": "over-100",
       "description": "RP 7-1/4 inch cordless saw, would definitely get a lot of use out of this with all our projects.",
       "image": "assets/christmas/circular-saw.jpg",
-      "url": "https://a.co/d/07ftPWhS",
-      "listPrice": 169.0,
-      "discountPercent": 5
+      "url": "https://a.co/d/07ftPWhS"
     },
     {
       "id": "inverter",
       "name": "36V 1800W golf cart inverter",
-      "price": "$174.96",
-      "priceValue": 174.96,
+      "price": "$174.93",
+      "priceValue": 174.93,
       "band": "over-100",
       "description": "Would turn the golf cart into a mobile power station, or a home power backup in a pinch.",
       "image": "assets/christmas/inverter.jpg?v=2",
