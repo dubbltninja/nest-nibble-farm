@@ -37,6 +37,16 @@
       "discountPercent": 38
     },
     {
+      "id": "command-strips",
+      "name": "Command picture hanging strips",
+      "price": "$12.60",
+      "priceValue": 12.6,
+      "band": "under-40",
+      "description": "I go through so many of these for random projects!",
+      "image": "assets/christmas/command-strips.jpg",
+      "url": "https://a.co/d/cdgQS5M"
+    },
+    {
       "id": "screwdriver",
       "name": "iFixit Minnow screwdriver kit",
       "price": "$12.71",
@@ -47,16 +57,6 @@
       "url": "https://a.co/d/08bqzeGU",
       "listPrice": 14.95,
       "discountPercent": 15
-    },
-    {
-      "id": "command-strips",
-      "name": "Command picture hanging strips",
-      "price": "$12.99",
-      "priceValue": 12.99,
-      "band": "under-40",
-      "description": "I go through so many of these for random projects!",
-      "image": "assets/christmas/command-strips.jpg",
-      "url": "https://a.co/d/cdgQS5M"
     },
     {
       "id": "blade-runner",
@@ -173,6 +173,18 @@
       "coupon": true
     },
     {
+      "id": "utility-knife",
+      "name": "WORKPRO titanium utility knife",
+      "price": "$27.99",
+      "priceValue": 27.99,
+      "band": "under-40",
+      "listPrice": 34.99,
+      "discountPercent": 20,
+      "description": "Folding titanium box cutter with quick-change blades and 10 spares.",
+      "image": "assets/christmas/utility-knife.jpg",
+      "url": "https://a.co/d/06A5NLav"
+    },
+    {
       "id": "bath-mat",
       "name": "Stone bath mat",
       "price": "$28.48",
@@ -205,18 +217,6 @@
       "description": "Wi-Fi plugs that track wattage to help me keep tabs on energy efficiency.",
       "image": "assets/christmas/smart-outlets.jpg",
       "url": "https://www.amazon.com/dp/B0CKM8CF7N/"
-    },
-    {
-      "id": "utility-knife",
-      "name": "WORKPRO titanium utility knife",
-      "price": "$29.74",
-      "priceValue": 29.74,
-      "band": "under-40",
-      "listPrice": 34.99,
-      "discountPercent": 15,
-      "description": "Folding titanium box cutter with quick-change blades and 10 spares.",
-      "image": "assets/christmas/utility-knife.jpg",
-      "url": "https://a.co/d/06A5NLav"
     },
     {
       "id": "power-bank",
@@ -405,12 +405,14 @@
     {
       "id": "circular-saw",
       "name": "Craftsman brushless circular saw (7¼ inch)",
-      "price": "$169.00",
-      "priceValue": 169.0,
+      "price": "$159.99",
+      "priceValue": 159.99,
       "band": "over-100",
       "description": "RP 7-1/4 inch cordless saw, would definitely get a lot of use out of this with all our projects.",
       "image": "assets/christmas/circular-saw.jpg",
-      "url": "https://a.co/d/07ftPWhS"
+      "url": "https://a.co/d/07ftPWhS",
+      "listPrice": 169.0,
+      "discountPercent": 5
     },
     {
       "id": "inverter",
